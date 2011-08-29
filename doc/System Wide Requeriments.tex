@@ -1,0 +1,158 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+\fancyhead[RO,RE]{\today}
+\fancyhead[LO,LE]{MAC0332 - SI para grupos de pesquisa\\
+	Especificação dos Requerimentos}
+\fancyfoot[LO,LE]{Confidential}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+\title{MAC 0332\\
+	Engenharia de Software\\
+	SI para grupos de pesquisa\\
+	System-Wide Requirements}
+\date{\today}
+\author{Grupo(nomes e NUSP?)}
+
+\begin{document}
+
+	\maketitle
+	\newpage
+	
+	\section{Introdução}
+		Esse documento descreve as qualidades do sistema como objetivos e 
+		funcionalidades do mesmo que o cliente requer. Tambem descreve as 
+		ferramentas que serão usadas assim como seu custo e viabilidade para 
+		o projeto. 
+	\section{Requerimentos Funcionais do Sistema}
+		O programa devera ter um cadastro de \textit{usuarios} (membros) onde 
+		\indent alguns tambem serão \textit{administradores}, um tipo de usuario 
+		especial.\\
+		\indent \textit{Adminstradores} são os unicos que podem cadastrar 
+		grupos e subgrupos.\\
+		\indent Um \textit{membro} do grupo cadastra uma publicação e pode 
+		dizer a quais projetos aquela publicação se aplica.\\
+		\indent O \textit{membro} tambem pode Fazer uploads de PDF's.
+		
+	\section{Qualidades do Sistema}
+		Nessa seção sera descrito as funcionalidades do sistema, seu uso, 
+		confiabilidade, performance e suporte.
+		
+		\subsection{Uso}
+			O sistema deve ser de facil entendimento para que os 
+			\textit{membros} e \textit{administradores} o usem sem maiores 
+			dificuldades. Ou pelo menos seja de facil aprendizado.
+		
+		\subsection{Confiabilidade}
+			%[Reliability includes the product and/or system's ability to keep 
+			%running under stress and adverse conditions. Specify requirements 
+			%for reliability acceptance levels, and how they will be measured 
+			%and evaluated. Suggested topics are availability, frequency of 
+			%severity of failures and recoverability.]
+			Acho que ainda não da pra fazer isso.
+		
+		\subsection{Performance}
+			%[The performance characteristics of the system should be outlined 
+			%in this section. Examples are response time, throughput, capacity 
+			%and startup or shutdown times.]
+			Acho que ainda não da pra fazer isso
+		
+		\subsection{Suporte}
+			%[This section indicates any requirements that will enhance the 
+			%supportability or maintainability of the system being built, 
+			%including adaptability and upgrading, compatibility, 
+			%configurability, scalability and requirements regarding system 
+			%installation, level of support and maintenance.]
+			Acho que ainda não da pra fazer isso
+		
+	\section{Interfaces do Sistema}
+		%[Interface Requirements are part of the + in the FURPS+ classification 
+		%of supporting requirements. Define the interfaces that must be 
+		%supported by the application. It should contain adequate specificity, 
+		%protocols, ports and logical addresses, and so forth, so that the 
+		%software can be developed and verified against the interface requirements.]
+		Nessa seção definimos as interfaces que deverão ser suportadas pela 
+		aplicação.
+		
+		\subsection{Interface do Usuario}
+			%[Describe the user interfaces that are to be implemented by the 
+			%software. The intention of this section is to state requirements 
+			%relating to the interface. Interface design may overlap the 
+			%requirements gathering process.]
+			Descrição das interfaces do usuario implementadas por software.
+			
+			\subsubsection{Aparencia}
+				%[Provide a description of the spirit of the interface. Your 
+				%client may have given you particular demands such as style, 
+				%colors to be used, and degree of interaction and so on. This 
+				%section captures the requirements for the interface rather 
+				%than the design for the interface.]
+				Não nos foi dada nenhuma especificação sobre a aparencia, ainda.
+				
+			\subsubsection{Layout e Requerimentos de Navegação}
+				O sistema deve dividido em parte publica, a que todos os 
+				visitantes podem ver, e parte restrita na qual só os membros 
+				terão acesso.\\
+				\\
+				\noindent \textbf{Parte publica deve ter:}
+				\begin{itemize}
+					\item lista das disciplinas oferecidas pelo grupo;
+					\item lista dos projetos oferecidos pelo grupo, com 
+					descrição, membros do projeto e publicações;
+					\item lista das publicações do grupo, separados por tipo e 
+					se disponivel seu PDF tambem deve ser mostrado;
+					\item na lista de publicação deve ser possivel ordenar por 
+					tipo, por ano ou por veículo;
+					\item lista de  membros do grupo;
+					\item lista das linhas de pesquisa organizadas 
+					hierarquicamente.
+				\end{itemize}
+				
+				\indent Alem disso um membro do grupo cadastra uma publicação e
+				pode dizer a quais projetos aquela publicação se aplica.\\
+				\indent Ao clicar em uma linha de pesquisa deve aparecer sua 
+				descrição e tambem as publicações, os membros do grupo e os 
+				projetos associados a ela.
+							
+			\subsubsection{Consistencia}
+
+			\subsubsection{Requerimentos de personalização pelo usuario}
+
+		\subsection{Interfaces para sistemos externos ou dispositivos}
+			\subsubsection{Interfaces do Software}
+			
+			\subsubsection{Interfaces do Hardware}
+			
+			\subsubsection{Interfaces de Comunicação}
+			
+	\section{Componentes do Sistema}
+
+\end{document}
