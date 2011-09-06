@@ -12,5 +12,9 @@
 		<mapping class="sigp.src.Grupo" />
 		<mapping class="sigp.src.Publicacao" />
 		<mapping class="sigp.src.LinhaPesquisa" />
+		<mapping class="sigp.src.Disciplina" />
+		<mapping class="sigp.src.Projeto" />
+		<mapping class="sigp.src.Pessoa" />
+		<mapping class="sigp.src.Membro" />
 	</session-factory>
 </hibernate-configuration>
