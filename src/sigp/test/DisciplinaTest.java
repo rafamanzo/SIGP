@@ -2,8 +2,10 @@ package sigp.test;
 
 import static org.junit.Assert.*;
 
+import static org.mockito.Mockito.*;
+
 import java.util.ArrayList;
-import java.util.List;
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,11 +17,11 @@ import sigp.src.LinhaPesquisa;
 
 public class DisciplinaTest {
 
-    private Disciplina disciplina;
-    private List<Grupo> grupos;
+    private Disciplina disciplina;    
+    private ArrayList<Grupo> grupos;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws Exception {	
 	disciplina = criarDisciplina();
     }
 
@@ -45,35 +47,63 @@ public class DisciplinaTest {
 
     @Test
     public void deveriaDevolverGrupos() {
-	assertSame("Deveria devolver o primeiro grupo", "Grupo de Sistemas",
+	assertSame("Deveria devolver o primeiro grupo", "Grupo de Engenharia de Software",
 		disciplina.getGrupos().get(0).getNome());
 	assertSame("Deveria devolver o segundo grupo",
-		"Grupo de Bancos de Dados", disciplina.getGrupos().get(1)
-			.getNome());
-	assertArrayEquals(grupos.toArray(), disciplina.getGrupos().toArray());
+		"Grupo de Computação Gráfica", disciplina.getGrupos().get(1)
+			.getNome());	
+    }
+    
+    @Test
+    public void deveriaDevolverLinhaPesquisaDeGrupos() {
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "Métodos Ágeis",
+		disciplina.getGrupos().get(0).getPesquisas().get(0).getName());
+	assertSame("Deveria devolver a segunda Linha de Pesquisa do Grupto 1",
+		"Software Livre", disciplina.getGrupos().get(0).getPesquisas().get(1).getName());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","High Quality Image Rendering",disciplina.getGrupos().get(1).getPesquisas().get(0).getName());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","Applied Discrete Geometry",disciplina.getGrupos().get(1).getPesquisas().get(1).getName());
     }
 
     @After
     public void tearDown() throws Exception {
-	
+	disciplina = null;
+	grupos = null;	
     }
 
-    private Disciplina criarDisciplina() {
+  private Disciplina criarDisciplina() {
 	disciplina = new Disciplina();
 	disciplina.setSigla("MAC0332");
 	disciplina.setNome("Engenharia de Software");
-	disciplina
-		.setEmenta("Gerenciamento de projeto. Análise e especificação de requisitos.");
+	disciplina.setEmenta("Gerenciamento de projeto. Análise e especificação de requisitos.");
+	
+	grupos = new ArrayList<Grupo>(2);	
+	Grupo grupo1 = mock(Grupo.class);
+	Grupo grupo2 = mock(Grupo.class);		
+	
+	LinhaPesquisa linha11 = mock(LinhaPesquisa.class);
+	LinhaPesquisa linha12 = mock(LinhaPesquisa.class);
+	LinhaPesquisa linha21 = mock(LinhaPesquisa.class);
+	LinhaPesquisa linha22 = mock(LinhaPesquisa.class);
+	
+	ArrayList<LinhaPesquisa> linhas1 = new ArrayList<LinhaPesquisa>(2);
+	ArrayList<LinhaPesquisa> linhas2 = new ArrayList<LinhaPesquisa>(2);
+	linhas1.add(linha11);
+	linhas1.add(linha12);
+	linhas2.add(linha21);
+	linhas2.add(linha22);	
 
-	List<LinhaPesquisa> pesquisas = new ArrayList<LinhaPesquisa>(2);
-	pesquisas.add(new LinhaPesquisa("Sistemas"));
-	pesquisas.add(new LinhaPesquisa("Bancos de Dados"));
-
-	// final List<Grupo> grupos = new ArrayList<Grupo>(2);
-	grupos = new ArrayList<Grupo>(2);
-	grupos.add(new Grupo("Grupo de Sistemas", pesquisas));
-	grupos.add(new Grupo("Grupo de Bancos de Dados", pesquisas));
-
+	when(grupo1.getNome()).thenReturn("Grupo de Engenharia de Software");
+	when(grupo1.getPesquisas()).thenReturn(linhas1);
+	when(linha11.getName()).thenReturn("Métodos Ágeis");
+	when(linha12.getName()).thenReturn("Software Livre");
+	
+	when(grupo2.getNome()).thenReturn("Grupo de Computação Gráfica");
+	when(grupo2.getPesquisas()).thenReturn(linhas2);
+	when(linha21.getName()).thenReturn("High Quality Image Rendering");
+	when(linha22.getName()).thenReturn("Applied Discrete Geometry");		
+	
+	grupos.add(grupo1);
+	grupos.add(grupo2);	
 	disciplina.setGrupos(grupos);
 
 	return disciplina;
