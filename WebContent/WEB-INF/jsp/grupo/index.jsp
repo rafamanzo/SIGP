@@ -25,5 +25,7 @@
 	</c:forEach>
 	</table>
 	<p><a href="novo">Novo</a></p>
+	<br/>
+	<a href="/SIGP">Voltar para Pagina Principal</a>
 </body>
 </html>

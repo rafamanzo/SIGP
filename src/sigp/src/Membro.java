@@ -20,11 +20,14 @@ import javax.persistence.Table;
 import br.com.caelum.vraptor.Resource;
 
 @Entity
-@Resource
 @Table(name = "MEMBRO")
 public class Membro {
 	private Long idMembro;
-	private char[] avatar;
+	private String avatar;
+	private int nusp;
+	private String senha;
+	private String login;
+	private String tipo;
 	private List<Grupo> grupos = new ArrayList<Grupo>();
 	
 	public Membro() {
@@ -53,13 +56,48 @@ public class Membro {
 	@Lob
 	@Basic(optional = true, fetch = FetchType.EAGER )
 	@Column(name = "MEMBRO_AVATAR", nullable = true)
-	public char[] getAvatar() {
+	public String getAvatar() {
 		return avatar;
 	}
-	public void setAvatar(char[] avatar) {
+	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
-
 	
+	@Column(name = "MEMBRO_NUSP", nullable = false)
+	public int getNusp() {
+		return nusp;
+	}
+	public void setNusp(int nusp) {
+		this.nusp = nusp;
+	}
+	
+	@Column(name = "MEMBRO_LOGIN", nullable = false)
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
+	@Column(name = "MEMBRO_SENHA", nullable = false)
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	@Column(name = "MEMBRO_TIPO", nullable = false)
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
+	public void copy(Membro m) {
+		this.setAvatar(m.getAvatar());
+		this.setGrupos(m.getGrupos());
+	}
 		
 }

@@ -5,6 +5,10 @@
 <title>SIGP</title>
 </head>
 <body>
-	It works!! ${variable}
+	<h1>Prototipo da Pagina Principal SIGP</h1>
+	
+	<a href="/SIGP/membros">Membros</a>
+	<br/>
+	<a href="/SIGP/grupo/">Grupos</a>
 </body>
 </html>
