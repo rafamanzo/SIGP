@@ -6,15 +6,17 @@
 <title>SIGP</title>
 </head>
 <body>
-	<p>Grupo: ${grupo.nome}</p>
-	<table>
-		<tr><th>Pesquisas:</th></tr>
-	<c:forEach items="${grupo.pesquisas}" var="pesquisa">
-		<tr>
-			<td><!--<a href="ver/${grupo.idGrupo}">-->${pesquisa.nome}</td>
-		</tr>
-	</c:forEach>
-	</table>
-	<p><a href="../">Voltar</a></p>
+	<form method="post" action="cria">
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<td><input type="text" name="grupo.nome" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Criar" /></td>
+			</tr>
+		</table>
+	</form>
+	<p><a href="./">Voltar</a></p>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class GrupoDao {
 	}
 
 	public Grupo getGrupo(Long id) {
-		return (Grupo) session.load(Grupo.class, id);
+		return (Grupo) session.get(Grupo.class, id);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -31,20 +31,15 @@ public class GrupoDao {
 		return this.session.createCriteria(Grupo.class).list();
 	}
 
-	public void delete(Long id) {
-		Grupo c = (Grupo) session.load(Grupo.class, id);
+	public void delete(Grupo grupo) {
 		Transaction tx = session.beginTransaction();
-		session.delete(c);
+		session.delete(grupo);
 		tx.commit();
 	}
 
-	public void update(Long id, Grupo Grupo) {
-		Grupo c = (Grupo) session.load(Grupo.class, id);
-
-		/* 
+	public void update(Grupo grupo) {
 		Transaction tx = session.beginTransaction();
-		c.copy(Grupo);
-		session.update(c);
-		tx.commit(); */
+		session.update(grupo);
+		tx.commit();
 	}
 }

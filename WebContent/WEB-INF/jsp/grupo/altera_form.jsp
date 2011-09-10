@@ -6,14 +6,18 @@
 <title>SIGP</title>
 </head>
 <body>
-	<form method="post" action="cria">
+	<form method="post" action="../altera">
+		<div></div>
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="grupo.nome" /></td>
+				<td><input type="text" name="grupo.nome" value="${grupo.nome}" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Criar" /></td>
+				<td colspan="2">
+					<input type="hidden" name="grupo.idGrupo" value="${grupo.idGrupo}" />
+					<input type="submit" value="Alterar" />
+				</td>
 			</tr>
 		</table>
 	</form>

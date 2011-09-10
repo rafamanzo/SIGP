@@ -35,18 +35,15 @@ public class GrupoController {
 
 	@Path("/grupo/")
 	public void index() {
-		List<Grupo> l = dao.getList();
-		for(int i = 0; i < l.size(); i++)
-			System.out.println(l.get(i));
-		result.include("grupos", l);
+		result.include("grupos", dao.getList());
 	}
 
 	@Path("/grupo/novo")
-	public void form_novo() {
+	public void novo_form() {
 	}
 	
 	@Path("/grupo/cria")
-	public void save(final Grupo grupo) {
+	public void cria(final Grupo grupo) {
 		dao.add(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}
@@ -59,6 +56,29 @@ public class GrupoController {
 			result.redirectTo(GrupoController.class).index();
 		else
 			result.include("grupo", grupo);
+	}
+	
+	@Path("/grupo/alterar/{idGrupo}")
+	public void altera_form(Long idGrupo) {
+		Grupo grupo = dao.getGrupo(idGrupo);
+		if(grupo == null)
+			result.redirectTo(GrupoController.class).index();
+		else
+			result.include("grupo", grupo);
+	}
+	
+	@Path("/grupo/altera")
+	public void altera(final Grupo grupo) {
+		dao.update(grupo);
+		result.redirectTo(GrupoController.class).index();
+	}
+	
+	@Path("/grupo/apagar/{idGrupo}")
+	public void remove(Long idGrupo) {
+		Grupo grupo = dao.getGrupo(idGrupo); 
+		if(grupo != null)
+			dao.delete(grupo);
+		result.redirectTo(GrupoController.class).index();
 	}
 
 }

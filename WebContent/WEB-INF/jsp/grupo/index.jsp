@@ -7,9 +7,15 @@
 </head>
 <body>
 	<table>
+		<tr>
+			<th>Nome</th>
+			<th colspan="2">&nbsp;</th>
+		</tr>
 	<c:forEach items="${grupos}" var="grupo">
 		<tr>
 			<td><a href="ver/${grupo.idGrupo}">${grupo.nome}</a></td>
+			<td><a href="alterar/${grupo.idGrupo}">Alterar</a></td>
+			<td><a href="apagar/${grupo.idGrupo}">Apagar</a></td>
 		</tr>
 	</c:forEach>
 	</table>
