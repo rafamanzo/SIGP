@@ -39,18 +39,18 @@ public class GrupoTest {
     
     @Test
     public void deveriaDevolverLinhasPesquisa() {
-	assertSame("Deveria devolver o nome da primeira linha de pesquisa", "MÈtodos ¡geis",
-		grupo.getPesquisas().get(0).getName());
+	assertSame("Deveria devolver o nome da primeira linha de pesquisa", "M√©todos √Ågeis",
+		grupo.getPesquisas().get(0).getNome());
 	assertSame("Deveria devolver o nome da segunda linha de pesquisa",
-		"Software Livre", grupo.getPesquisas().get(1).getName());
+		"Software Livre", grupo.getPesquisas().get(1).getNome());
 	assertArrayEquals(pesquisas.toArray(), grupo.getPesquisas().toArray());
     }
     
     @Test
     public void deveriaDevolverProjetosDeCadaLinhaDePesquisa() {
-	assertSame("Deveria devolver o nome do primeiro projeto da primeira linha de pesquisa", "MÈtodos de OtimizaÁ„o",
+	assertSame("Deveria devolver o nome do primeiro projeto da primeira linha de pesquisa", "M√©todos de Otimiza√ß√£o",
 		grupo.getPesquisas().get(0).getProjetos().get(0).getDescricao());
-	assertSame("Deveria devolver o nome do segundo projeto da primeira linha de pesquisa", "Uso eficaz de MÈtricas",
+	assertSame("Deveria devolver o nome do segundo projeto da primeira linha de pesquisa", "Uso eficaz de M√©tricas",
 		grupo.getPesquisas().get(0).getProjetos().get(1).getDescricao());
 	
 	
@@ -70,16 +70,16 @@ public class GrupoTest {
 	Projeto projeto21 = mock(Projeto.class);
 	Projeto projeto22 = mock(Projeto.class);	
 	
-	when(projeto11.getDescricao()).thenReturn("MÈtodos de OtimizaÁ„o");
-	when(projeto12.getDescricao()).thenReturn("Uso eficaz de MÈtricas");
+	when(projeto11.getDescricao()).thenReturn("M√©todos de Otimiza√ß√£o");
+	when(projeto12.getDescricao()).thenReturn("Uso eficaz de M√©tricas");
 	when(projeto21.getDescricao()).thenReturn("Achmus");
 	when(projeto22.getDescricao()).thenReturn("Arquimedes");
 	
 	LinhaPesquisa linha1 = mock(LinhaPesquisa.class);
 	LinhaPesquisa linha2 = mock(LinhaPesquisa.class);	
 	
-	when(linha1.getName()).thenReturn("MÈtodos ¡geis");
-	when(linha2.getName()).thenReturn("Software Livre");
+	when(linha1.getNome()).thenReturn("M√©todos √Ågeis");
+	when(linha2.getNome()).thenReturn("Software Livre");
 	
 	projetos1 = new ArrayList<Projeto>(2);
 	projetos2 = new ArrayList<Projeto>(2);
