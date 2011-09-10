@@ -6,12 +6,26 @@
 <title>SIGP</title>
 </head>
 <body>
-	<p>Grupo: ${grupo.nome}</p>
+	<p><b>Grupo:</b> ${grupo.nome}</p>
+	<p><b>Responsável:</b> 
+		<c:choose>
+			<c:when test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:when>
+			<c:otherwise> - </c:otherwise>
+		</c:choose>
+	</p>
 	<table>
 		<tr><th>Pesquisas:</th></tr>
 	<c:forEach items="${grupo.pesquisas}" var="pesquisa">
 		<tr>
-			<td><!--<a href="ver/${grupo.idGrupo}">-->${pesquisa.nome}</td>
+			<td><!--<a href="ver/${pesquisa.idPesquisa}">-->${pesquisa.nome}</td>
+		</tr>
+	</c:forEach>
+	</table>
+	<table>
+		<tr><th>Disciplinas:</th></tr>
+	<c:forEach items="${grupo.disciplinas}" var="disciplina">
+		<tr>
+			<td><!--<a href="ver/${disciplina.idDisciplina}">-->${disciplina.nome}</td>
 		</tr>
 	</c:forEach>
 	</table>

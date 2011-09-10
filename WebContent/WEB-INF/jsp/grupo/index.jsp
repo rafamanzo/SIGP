@@ -9,11 +9,16 @@
 	<table>
 		<tr>
 			<th>Nome</th>
+			<th>Responsável</th>
 			<th colspan="2">&nbsp;</th>
 		</tr>
 	<c:forEach items="${grupos}" var="grupo">
 		<tr>
 			<td><a href="ver/${grupo.idGrupo}">${grupo.nome}</a></td>
+			<td><c:choose>
+		      <c:when test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:when>
+		      <c:otherwise> - </c:otherwise>
+		    </c:choose></td>
 			<td><a href="alterar/${grupo.idGrupo}">Alterar</a></td>
 			<td><a href="apagar/${grupo.idGrupo}">Apagar</a></td>
 		</tr>

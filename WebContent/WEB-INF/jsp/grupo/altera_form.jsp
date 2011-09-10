@@ -14,6 +14,19 @@
 				<td><input type="text" name="grupo.nome" value="${grupo.nome}" /></td>
 			</tr>
 			<tr>
+				<td>Responsável:</td>
+				<td><select name="responsavel">
+					<option value="0">Nenhum</option>
+					<c:forEach items="${grupos}" var="grupolista">
+						<c:if test="${grupolista.idGrupo != grupo.idGrupo}">
+							<option value="${grupolista.idGrupo}"
+								<c:if test="${grupo.responsavel.idGrupo == grupolista.idGrupo}">selected="selected"</c:if>
+							>${grupolista.nome}</option>
+						</c:if>
+					</c:forEach>
+				</select></td>
+			</tr>
+			<tr>
 				<td colspan="2">
 					<input type="hidden" name="grupo.idGrupo" value="${grupo.idGrupo}" />
 					<input type="submit" value="Alterar" />
@@ -21,5 +34,6 @@
 			</tr>
 		</table>
 	</form>
+	<p><a href="../">Voltar</a></p>
 </body>
 </html>
