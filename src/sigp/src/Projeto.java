@@ -21,7 +21,7 @@ import br.com.caelum.vraptor.Resource;
 public class Projeto {
 	private String descricao;
 	private Long idProjeto;
-	private Float finaciamento;
+	private String financiamento;
 	private List<Grupo> grupos = new ArrayList<Grupo>();
 	private List<Membro> membros = new ArrayList<Membro>();
 	
@@ -65,11 +65,11 @@ public class Projeto {
 	}
 	
 	@Column(name = "PROJETO_FINACIAMENTO", nullable = false)
-	public Float getFinaciamento() {
-		return finaciamento;
+	public String getFinanciamento() {
+		return financiamento;
 	}
-	public void setFinaciamento(Float finaciamento) {
-		this.finaciamento = finaciamento;
+	public void setFinanciamento(String finaciamento) {
+		this.financiamento = finaciamento;
 	}
 	
 }
