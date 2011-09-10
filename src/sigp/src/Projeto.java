@@ -68,8 +68,8 @@ public class Projeto {
 	public String getFinanciamento() {
 		return financiamento;
 	}
-	public void setFinanciamento(String finaciamento) {
-		this.financiamento = finaciamento;
+	public void setFinanciamento(String financiamento) {
+		this.financiamento = financiamento;
 	}
 	
 }
