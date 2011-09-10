@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 import br.com.caelum.vraptor.Resource;
 
 @Entity
@@ -23,24 +22,21 @@ public class Grupo {
 	private Long idGrupo;
 	private String nome;
 	private List<LinhaPesquisa> pesquisas = new ArrayList<LinhaPesquisa>();
-	
-	
+
 	public Grupo() {
 	}
-	
+
 	public Grupo(String name, List<LinhaPesquisa> pesquisas) {
 		this.nome = name;
 		this.pesquisas = pesquisas;
 	}
-	
+
 	public Grupo(String name) {
 		this.nome = name;
 	}
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "GRUPO_LINHAP", 
-	joinColumns = { @JoinColumn(name = "GRUPO_ID")},
-	inverseJoinColumns = { @JoinColumn(name = "LINHAP_ID")})
+	@JoinTable(name = "GRUPO_LINHAP", joinColumns = { @JoinColumn(name = "GRUPO_ID") }, inverseJoinColumns = { @JoinColumn(name = "LINHAP_ID") })
 	public List<LinhaPesquisa> getPesquisas() {
 		return pesquisas;
 	}
@@ -49,7 +45,9 @@ public class Grupo {
 		this.pesquisas = pesquisas;
 	}
 
-	@Id @GeneratedValue @Column(name = "GRUPO_ID")
+	@Id
+	@GeneratedValue
+	@Column(name = "GRUPO_ID")
 	public Long getIdGrupo() {
 		return idGrupo;
 	}
@@ -66,7 +64,12 @@ public class Grupo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Grupo [idGrupo=" + idGrupo + ", nome=" + nome + ", pesquisas="
+				+ pesquisas + "]";
+	}
 
 	
 }
