@@ -51,7 +51,25 @@
         justificativas, os elementos significativos e qualquer outro aspecto
         importante do sistema que dão forma ao seu design e à sua implementação.
 
+    %
+    %[Always address Sections 2 through 6 of this template. Other sections are
+    % recommended, depending on the amount of novel architecture, the amount of
+    % expected maintenance, the skills of the development team, and the
+    % importance of other architectural concerns.]
+    %
     \section{Objetivos arquiteturais e filosofia}
+        %
+        %[Describe the philosophy of the architecture. Identify issues that will
+        % drive the philosophy, such as: Will the system be driven by complex
+        % deployment concerns, adapting to legacy systems, or performance
+        % issues? Does it need to be robust for long-term maintenance?
+        %
+        % Formulate a set of goals that the architecture needs to meet in its
+        % structure and behavior. Identify critical issues that must be
+        % addressed by the architecture, such as: Are there hardware
+        % dependencies that should be isolated from the rest of the system? Does
+        % the system need to function efficiently under unusual conditions?]
+        %
         A arquitetura desse projeto visa ao desenvolvimento de um sistema
         organizado, durável e prático tanto para desenvolvedores quanto para
         usuários.
@@ -79,7 +97,12 @@
         \end{enumerate}
 
     \section{Suposições e dependências}
-
+        %
+        %[List the assumptions and dependencies that drive architectural
+        % decisions. This could include sensitive or critical areas,
+        % dependencies on legacy interfaces, the skill and experience of the
+        % team, the availability of important resources, and so forth]
+        %
         \subsection{Dependências tecnológicas do projeto:}
             \begin{itemize}
                 \item Um servidor Tomcat (versão ???) para hospedar nosso
@@ -139,6 +162,10 @@
             \end{itemize}
 
     \section{Requisitos para realizar a arquitetura}
+        %
+        %[Insert a reference or link to the requirements that must be
+        % implemented to realize the architecture.]
+        %
         Para que se possa implementar a arquitetura descrita neste documento, a
         equipe de desenvolvimento deve ter os seguintes recursos devidamente
         instalados e funcionando:
@@ -176,6 +203,16 @@
         \end{itemize}
 
     \section{Decisões, restrições e justificativas}
+        %
+        %[List the decisions that have been made regarding architectural
+        % approaches and the constraints being placed on the way that the
+        % developers build the system. These will serve as guidelines for
+        % defining architecturally significant parts of the system. Justify each
+        % decision or constraint so that developers understand the importance of
+        % building the system according to the context created by those
+        % decisions and constraints. This may include a list of DOs and DON’Ts
+        % to guide the developers in building the system.] 
+        %
         \begin{itemize}
             \item O sistema será programado em Java, pois é uma linguagem
             orientada a objetos que possui diversas facilidades e recursos que
@@ -216,6 +253,8 @@
             unidade que de fato não dependam de outras unidades para serem
             testados.
             %
+            % \item [Decision or constraint and justification]
+            % 
             % Wilson: "Adicionarei outras decisões conforme elas forem sendo
             % feitas. Por enquanto deixei apenas aquilo que já está decidido
             % pelas exigências do professor sobre o projeto."
@@ -223,6 +262,12 @@
         \end{itemize}
     
     \section{Mecanismos arquiteturais}
+        %
+        %[List the architectural mechanisms and describe the current state of
+        % each one. Initially, each mechanism may be only name and a brief
+        % description. They will evolve until the mechanism is a collaboration
+        % or pattern that can be directly applied to some aspect of the design.]
+        %
         Essa é uma das partes que evoluirão ao longo do projeto, moldando-se de
         acordo com as necessidades que forem surgindo.
 
@@ -266,8 +311,20 @@
             Propósito: %TODO
 
             Funcionamento: %TODO
+        
+        %
+        % \subsection{Architectural Mechanism}
+        %   [Describe the purpose, attributes, and function of the architectural
+        %    mechanism.]
+        %
 
     \section{Abstrações chave}
+        %
+        %[List and briefly describe the key abstractions of the system. This
+        % should be a relatively short list of the critical concepts that define
+        % the system. The key abstractions will usually translate to the initial
+        % analysis classes and important patterns.]
+        %
         \begin{description}
             \item[Interface Web] conjunto de páginas web que compõem o WebSite
             do sistema e que podem ser visualizadas pelos usuários. Envia
@@ -291,6 +348,14 @@
         \end{description}
 
     \section{Camadas da arquitetura}
+        %
+        %[Describe the architectural pattern that you will use or how the
+        % architecture will be consistent and uniform. This could be a simple
+        % reference to an existing or well-known architectural pattern, such as
+        % the Layer framework, a reference to a high-level model of the
+        % framework, or a description of how the major system components should
+        % be put together.]
+        %
         Há no total seis camadas na arquitetura do projeto. A primeira, e mais
         externa, é a interface Web, composta pelos diversos arquivos
         \texttt{*.jsp} que faremos, formando as diversas páginas Web que os
@@ -313,12 +378,36 @@
         %
 
     \section{Visões arquiteturais}
+        %
+        %[Describe the architectural views that you will use to describe the
+        % software architecture. This illustrates the different perspectives
+        % that you will make available to review and to document architectural
+        % decisions.]
+        %
+        % --- Recommended views ---
+        %
+        % *Logical: Describes the structure and behavior of architecturally
+        % significant portions of the system. This might include the package
+        % structure, critical interfaces, important classes and subsystems, and
+        % the relationships between these elements. It also includes physical
+        % and logical views of persistent data, if persistence will be built
+        % into the system. This is a documented subset of the design.
+        %
+        % *Operational: Describes the physical nodes of the system and the
+        % processes, threads, and components that run on those physical nodes.
+        % This view isn’t necessary if the system runs in a single process and
+        % thread.
+        %
+        % *Use case: A list or diagram of the use cases that contain
+        % architecturally significant requirements.
+        %
+        %
         \begin{itemize}
             \item \textbf{Visão lógica:} %TODO
             
             \item \textbf{Visão das classes:} %TODO
             
-            \item \textbf{Casos de uso ocm requisitos arquiteturalmente
+            \item \textbf{Casos de uso com requisitos arquiteturalmente
             importantes:} %TODO
         \end{itemize}
 \end{document}
