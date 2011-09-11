@@ -41,7 +41,7 @@ public class DisciplinaTest {
     public void deveriaDevolverEmenta() {
 	assertSame(
 		"Deveria devolver a Ementa inserida",
-		"Gerenciamento de projeto. An·lise e especificaÁ„o de requisitos.",
+		"Gerenciamento de projeto. An√°lise e especifica√ß√£o de requisitos.",
 		disciplina.getEmenta());
     }
 
@@ -50,18 +50,18 @@ public class DisciplinaTest {
 	assertSame("Deveria devolver o primeiro grupo", "Grupo de Engenharia de Software",
 		disciplina.getGrupos().get(0).getNome());
 	assertSame("Deveria devolver o segundo grupo",
-		"Grupo de ComputaÁ„o Gr·fica", disciplina.getGrupos().get(1)
+		"Grupo de Computa√ß√£o Gr√°fica", disciplina.getGrupos().get(1)
 			.getNome());	
     }
     
     @Test
     public void deveriaDevolverLinhaPesquisaDeGrupos() {
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "MÈtodos ¡geis",
-		disciplina.getGrupos().get(0).getPesquisas().get(0).getName());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "MÔøΩtodos ÔøΩgeis",
+		disciplina.getGrupos().get(0).getPesquisas().get(0).getNome());
 	assertSame("Deveria devolver a segunda Linha de Pesquisa do Grupto 1",
-		"Software Livre", disciplina.getGrupos().get(0).getPesquisas().get(1).getName());
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","High Quality Image Rendering",disciplina.getGrupos().get(1).getPesquisas().get(0).getName());
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","Applied Discrete Geometry",disciplina.getGrupos().get(1).getPesquisas().get(1).getName());
+		"Software Livre", disciplina.getGrupos().get(0).getPesquisas().get(1).getNome());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","High Quality Image Rendering",disciplina.getGrupos().get(1).getPesquisas().get(0).getNome());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","Applied Discrete Geometry",disciplina.getGrupos().get(1).getPesquisas().get(1).getNome());
     }
 
     @After
@@ -74,7 +74,7 @@ public class DisciplinaTest {
 	disciplina = new Disciplina();
 	disciplina.setSigla("MAC0332");
 	disciplina.setNome("Engenharia de Software");
-	disciplina.setEmenta("Gerenciamento de projeto. An·lise e especificaÁ„o de requisitos.");
+	disciplina.setEmenta("Gerenciamento de projeto. An√°lise e especifica√ß√£o de requisitos.");
 	
 	grupos = new ArrayList<Grupo>(2);	
 	Grupo grupo1 = mock(Grupo.class);
@@ -94,13 +94,13 @@ public class DisciplinaTest {
 
 	when(grupo1.getNome()).thenReturn("Grupo de Engenharia de Software");
 	when(grupo1.getPesquisas()).thenReturn(linhas1);
-	when(linha11.getName()).thenReturn("MÈtodos ¡geis");
-	when(linha12.getName()).thenReturn("Software Livre");
+	when(linha11.getNome()).thenReturn("M√©todos √Ågeis");
+	when(linha12.getNome()).thenReturn("Software Livre");
 	
-	when(grupo2.getNome()).thenReturn("Grupo de ComputaÁ„o Gr·fica");
+	when(grupo2.getNome()).thenReturn("Grupo de Computa√ß√£o Gr√°fica");
 	when(grupo2.getPesquisas()).thenReturn(linhas2);
-	when(linha21.getName()).thenReturn("High Quality Image Rendering");
-	when(linha22.getName()).thenReturn("Applied Discrete Geometry");		
+	when(linha21.getNome()).thenReturn("High Quality Image Rendering");
+	when(linha22.getNome()).thenReturn("Applied Discrete Geometry");		
 	
 	grupos.add(grupo1);
 	grupos.add(grupo2);	

@@ -20,14 +20,14 @@ import br.com.caelum.vraptor.Resource;
 @Table(name = "LINHAP")
 public class LinhaPesquisa {
 	private Long idPesquisa;
-	private String name;
+	private String nome;
 	private List<Projeto> projetos = new ArrayList<Projeto>();
 	
 	
 	public LinhaPesquisa() {
 	}
 	public LinhaPesquisa(String name){
-		this.name = name;
+		this.nome = name;
 	}
 	
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -55,11 +55,11 @@ public class LinhaPesquisa {
 	}
 	
 	@Column(name = "LINHAP_NOME", nullable = false)
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String name) {
+		this.nome = name;
 	}
 	
 	
