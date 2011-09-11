@@ -1,0 +1,324 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+\fancyhead[RO,RE]{\today}
+\fancyhead[LO,LE]{MAC0332 - SI para grupos de pesquisa\\
+	Especificação dos Requerimentos}
+%\fancyfoot[LO,LE]{Confidential}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+\title{MAC 0332\\
+	Engenharia de Software\\
+	SI para grupos de pesquisa\\
+	Architecture Notebook}
+\date{\today}
+
+\begin{document}
+
+	\maketitle
+	\newpage
+	
+	\section{Propósito}
+        Este documento descreve a filosofia, as decisões, as restrições, as
+        justificativas, os elementos significativos e qualquer outro aspecto
+        importante do sistema que dão forma ao seu design e à sua implementação.
+
+    \section{Objetivos arquiteturais e filosofia}
+        A arquitetura desse projeto visa ao desenvolvimento de um sistema
+        organizado, durável e prático tanto para desenvolvedores quanto para
+        usuários.
+
+        Através de ferramentas que abstraem implementações de recursos
+        normalmente complexos (como banco de dados e interfaces Web), podemos
+        de certa forma limitar o escopo de desenvolvimento à parte da lógica do
+        sistema.
+
+        Teremos menos preocupações e o volume de código será bastante reduzido,
+        facilitando sua documentação, verificação e manutentção.
+
+        Logo, os principais objetivos arquiteturais serão garantir que:
+
+        \begin{enumerate}
+            \item Essas ferramentas sejam devidamente aplicadas no sistema.
+            Isso é, que elas estejam corretamente instaladas e instanciadas,
+            e que nosso sistema as use e as faça se comunicarem entre si de
+            maneira bem sucedida e aproveitando ao máximo suas facilidades;
+
+            \item A lógica do sistema esteja de acordo com os requerimentos do
+            cliente, usando uma estrutura o mais simples possível de testar, uma
+            vez que a maioria das complicações técnicas estará sendo coberta
+            pelas ferramentas auxiliares.
+        \end{enumerate}
+
+    \section{Suposições e dependências}
+
+        \subsection{Dependências tecnológicas do projeto:}
+            \begin{itemize}
+                \item Um servidor Tomcat (versão ???) para hospedar nosso
+                sistema;
+                
+                \item Um banco de dados MySQL para persistir os dados
+                gerenciados pelo sistema;
+                
+                \item a JDK e o Eclupse (Enterprise Edition ou equivalente),
+                para desenvolvermos nossos sitema usando Java para Web;
+                
+                \item Um navegador para visualizarmos a interface Web do nosso
+                sistema;
+                
+                \item A biblioteca JDBC para comunicar nossa aplicação Java com
+                o banco de dados;
+                
+                \item A implementação Hibernate da JPA para abstrair o banco de
+                dados através de um mapeamento objeto-relacional, facilitando
+                o desenvolvimento do sistema em Java, que é uma linguagem
+                orientada a objetos;
+                
+                \item A bilbioteca VRaptor, para comunicarmos facilmente nossa
+                aplicação Java com a interface Web do sistema;
+                
+                \item As bibliotecas Junit e Mockito para testarmos nosso
+                sistema;
+                
+                \item Git para controle de versão do projeto;
+                
+                \item Quaisquer outras dependências indiretas geradas pelas
+                tecnologias citadas.
+            \end{itemize}
+
+        \subsection{Dependências de conhecimento e experiência da equipe:}
+            \begin{itemize}
+                \item Programar em Java usando o Eclipse;
+                
+                \item Desenvolver com orientação a objetos;
+                
+                \item Produzir páginas Web em HTML (com CSS);
+                
+                \item Modelar bancos de dados;
+                
+                \item Saber usar as bibliotecas Hibernate, VRaptor, JUnit e
+                Mockito;
+                
+                \item Saber usar o controle de versão Git.
+            \end{itemize}
+
+        \subsection{Suposições:}
+            \begin{itemize}
+                \item Assumimos que as ferramentas, bibliotecas e demais
+                tecnologias usadas no desenvolvimento do projeto são funcionais,
+                isto é, agem do modo como suas respectivas documentações ditam
+                e, portanto, não precisam ser testadas.
+            \end{itemize}
+
+    \section{Requisitos para realizar a arquitetura}
+        Para que se possa implementar a arquitetura descrita neste documento, a
+        equipe de desenvolvimento deve ter os seguintes recursos devidamente
+        instalados e funcionando:
+
+        \begin{itemize}
+            \item Ambiente de desenvolvimento Java usando Eclipse Enterprise
+            Edition (ou equivalente);
+            
+            \item Um servidor Tomcat configurado para rodar a partir do Eclipse;
+            
+            \item Um repositório Git onde serão mantidos o código fonte do
+            projeto e os diversos documentos importantes que forem produzidos ao
+            longo do projeto (inclusive este);
+            
+            \item Um projeto em branco de VRaptor do site da Caelum importado no
+            Eclipse. O aplicativo Java que conterá a lógica do nosso sistema
+            será feito em cima dessa base. Esse projeto deve ser adicionado ao
+            repositório Git, de preferência usando o \textit{plug-in} Git do
+            Eclipse.
+            Uma vez feito isso, todos da equipe poderão se sincronizar com o
+            repositório para se unir ao desenvolvimento do sistema (ou seja, só
+            uma pessoa precisa fazer isso e depois todos poderão importar esse
+            projeto do Git usando o Eclipse);
+            
+            \item Os JAR's das bibliotecas JDBC, Hibernate (com annotations),
+            JUnit (versão 4) e Mockito, bem como suas respectivas dependências,
+            incluídas na pasta WebContent/WEB-INF/lib do projeto Java.
+            A biblioteca VRaptor já vem incluída no projeto em branco da Caelum.
+            (Do mesmo modo que no item anterior, uma vez que alguém tenha
+            conseguido fazer isso, é só usar o repositório Git para que todos
+            já tenham suas cópias locais do projeto igualmente configuradas.)
+            %
+            % Falta alguma coisa?
+            %
+        \end{itemize}
+
+    \section{Decisões, restrições e justificativas}
+        \begin{itemize}
+            \item O sistema será programado em Java, pois é uma linguagem
+            orientada a objetos que possui diversas facilidades e recursos que
+            auxiliam tanto no desenvolvimento quanto na manutenção do sistema.
+            Além disso, há na comunidade diversas ferramentas disponíveis que
+            facilitam a aplicação de Java na construção de sistemas de software
+            pertinentes às exigências do mercado e dos círculos de pesquisa.
+            
+            \item O ambiente de desenvolvimento será o Eclipse Enterprise
+            Edition (ou equivalente), pois ele vem com todas as ferramentas
+            básicas para se programas para Web usando Java. Em particular, ele
+            oferece a possibilidade de rodar um servidor Tomcat local no próprio
+            Eclipse, o que possibilita que os desenvolvedores possam testar o
+            sistema em suas próprias máquinas a qualquer momento, como se o
+            estivessem rodando no servidor verdadeiro.
+
+            \item Para comunicar nossa aplicação Java com a interface Web do
+            sistema, usaremos a bilioteca VRaptor. Ela simplifica drasticamente
+            a construção de controladores, além de gerenciar automaticamente as
+            instâncias das diversas partes do sistema, criando-as e mantendo-as
+            disponíveis conforme exigirem as demandas enviadas pelo cliente Web.
+
+            \item Para comunicar nossa aplicação Java com o banco de dados,
+            usaremos a biblioteca Hibernate, que se comunicará, por sua vez, com
+            a biblioteca JDBC. Devido ao mapeamento objeto-relacional
+            proporcionado pelo Hibernate (de acordo com a JPA), não haverá
+            necessidade de nos preocuparmos com a criação manual das
+            \textit{queries} ao banco de dados, pois isso será feito
+            automaticamente. Pode-se programar quase que naturalmente usando
+            orientação a objetos, onde classes corresponderão, aproximadamente,
+            a relações.
+
+            \item Para realizar testes de unidade nas nossas classes, usaremos a
+            biblioteca Mockito. a JUnit é a ferramenta padrão de testes em Java,
+            e tem \textit{plug-ins} no Eclipse que auxiliam seu uso. A Mockito
+            servirá para que possamos simular objetos, impondo-lhes um
+            comportamento pré-definido e, assim, podermos realizar testes de
+            unidade que de fato não dependam de outras unidades para serem
+            testados.
+            %
+            % Wilson: "Adicionarei outras decisões conforme elas forem sendo
+            % feitas. Por enquanto deixei apenas aquilo que já está decidido
+            % pelas exigências do professor sobre o projeto."
+            %
+        \end{itemize}
+    
+    \section{Mecanismos arquiteturais}
+        Essa é uma das partes que evoluirão ao longo do projeto, moldando-se de
+        acordo com as necessidades que forem surgindo.
+
+        \subsection{Controlador}
+            Módulo responsável por controlar a parte lógica por trás da
+            interface Web.
+
+            Propósito: %TODO
+
+            Funcionamento: %TODO
+
+        \subsection{\textit{Data Access Object}}
+            Módulo responsável por fornecer acesso a um certo tipo de dado do
+            banco de dados.
+
+            Propósito: %TODO
+
+            Funcionamento: %TODO
+
+        \subsection{Injeção de Dependência}
+            Método utilizado para lidar com dependências de uma classe com
+            outra. Sempre que uma classe precisar de um objeto de outra,
+            deverá dar-se preferÊncia ao uso de injeções de dependência.
+
+            Propósito: %TODO
+
+            Funcionamento: %TODO
+
+        \subsection{\textit{Factories}}
+            Módulo que facilita a criação de objetos com configurações
+            pré-determinadas. Comoatível com injeção de dependências.
+
+            Propósito: %TODO
+
+            Funcionamento: %TODO
+
+        \subsection{Testes de unidade}
+            Método utilizado para testar unidades individuais do sistema de
+            maneira isolada.
+
+            Propósito: %TODO
+
+            Funcionamento: %TODO
+
+    \section{Abstrações chave}
+        \begin{description}
+            \item[Interface Web] conjunto de páginas web que compõem o WebSite
+            do sistema e que podem ser visualizadas pelos usuários. Envia
+            requisições para o sistema de acordo com as ações dos usuários e
+            mostra ao usuário as informações que o sistema lhe forneceu em
+            resposta.
+
+            \item[Banco de dados] conjunto de dados armazenados em um servidor
+            seguindo um modelo relacional (usando MySQL, no caso). Os dados
+            armazenados dizem respeito aos grupos de pesquisa, usuários,
+            publicações e demais informações que foram passadas ao sistema de
+            grupos de pesquisa.
+
+            \item[Lógica do sistema] aplicativo (Java) que gerencia a lógica do
+            sistema, interagindo com os usuários através da Interface Web e
+            persistindo os dados obtidos no Banco de Dados.
+            %
+            % Wilson: "Dá pra colocar mais algumas coisas mas começaria a ficar
+            % repetitivo com a seção anterior. Coloco mesmo assim?"
+            %
+        \end{description}
+
+    \section{Camadas da arquitetura}
+        Há no total seis camadas na arquitetura do projeto. A primeira, e mais
+        externa, é a interface Web, composta pelos diversos arquivos
+        \texttt{*.jsp} que faremos, formando as diversas páginas Web que os
+        usuários poderão ver ao acessar nosso sistema.
+        A segunda camada é o VRaptor, que serve para ligar a primeira camada com
+        a terceira, que são os controladores. Estes, por sua vez, se comunicam
+        com a quarta camada que é a que compõe a lógica do sistema. É nela que
+        será focada nossa atenção e trabalho para construir o sistema.
+
+        A quinta camada será composta pelos \textit{Data Access Objects} (DAOs),
+        e servirá para a quarta camada (lógica do sistema) se comunicar com a
+        sexta e última que é o banco de dados em si, só que abstraído pelo
+        mapeamento objeto-relacional do Hibernate.
+        %
+        % Obs.1 Wilson: "assim que puder colocarei uma imagem na próxima seção
+        % que ilustrará bem essas camadas"
+        %
+        % Obs.2 Wilson: "se for necessário posso detalhar melhor od que cada
+        % camada será composta" (Samuel: "acho que não")
+        %
+
+    \section{Visões arquiteturais}
+        \begin{itemize}
+            \item \textbf{Visão lógica:} %TODO
+            
+            \item \textbf{Visão das classes:} %TODO
+            
+            \item \textbf{Casos de uso ocm requisitos arquiteturalmente
+            importantes:} %TODO
+        \end{itemize}
+\end{document}
