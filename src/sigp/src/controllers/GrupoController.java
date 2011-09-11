@@ -25,48 +25,45 @@ public class GrupoController {
 	public void novo_form() {
 		result.include("grupos", dao.getList());
 	}
-	
+
 	@Path("/grupo/cria")
 	public void cria(final Grupo grupo, final Long responsavel) {
-		if(responsavel != 0)
+		if (responsavel != 0)
 			grupo.setResponsavel(dao.getGrupo(responsavel));
-		dao.add(grupo);
+		dao.save(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}
-	
-	
+
 	@Path("/grupo/ver/{idGrupo}")
 	public void visualiza(Long idGrupo) {
 		Grupo grupo = dao.getGrupo(idGrupo);
-		System.out.println(grupo);
-		if(grupo == null)
+		if (grupo == null)
 			result.redirectTo(GrupoController.class).index();
 		else
 			result.include("grupo", grupo);
 	}
-	
+
 	@Path("/grupo/alterar/{idGrupo}")
 	public void altera_form(Long idGrupo) {
 		Grupo grupo = dao.getGrupo(idGrupo);
-		if(grupo == null)
+		if (grupo == null)
 			result.redirectTo(GrupoController.class).index();
 		else
 			result.include("grupo", grupo);
 		result.include("grupos", dao.getList());
 	}
-	
+
 	@Path("/grupo/altera")
 	public void altera(final Grupo grupo, final Long responsavel) {
-		if(responsavel != grupo.getResponsavel().getIdGrupo())
-			grupo.setResponsavel(dao.getGrupo(responsavel));
+		grupo.setResponsavel(dao.getGrupo(responsavel));
 		dao.update(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}
-	
+
 	@Path("/grupo/apagar/{idGrupo}")
 	public void remove(Long idGrupo) {
-		Grupo grupo = dao.getGrupo(idGrupo); 
-		if(grupo != null)
+		Grupo grupo = dao.getGrupo(idGrupo);
+		if (grupo != null)
 			dao.delete(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}

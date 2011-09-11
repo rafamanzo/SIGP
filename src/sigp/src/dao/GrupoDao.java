@@ -16,12 +16,6 @@ public class GrupoDao {
 		this.session = session;
 	}
 
-	public void add(Grupo Grupo) {
-		Transaction tx = session.beginTransaction();
-		session.save(Grupo);
-		tx.commit();
-	}
-
 	public Grupo getGrupo(Long id) {
 		return (Grupo) session.get(Grupo.class, id);
 	}
@@ -29,6 +23,12 @@ public class GrupoDao {
 	@SuppressWarnings("unchecked")
 	public List<Grupo> getList() {
 		return this.session.createCriteria(Grupo.class).list();
+	}
+	
+	public void save(Grupo grupo) {
+		Transaction tx = session.beginTransaction();
+		session.save(grupo);
+		tx.commit();
 	}
 
 	public void delete(Grupo grupo) {

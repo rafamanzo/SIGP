@@ -33,7 +33,7 @@
 		</tr>
 		<c:forEach items="${grupo.disciplinas}" var="disciplina">
 			<tr>
-				<td><a href="/SIGP/disciplina/ver/${disciplina.idDisciplina}">-->${disciplina.nome}</a>
+				<td><a href="/SIGP/disciplina/ver/${disciplina.idDisciplina}">${disciplina.nome}</a>
 				</td>
 			</tr>
 		</c:forEach>

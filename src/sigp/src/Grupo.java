@@ -37,8 +37,7 @@ public class Grupo {
 	public Grupo(String name) {
 		this.nome = name;
 	}
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "RESPONSAVEL_ID")
 	public Grupo getResponsavel() {
@@ -58,7 +57,7 @@ public class Grupo {
 	public void setPesquisas(List<LinhaPesquisa> pesquisas) {
 		this.pesquisas = pesquisas;
 	}
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "GRUPO_DISCIPLINA", joinColumns = { @JoinColumn(name = "GRUPO_ID") }, inverseJoinColumns = { @JoinColumn(name = "DISCIPLINA_ID") })
 	public List<Disciplina> getDisciplinas() {
@@ -93,8 +92,7 @@ public class Grupo {
 	public String toString() {
 		return "Grupo [idGrupo=" + idGrupo + ", nome=" + nome
 				+ ", responsavel=" + responsavel + ", pesquisas=" + pesquisas
-				+ ", disciplinas=" + disciplinas + "]";
+				+ "]";
 	}
 
-	
 }
