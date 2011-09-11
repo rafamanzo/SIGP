@@ -1,7 +1,7 @@
 package sigp.src.controllers;
 
-import sigp.src.Membro;
-import sigp.src.dao.MembroDao;
+import sigp.src.Projeto;
+import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -9,66 +9,72 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class ProjetoController {
 	private static String editSaveTitle = "Salva Mudancas";
-	private static String editDelTitle = "Remove Membro";
+	private static String editDelTitle = "Remove Projeto";
 	
 	private final Result result;
-	private MembroDao membroDao;
+	private ProjetoDao dao;
 	
-	public ProjetoController(Result result, MembroDao membroDao) {
+	public ProjetoController(Result result, ProjetoDao dao) {
 		this.result = result;
-		this.membroDao = membroDao;
+		this.dao = dao;
 	}
 	
-	@Path("/membros")
+	@Path("/projetos")
 	public void main() {
-		result.include("membros", membroDao.list());
+		result.include("projetos", dao.list());
 	}
 
-	@Path("/membros/novoMembro")
-	public void novoMembro() {
+	@Path("/projetos/novoProjeto")
+	public void novoProjeto() {
 	}
 
-	@Path("/membros/salva")
-	public void salva(final Membro membro) {
-		String errormsg = checkMembro(membro);
+	@Path("/projetos/salva")
+	public void salva(final Projeto projeto) {
+		String errormsg = checkProjeto(projeto);
 		if (!errormsg.equals("")) {
 			result.redirectTo(ProjetoController.class).msg(errormsg);
 		} else {
-			membroDao.save(membro);
+			dao.save(projeto);
 			result.redirectTo(ProjetoController.class).main();
 		}
 	}
 
-	@Path("/membros/msg")
+	@Path("/projetos/msg")
 	public void msg(String msg) {
 		result.include("mensagem", msg);
 	}
 
-	@Path("/membros/infoMembro")
-	public void infoMembro(Long id) {
-		Membro membro = membroDao.getMembro(id);
-		result.include("membro", membro);
+	@Path("/projetos/infoProjeto")
+	public void infoProjeto(Long id) {
+		Projeto projeto = dao.getProjeto(id);
+		result.include("projeto", projeto);
+	}
+	
+	@Path("/projetos/editProjeto")
+	public void editProjeto(Long id) {
+		Projeto projeto = dao.getProjeto(id);
+		result.include("projeto", projeto);
 		result.include("editSaveTitle", editSaveTitle);
 		result.include("editDelTitle", editDelTitle);
 	}
 
-	@Path("/membros/updateMembro")
-	public void updateMembro(final Membro membro, String oQueFazer) {
-		String errormsg = checkMembro(membro);
+	@Path("/projetos/updateProjeto")
+	public void updateProjeto(final Projeto projeto, String oQueFazer) {
+		String errormsg = checkProjeto(projeto);
 		if (!errormsg.equals("")) {
 			result.redirectTo(ProjetoController.class).msg(errormsg);
 		} else if (oQueFazer.equals(editSaveTitle)) {
-			membroDao.update(membro);
-			result.redirectTo(ProjetoController.class).main();
+			dao.update(projeto);
+			result.redirectTo(ProjetoController.class).infoProjeto(projeto.getIdProjeto());
 		} else if (oQueFazer.equals(editDelTitle)) {
-			membroDao.delete(membro);
+			dao.delete(projeto);
 			result.redirectTo(ProjetoController.class).main();
 		} else {
-			result.redirectTo(ProjetoController.class).main();
+			result.redirectTo(ProjetoController.class).infoProjeto(projeto.getIdProjeto());
 		}
 	}
 
-	public String checkMembro(Membro membro) {
+	public String checkProjeto(Projeto projeto) {
 		/*Checar se o Membro esta valido. Em caso negativo, retornar
 		 * uma string nao nula ( != "" ) dizendo o erro. 
 		 * Se estiver valido, retornar "" */

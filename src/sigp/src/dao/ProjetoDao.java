@@ -22,7 +22,7 @@ public class ProjetoDao {
 		t.commit();
 	}
 
-	public Projeto getMembro(Long id) {
+	public Projeto getProjeto(Long id) {
 		return (Projeto) this.session.load(Projeto.class, id);
 	}
 
@@ -31,7 +31,7 @@ public class ProjetoDao {
 	}
 
 	public void update(Projeto proj) {
-		Projeto p = getMembro(proj.getIdProjeto());
+		Projeto p = getProjeto(proj.getIdProjeto());
 		p.copy(proj);
 
 		Transaction t = this.session.beginTransaction();

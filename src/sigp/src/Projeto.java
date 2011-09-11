@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.caelum.vraptor.Resource;
@@ -19,10 +20,11 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "PROJETO")
 public class Projeto {
+	private String nome;
 	private String descricao;
 	private Long idProjeto;
 	private String financiamento;
-	private List<Grupo> grupos = new ArrayList<Grupo>();
+	private Grupo coordenador;
 	private List<Membro> membros = new ArrayList<Membro>();
 	
 
@@ -37,15 +39,13 @@ public class Projeto {
 		this.membros = membros;
 	}
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable( name = "PROJETO_GRUPO",
-	joinColumns = @JoinColumn( name = "PROJETO_ID"), 
-	inverseJoinColumns = @JoinColumn (name = "GRUPO_ID"))
-	public List<Grupo> getGrupos() {
-		return grupos;
+	
+	@Column(name = "PROJETO_NOME", nullable = false)
+	public String getNome() {
+		return nome;
 	}
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	@Column(name = "PROJETO_DESCRICAO", nullable = false, length = 510)
@@ -72,9 +72,20 @@ public class Projeto {
 		this.financiamento = financiamento;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name = "COORDENADOR_ID")
+	public Grupo getCoordenador() {
+		return coordenador;
+	}
+	public void setCoordenador(Grupo coordenador) {
+		this.coordenador = coordenador;
+	}
+	
+	
 	public void copy(Projeto p) {
 		this.setMembros(p.getMembros());
-		this.setGrupos(p.getGrupos());
+		this.setCoordenador(p.getCoordenador());
+		this.setNome(p.getNome());
 		this.setDescricao(p.getDescricao());
 		this.setFinanciamento(p.getFinanciamento());
 	}
