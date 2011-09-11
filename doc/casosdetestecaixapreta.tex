@@ -3,13 +3,14 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[pdftex]{hyperref}
-\usepackage{graphicx}
+%\usepackage[pdftex]{hyperref}
+\usepackage[pdftex]{graphicx}  
+
 \usepackage{amsmath}
 \usepackage{indentfirst}
 \usepackage{fancyhdr}
 \usepackage{setspace}         
-
+\usepackage[pagebackref,colorlinks=true,urlcolor=cyan,citecolor=red,linkcolor=blue]{hyperref}
 
 \usepackage{color}
 \usepackage{pifont}
@@ -91,12 +92,15 @@
 \chapter[Apresentação]{Apresentação}
 \label{cap:apresentacao}	
 	
-	 	O presente documento descreve o cumprimento da tarefa \emph{Criar casos de teste}, mediante uma coleção de Casos de Teste Caixa Preta da Análise Funcional para o SIGP, de acordo com [Schach, 2007] e os gabaritos do \emph{Processo Unificado Aberto - OpenUP}.
+	 	O presente documento descreve o cumprimento da tarefa \emph{Criar casos de teste}, mediante uma coleção de Casos de Teste Caixa Preta para Análise Funcional para o SIGP, conforme o documento de requisitos do sistema e de acordo com diretrizes de [Schach, 2007] e gabaritos do \emph{Processo Unificado Aberto - OpenUP}.
 
 \chapter[Casos de Teste]{Casos de Teste Caixa Preta - Análise Funcional}
 \label{cap:casosdeteste}
 
-	\section{Caso de Teste - SIGPCT001 }
+\section{Testar o cadastro de novos ítens no sistema.}
+
+\begin{itemize}
+	\item Caso de Teste - SIGP-CT-001
 	\begin{itemize}
 	\item Descrição: Cadastrar uma \textbf{pessoa}.
 	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa. Banco de Dados criado.
@@ -104,15 +108,15 @@
 	\item Dados necessários: Nome, CPF, Publicações, Grupos
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT002 }
+	\item  Caso de Teste - SIGP-CT-002 
 	\begin{itemize}
-	\item Descrição: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro-usuário. Cadastrar um \textbf{membro-usuário}.
-	\item Pré-condições: Banco de Dados criado.
+	\item Descrição: Cadastrar um \textbf{membro usuário}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro-usuário. Banco de Dados criado.
 	\item Pós-condições: O registro de mais um membro usuário no BD e na listagem subsequente.
 	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT003}
+	\item Caso de Teste - SIGP-CT-003
 	\begin{itemize}
 	\item Descrição: Cadastrar um \textbf{membro não-usuário}.
 	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro não-usuário. Banco de Dados criado.
@@ -120,7 +124,17 @@
 	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT004}
+\newpage
+
+	\item Caso de Teste - SIGP-CT-004
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{não-membro usuário}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é não-membro, mas usuário. Banco de Dados criado.
+	\item Pós-condições: O registro de mais um não-membro usuário no BD e na listagem subsequente.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-005
 	\begin{itemize}
 	\item Descrição: Cadastrar um \textbf{não-membro não-usuário}.
 	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é não-membro não-usuário. Banco de Dados criado.
@@ -128,7 +142,7 @@
 	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT005}
+	\item Caso de Teste - SIGP-CT-006
 	\begin{itemize}
 	\item Descrição: Cadastrar um \textbf{grupo}.
 	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de grupo. Ter o Banco de Dados criado.
@@ -136,7 +150,7 @@
 	\item Dados necessários: Nome, Lista de linhas de pesquisa.
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT006}
+	\item Caso de Teste - SIGP-CT-007
 	\begin{itemize}
 	\item Descrição: Cadastrar um \textbf{subgrupo}.
 	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de subgrupo de um grupo.Ter o Banco de Dados criado.
@@ -144,7 +158,7 @@
 	\item Dados necessários: Nome, Nome do grupo, Lista de linhas de pesquisa.
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT007}
+	\item Caso de Teste - SIGP-CT-008
 	\begin{itemize}
 	\item Descrição: Cadastrar uma \textbf{publicação}.
 	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com formulário para cadastro de publicação.Ter o Banco de Dados criado.
@@ -152,23 +166,9 @@
 	\item Dados necessários: 
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT008}
-	\begin{itemize}
-	\item Descrição: Relacionar uma \textbf{publicação} aos \textbf{projetos} correlatos.
-	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com campos para relacionar publicações a projetos.Ter o Banco de Dados criado.
-	\item Pós-condições: O registro de mais uma publicação no BD e na listagem subsequente.
-	\item Dados necessários: Título, veículo, Data, Grupo, Lista de Autores
-	\end{itemize}
+\newpage
 
-	\section{Caso de Teste - SIGPCT009}
-	\begin{itemize}
-	\item Descrição: Fazeer \emph{upload} de arquivo \emph{.pdf} de uma \textbf{publicação}.
-	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com entrada para caminho do arquivo. Banco de Dados criado.
-	\item Pós-condições: O registro de mais uma disciplina no BD e na listagem subsequente.
-	\item Dados necessários: Nome do grupo. Arquivo \emph{.pdf} da publicação. 
-	\end{itemize}
-
-	\section{Caso de Teste - SIGPCT010}
+	\item Caso de Teste - SIGP-CT-009
 	\begin{itemize}
 	\item Descrição: Cadastrar uma \textbf{linha de pesquisa}.
 	\item Pré-condições: Ter uma \emph{View} com formulário para cadastrar linha de pesquisa. Banco de Dados criado.
@@ -176,13 +176,429 @@
 	\item Dados necessários: Nome. Lista de projetos na linha de pesquisa.
 	\end{itemize}
 
-	\section{Caso de Teste - SIGPCT011}
+	\item Caso de Teste - SIGP-CT-010
 	\begin{itemize}
 	\item Descrição: Cadastrar um \textbf{projeto}.
 	\item Pré-condições: Banco de Dados criado.
 	\item Pós-condições: O registro de mais um projeto no BD e na listagem subsequente.
 	\item Dados necessários: Descrição do projeto, Nome da Agência de Fomento financiadora, lista de grupos participantes, lista de pessoas participantes.
 	\end{itemize}
+
+\newpage
+\section{Testar o acréscimo de informações a ítens já cadastrados no sistema}
+
+	\item Caso de Teste - SIGP-CT-011
+	\begin{itemize}
+	\item Descrição: Relacionar uma \textbf{publicação} aos \textbf{projetos} correlatos.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com campos para relacionar publicações a projetos.Ter o Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma publicação no BD e na listagem subsequente.
+	\item Dados necessários: Título, veículo, Data, Grupo, Lista de Autores
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-012
+	\begin{itemize}
+	\item Descrição: Fazer \emph{upload} de arquivo \emph{.pdf} de uma \textbf{publicação}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com entrada para caminho do arquivo. Banco de Dados criado.
+	\item Pós-condições: Exibir um ícone com um \emph{link} apontando para o arquivo recém enviado, ao lado da publicação em questão, na lista de publicações.
+	\item Dados necessários: Nome do grupo. Arquivo \emph{.pdf} da publicação. 
+	\end{itemize}
+
+\newpage
+\section{Testar a exibição de informações de ítens no sistema}
+
+	\item Caso de Teste - SIGP-CT-013
+	\begin{itemize}
+	\item Descrição: Listar disciplinas oferecidas por um \textbf{grupo}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir uma listagem de disciplinas ministradas por um grupo.
+	\item Pós-condições: Exibir a listagem das disciplinas na \emph{View}.
+	\item Dados necessários: Nome  e/ou ID do grupo.
+	\end{itemize}
     
+	\item Caso de Teste - SIGP-CT-014
+	\begin{itemize}
+	\item Descrição: Listar projetos coordenados por um \textbf{grupo}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir uma listagem de projetos coordenados por um grupo.
+	\item Pós-condições: Exibir a listagem dos projetos na \emph{View}.
+	\item Dados necessários: Nome  e/ou ID do grupo.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-015
+	\begin{itemize}
+	\item Descrição: Listar \textbf{publicações} de um grupo, separadas por tipo.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir uma listagem de publicações de um grupo.
+	\item Pós-condições: Exibir a listagem de publicações separadas por tipo na \emph{View}.
+	\item Dados necessários: Nome e/ou ID do grupo.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-016
+	\begin{itemize}
+	\item Descrição: Listar membros de um \textbf{grupo}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir uma listagem de membros de um grupo.
+	\item Pós-condições: Exibir a listagem de membros de grupo na \emph{View}.
+	\item Dados necessários: Nome  e/ou ID do grupo.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-017
+	\begin{itemize}
+	\item Descrição: Listar \textbf{linhas de pesquisa} de um grupo, organizadas hierarquicamente.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir uma listagem das linhas de pesquisas de um grupo. Banco de Dados criado.
+	\item Pós-condições: Exibir uma listagem das linhas de pesquisas de um grupo, ordenadas hierarquicamente.
+	\item Dados necessários: Nome do grupo. 
+	\end{itemize}
+
+
+\newpage
+\section{Testar a exibição de informações de um item cadastrado no sistema}
+
+	\item Caso de Teste - SIGP-CT-018
+	\begin{itemize}
+	\item Descrição: Exibir principais informações de uma \textbf{linha de pesquisa}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com um \emph{link} para outra \emph{View} em que seja exibida a \textbf{descrição de uma linha de pesquisa}, e listagens das \textbf{publicações}, \textbf{membros} e \textbf{projetos} associados à linha de pesquisa em questão.
+	\item Pós-condições: Exibir na \emph{View}, a \textbf{descrição da linha de pesquisa}, uma lista de \textbf{membros do grupo}, lista de \textbf{publicações da linha de pesquisa} e lista de \textbf{projetos} associados à linha de pesquisa.
+	\item Dados necessários: Nome e/ou ID da linha de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-019
+	\begin{itemize}
+	\item Descrição: Exibir principais informações de um \textbf{projeto}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para exibir principais informações de um projeto.
+	\item Pós-condições: Exibir a \textbf{descrição do projeto}, uma lista de \textbf{membros do projeto} e uma lista de \textbf{publicações do projeto} na \emph{View}.
+	\item Dados necessários: Nome e/ou ID do projeto.
+	\end{itemize}
+
+\newpage
+\section{Testar a capacidade de reorganização da exibição de dados de um item em uma \emph{View}}
+
+	\item Caso de Teste - SIGP-CT-020
+	\begin{itemize}
+	\item Descrição: Ordenar \textbf{publicações} por tipo, ano ou veículo.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} para listar publicações de um grupo.
+	\item Pós-condições: Uma \emph{View} com três controles (botões/links) para ordenar uma llista de \textbf{publicações de um grupo} por tipo, ano ou veículo.
+	\item Dados necessários: Nome e/ou ID de um grupo, projeto ou linha de pesquisa.
+	\end{itemize}
+
+\newpage
+\section{Testar a tentativa de cadastrar ítens já cadastrados no sistema.}
+
+	\item Caso de Teste - SIGP-CT-021
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar uma \textbf{pessoa} já cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos
+	\end{itemize}
+
+
+\item  Caso de Teste - SIGP-CT-022
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{membro-usuário} já cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro-usuário. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-023
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{membro não-usuário} já existente no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro não-usuário. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-024
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{não-membro usuário}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é não-membro, mas usuário. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-025
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{não-membro não-usuário} já cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é não-membro não-usuário. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-026
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{grupo} já cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de grupo. Ter o Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome, Lista de linhas de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-027
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{subgrupo} já cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de subgrupo de um grupo.Ter o Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome, Nome do grupo, Lista de linhas de pesquisa.
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-028
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar uma \textbf{publicação} já cadastrada no sistema.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com formulário para cadastro de publicação.Ter o Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: 
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-029
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar uma \textbf{linha de pesquisa} já cadastrada no sistema.
+	\item Pré-condições: Ter uma \emph{View} com formulário para cadastrar linha de pesquisa. Banco de Dados criado.
+		\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Nome. Lista de projetos na linha de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-030
+	\begin{itemize}
+	\item Descrição: Tentar cadastrar um \textbf{projeto} já cadastrado no sistema.
+	\item Pré-condições: Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro já existe no BD.
+	\item Dados necessários: Descrição do projeto, Nome da Agência de Fomento financiadora, lista de grupos participantes, lista de pessoas participantes.
+	\end{itemize}
+
+\newpage
+\section{Testar a tentativa de consultar um item não-cadastrado no sistema.}
+
+	\item Caso de Teste - SIGP-CT-031
+	\begin{itemize}
+	\item Descrição: Tentar consultar um item não-cadastrado no sistema.
+	\item Pré-condições: Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro não existe no BD.
+	\item Dados necessários: Nome do item.
+	\end{itemize}
+
+\newpage
+\section{Testar a eliminação de um item cadastrado no sistema uma vez.}
+\label{sec:elimumavez}
+
+	\item Caso de Teste - SIGP-CT-032
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez uma pessoa cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma pessoa, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de pessoa a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID da pessoa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-033
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um membro-usuário cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um membro-usuário, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de membro-usuário a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do membro-usuário.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-034
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um membro não-usuário cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um membro não-usuário, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de membro não-usuário a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do membro não-usuário.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-035
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um não-membro usuário cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um não-membro usuário, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de não-membro usuário a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do não-membro usuário.
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-036
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um não-membro não-usuário cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um não-membro não-usuário, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de não-membro não-usuário a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do não-membro não-usuário.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-036
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um não-membro não-usuário cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um não-membro não-usuário, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de não-membro não-usuário a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do não-membro não-usuário.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-037
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um grupo cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um grupo, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de grupo a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do grupo.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-038
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um subgrupo cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um subgrupo, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de subgrupo a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome ou ID do subgrupo.
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-039
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez uma publicação cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma publicação, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de publicação a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Título e ou ID da publicação.
+	\end{itemize}
+
+
+	\item Caso de Teste - SIGP-CT-040
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez uma linha de pesquisa cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma linha de pesquisa, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de linha de pesquisa a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome e ou ID da linha de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-041
+	\begin{itemize}
+	\item Descrição: Eliminar uma vez um projeto cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um projeto, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Um registro de projeto a menos no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Título e ou ID da publicação.
+	\end{itemize}
+
+\newpage
+\section{Testar a eliminação de um item cadastrado no sistema duas vezes.}
+
+Repetir os passos da seção~\ref{sec:elimumavez} para cada item. Exemplo:
+
+	\item Caso de Teste - SIGP-CT-042
+	\begin{itemize}
+	\item Descrição: Tentar eliminar duas vezes uma pessoa cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma pessoa, com um controle (botão) para eliminar este registro. Banco de Dados criado.
+	\item Pós-condições: Exibir uma \emph{View} com uma mensagem de erro, informando que este registro não pode ser elimiado, pois não existe no BD.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos
+	\end{itemize}
+
+\newpage
+\section{Testar a atualização de cada campo de um item cadastrado no sistema.}
+
+	\item Caso de Teste - SIGP-CT-043
+	\begin{itemize}
+	\item Descrição: Tentar atualizar duas vezes cada campo de uma \textbf{pessoa} cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma pessoa, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições: Verificar que a segunda versão está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos
+	\end{itemize}
+
+\newpage
+\section{Testar a modificação de um item cadastrado no sistema.}
+	\item Caso de Teste - SIGP-CT-044
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de uma \textbf{pessoa} cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma pessoa, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições: Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos
+	\end{itemize}
+
+
+	\item  Caso de Teste - SIGP-CT-045
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um \textbf{membro-usuário} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um membro-usuário, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-046
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um  \textbf{membro não-usuário} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um membro não-usuário, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-047
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um  \textbf{não-membro usuário} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um não-membro usuário, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-048
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um  \textbf{não-membro não-usuário} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um não-membro não-usuário, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-049
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um  \textbf{grupo} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um grupo, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, Lista de linhas de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-050
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de um  \textbf{subgrupo} cadastrado no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um subgrupo, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome, Nome do grupo, Lista de linhas de pesquisa.
+	\end{itemize}
+
+\newpage
+
+	\item Caso de Teste - SIGP-CT-051
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de uma \textbf{publicação} cadastrada no sistema.
+\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma publicação, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Título, veículo, data, lista de grupos, lista de pessoas.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-052
+	\begin{itemize}
+	\item Descrição: Tentar modificar o registro de uma \textbf{linha de pesquisa} cadastrada no sistema.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de uma linha de pesquisa, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições:  Verificar que a alteração está armazenada por meio da \emph{View} atualizada. BD atualizado.
+	\item Dados necessários: Nome. Lista de projetos na linha de pesquisa.
+	\end{itemize}
+
+	\item Caso de Teste - SIGP-CT-053
+	\begin{itemize}
+	\item Descrição:  Tentar modificar o registro de uma \textbf{projeto} cadastrada no sistema.
+\item Pré-condições: Ser administrador. Ter uma \emph{View} para exibição do registro de um projeto, com campos editáveis e um botão de salvar alterações. Banco de Dados criado.
+	\item Pós-condições: O registro de mais um projeto no BD e na listagem subsequente.
+	\item Dados necessários: Descrição do projeto, Nome da Agência de Fomento financiadora, lista de grupos participantes, lista de pessoas participantes.
+	\end{itemize}
+
+
+\newpage
+\section{Testar a impressão de uma \emph{View}}
+	\item Caso de Teste - SIGP-CT-054
+	\begin{itemize}
+	\item Descrição: Imprimir uma \emph{View} do sistema.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} do sistema exibida na tela do computador com um ícone ou botão para impressão de uma versão amigável.
+	\item Pós-condições: Impressão de uma versão amigável.
+	\item Dados necessários: Nenhum dado.
+	\end{itemize}
+
+
+
+
+
+\end{itemize}
 
 \end{document}
