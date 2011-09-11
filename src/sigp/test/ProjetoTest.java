@@ -36,7 +36,7 @@ public class ProjetoTest {
 
     @Test
     public void deveriaDevolverDescricao() {
-	assertSame("Deveria devolver a Descricao do projeto", "M√©todos de Otimiza√ß√£o",
+	assertSame("Deveria devolver a Descricao do projeto", "MÈtodos de OtimizaÁ„o",
 		projeto.getDescricao());
     }
     
@@ -75,7 +75,7 @@ public class ProjetoTest {
     public Projeto criarProjeto(){
 	projeto = new Projeto();
 	
-	projeto.setDescricao("MÔøΩtodos de OtimizaÔøΩÔøΩo");
+	projeto.setDescricao("MÈtodos de OtimizaÁ„o");
 	projeto.setFinanciamento("Fapesp");	
 	
 	grupos = new ArrayList<Grupo>(2);	
@@ -96,10 +96,10 @@ public class ProjetoTest {
 	
 	when(grupo1.getNome()).thenReturn("Grupo de Engenharia de Software");
 	when(grupo1.getPesquisas()).thenReturn(linhas1);
-	when(linha11.getNome()).thenReturn("M√©todos √Ågeis");
+	when(linha11.getNome()).thenReturn("MÈtodos ¡geis");
 	when(linha12.getNome()).thenReturn("Software Livre");
 	
-	when(grupo2.getNome()).thenReturn("Grupo de Computa√ß√£o Gr√°fica");
+	when(grupo2.getNome()).thenReturn("Grupo de ComputaÁ„o Gr·fica");
 	when(grupo2.getPesquisas()).thenReturn(linhas2);
 	when(linha21.getNome()).thenReturn("High Quality Image Rendering");
 	when(linha22.getNome()).thenReturn("Applied Discrete Geometry");	

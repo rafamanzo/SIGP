@@ -8,19 +8,13 @@
 <body>
 	<table>
 		<tr>
+			<th>Sigla</th>
 			<th>Nome</th>
-			<th>Responsável</th>
-			<th colspan="2">&nbsp;</th>
 		</tr>
-		<c:forEach items="${grupos}" var="grupo">
+		<c:forEach items="${disciplinas}" var="disciplina">
 			<tr>
-				<td><a href="/SIGP/grupo/ver/${grupo.idGrupo}">${grupo.nome}</a></td>
-				<td><c:choose>
-						<c:when test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:when>
-						<c:otherwise> - </c:otherwise>
-					</c:choose></td>
-				<td><a href="/SIGP/grupo/alterar/${grupo.idGrupo}">Alterar</a></td>
-				<td><a href="/SIGP/grupo/apagar/${grupo.idGrupo}">Apagar</a></td>
+				<td><a href="/SIGP/disciplina/ver/${disciplina.idDisciplina}">${disciplina.sigla}</a></td>
+				<td>${disciplina.nome}</td>
 			</tr>
 		</c:forEach>
 	</table>
