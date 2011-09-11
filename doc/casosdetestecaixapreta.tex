@@ -1,0 +1,188 @@
+\documentclass[11pt, a4paper]{book}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}         
+
+
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}                  
+\usepackage[small,compact]{titlesec} 		
+
+\usepackage[square,sort,nonamebreak]{natbib}
+\usepackage[Lenny]{fncychap}					
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+\fancyhead[RO,RE]{\today}
+\fancyhead[LO,LE]{MAC0332 - SI para grupos de pesquisa\\
+	Casos de Teste Caixa Preta para Análise Funcional}
+\fancyfoot[LO,LE]{Confidencial}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+
+% numeração para subsubsection
+%errado: \renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection.}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+
+\begin{document}
+
+% Capa
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{0.2cm}
+    \textbf{\Large{Sistema de Informação para Grupos de Pesquisa}}\\
+	
+    \vspace*{1.2cm}
+    \Large{Analista de Qualidade: Jorge J. G. Leandro}\\
+    \Large{Grupo 3}
+    
+    \vskip 2cm
+	\textsc{
+	MAC0332 - 2011\\[-0.25cm] 
+          	Engenharia de Software\\[-0.25cm] 	
+	IME - USP\\[-0.25cm]
+	}
+    
+    \vskip 1.5cm
+    Casos de Teste Caixa Preta\\
+    Prof: Marco Gerosa\\
+
+	
+    \vskip 0.5cm
+ %   \normalsize{São Paulo, Julho de 2008}
+   {\normalsize São Paulo, \today}
+\end{center}
+
+
+\chapter[Apresentação]{Apresentação}
+\label{cap:apresentacao}	
+	
+	 	O presente documento descreve o cumprimento da tarefa \emph{Criar casos de teste}, mediante uma coleção de Casos de Teste Caixa Preta da Análise Funcional para o SIGP, de acordo com [Schach, 2007] e os gabaritos do \emph{Processo Unificado Aberto - OpenUP}.
+
+\chapter[Casos de Teste]{Casos de Teste Caixa Preta - Análise Funcional}
+\label{cap:casosdeteste}
+
+	\section{Caso de Teste - SIGPCT001 }
+	\begin{itemize}
+	\item Descrição: Cadastrar uma \textbf{pessoa}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa. Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma pessoa no BD e apresentação na listagem subsequente.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT002 }
+	\begin{itemize}
+	\item Descrição: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro-usuário. Cadastrar um \textbf{membro-usuário}.
+	\item Pré-condições: Banco de Dados criado.
+	\item Pós-condições: O registro de mais um membro usuário no BD e na listagem subsequente.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT003}
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{membro não-usuário}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é membro não-usuário. Banco de Dados criado.
+	\item Pós-condições: O registro de mais um membro usuário no BD e na listagem subsequente.
+	\item Dados necessários: Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT004}
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{não-membro não-usuário}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de pessoa com entradas para especificar pessoa que é não-membro não-usuário. Banco de Dados criado.
+	\item Pós-condições: O registro de mais um membro usuário no BD e na listagem subsequente.
+	\item Dados necessários:  Nome, CPF, Publicações, Grupos, Login, Senha, Avatar, Tipo
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT005}
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{grupo}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de grupo. Ter o Banco de Dados criado.
+	\item Pós-condições: O registro de mais um grupo no BD e na listagem subsequente.
+	\item Dados necessários: Nome, Lista de linhas de pesquisa.
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT006}
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{subgrupo}.
+	\item Pré-condições: Ser administrador. Ter uma \emph{View} com formulário para cadastro de subgrupo de um grupo.Ter o Banco de Dados criado.
+	\item Pós-condições: O registro de mais um subgrupo no BD e na listagem subsequente.
+	\item Dados necessários: Nome, Nome do grupo, Lista de linhas de pesquisa.
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT007}
+	\begin{itemize}
+	\item Descrição: Cadastrar uma \textbf{publicação}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com formulário para cadastro de publicação.Ter o Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma publicação no BD e na listagem subsequente.
+	\item Dados necessários: 
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT008}
+	\begin{itemize}
+	\item Descrição: Relacionar uma \textbf{publicação} aos \textbf{projetos} correlatos.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com campos para relacionar publicações a projetos.Ter o Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma publicação no BD e na listagem subsequente.
+	\item Dados necessários: Título, veículo, Data, Grupo, Lista de Autores
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT009}
+	\begin{itemize}
+	\item Descrição: Fazeer \emph{upload} de arquivo \emph{.pdf} de uma \textbf{publicação}.
+	\item Pré-condições: Ser membro-usuário. Ter uma \emph{View} com entrada para caminho do arquivo. Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma disciplina no BD e na listagem subsequente.
+	\item Dados necessários: Nome do grupo. Arquivo \emph{.pdf} da publicação. 
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT010}
+	\begin{itemize}
+	\item Descrição: Cadastrar uma \textbf{linha de pesquisa}.
+	\item Pré-condições: Ter uma \emph{View} com formulário para cadastrar linha de pesquisa. Banco de Dados criado.
+	\item Pós-condições: O registro de mais uma linha de pesquisa no BD e na listagem subsequente.
+	\item Dados necessários: Nome. Lista de projetos na linha de pesquisa.
+	\end{itemize}
+
+	\section{Caso de Teste - SIGPCT011}
+	\begin{itemize}
+	\item Descrição: Cadastrar um \textbf{projeto}.
+	\item Pré-condições: Banco de Dados criado.
+	\item Pós-condições: O registro de mais um projeto no BD e na listagem subsequente.
+	\item Dados necessários: Descrição do projeto, Nome da Agência de Fomento financiadora, lista de grupos participantes, lista de pessoas participantes.
+	\end{itemize}
+    
+
+\end{document}
