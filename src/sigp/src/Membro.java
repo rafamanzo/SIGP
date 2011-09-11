@@ -98,6 +98,10 @@ public class Membro {
 	public void copy(Membro m) {
 		this.setAvatar(m.getAvatar());
 		this.setGrupos(m.getGrupos());
+		this.setNusp(m.getNusp());
+		this.setLogin(m.getLogin());
+		this.setSenha(m.getSenha());
+		this.setTipo(m.getTipo());
 	}
 		
 }

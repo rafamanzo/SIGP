@@ -72,4 +72,10 @@ public class Projeto {
 		this.financiamento = financiamento;
 	}
 	
+	public void copy(Projeto p) {
+		this.setMembros(p.getMembros());
+		this.setGrupos(p.getGrupos());
+		this.setDescricao(p.getDescricao());
+		this.setFinanciamento(p.getFinanciamento());
+	}
 }
