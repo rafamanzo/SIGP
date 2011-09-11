@@ -1,6 +1,7 @@
 package sigp.src.controllers;
 
 import sigp.src.Membro;
+import sigp.src.Projeto;
 import sigp.src.dao.MembroDao;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
@@ -48,6 +49,12 @@ public class MembroController {
 	public void infoMembro(Long id) {
 		Membro membro = membroDao.getMembro(id);
 		result.include("membro", membro);
+	}
+	
+	@Path("/membros/editMembro")
+	public void editMembro(Long id) {
+		Membro membro = membroDao.getMembro(id);
+		result.include("membro", membro);
 		result.include("editSaveTitle", editSaveTitle);
 		result.include("editDelTitle", editDelTitle);
 	}
@@ -59,12 +66,12 @@ public class MembroController {
 			result.redirectTo(MembroController.class).msg(errormsg);
 		} else if (oQueFazer.equals(editSaveTitle)) {
 			membroDao.update(membro);
-			result.redirectTo(MembroController.class).main();
+			result.redirectTo(MembroController.class).infoMembro(membro.getIdMembro());
 		} else if (oQueFazer.equals(editDelTitle)) {
 			membroDao.delete(membro);
 			result.redirectTo(MembroController.class).main();
 		} else {
-			result.redirectTo(MembroController.class).main();
+			result.redirectTo(MembroController.class).infoMembro(membro.getIdMembro());
 		}
 	}
 

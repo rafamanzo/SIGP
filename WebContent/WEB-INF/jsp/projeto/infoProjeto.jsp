@@ -7,6 +7,9 @@
 <title>SIGP - Projeto</title>
 </head>
 <body>
+	<h1>Projetos - Informacoes do Projeto</h1>
+
+	<br />
 	<p>
 		<b>Nome:</b> ${projeto.nome}
 	</p>
