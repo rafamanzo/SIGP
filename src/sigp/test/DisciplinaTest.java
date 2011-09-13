@@ -41,7 +41,7 @@ public class DisciplinaTest {
     public void deveriaDevolverEmenta() {
 	assertSame(
 		"Deveria devolver a Ementa inserida",
-		"Gerenciamento de projeto. Análise e especificação de requisitos.",
+		"Gerenciamento de projeto. Anï¿½lise e especificaï¿½ï¿½o de requisitos.",
 		disciplina.getEmenta());
     }
 
@@ -50,13 +50,13 @@ public class DisciplinaTest {
 	assertSame("Deveria devolver o primeiro grupo", "Grupo de Engenharia de Software",
 		disciplina.getGrupos().get(0).getNome());
 	assertSame("Deveria devolver o segundo grupo",
-		"Grupo de Computação Gráfica", disciplina.getGrupos().get(1)
+		"Grupo de ComputaÃ§Ã£o GrÃ¡fica", disciplina.getGrupos().get(1)
 			.getNome());	
     }
     
     @Test
     public void deveriaDevolverLinhaPesquisaDeGrupos() {
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "Métodos Ágeis",
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "MÃ©todos Ãgeis",
 		disciplina.getGrupos().get(0).getPesquisas().get(0).getNome());
 	assertSame("Deveria devolver a segunda Linha de Pesquisa do Grupto 1",
 		"Software Livre", disciplina.getGrupos().get(0).getPesquisas().get(1).getNome());
@@ -74,7 +74,7 @@ public class DisciplinaTest {
 	disciplina = new Disciplina();
 	disciplina.setSigla("MAC0332");
 	disciplina.setNome("Engenharia de Software");
-	disciplina.setEmenta("Gerenciamento de projeto. Análise e especificação de requisitos.");
+	disciplina.setEmenta("Gerenciamento de projeto. AnÃ¡lise e especificaÃ§Ã£o de requisitos.");
 	
 	grupos = new ArrayList<Grupo>(2);	
 	Grupo grupo1 = mock(Grupo.class);
@@ -94,10 +94,10 @@ public class DisciplinaTest {
 
 	when(grupo1.getNome()).thenReturn("Grupo de Engenharia de Software");
 	when(grupo1.getPesquisas()).thenReturn(linhas1);
-	when(linha11.getNome()).thenReturn("Métodos Ágeis");
+	when(linha11.getNome()).thenReturn("MÃ©todos Ãgeis");
 	when(linha12.getNome()).thenReturn("Software Livre");
 	
-	when(grupo2.getNome()).thenReturn("Grupo de Computação Gráfica");
+	when(grupo2.getNome()).thenReturn("Grupo de ComputaÃ§Ã£o GrÃ¡fica");
 	when(grupo2.getPesquisas()).thenReturn(linhas2);
 	when(linha21.getNome()).thenReturn("High Quality Image Rendering");
 	when(linha22.getNome()).thenReturn("Applied Discrete Geometry");		

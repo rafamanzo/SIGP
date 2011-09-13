@@ -10,7 +10,7 @@
 		<b>Grupo:</b> ${grupo.nome}
 	</p>
 	<p>
-		<b>Respons·vel:</b>
+		<b>Respons√°vel:</b>
 		<c:choose>
 			<c:when test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:when>
 			<c:otherwise> - </c:otherwise>

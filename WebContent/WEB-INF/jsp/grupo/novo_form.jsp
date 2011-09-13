@@ -14,7 +14,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Respons·vel:</td>
+				<td>Respons√°vel:</td>
 				<td><select name="responsavel">
 						<option value="0">Nenhum</option>
 						<c:forEach items="${grupos}" var="grupo">

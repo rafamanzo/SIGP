@@ -32,10 +32,10 @@ public class LinhaPesquisaTest {
     @Test
     public void deveriaDevolverProjetosDaLinhaDePesquisa() {
 	assertSame("Deveria devolver o nome do primeiro projeto da linha de pesquisa",
-		"Métodos de Otimização", linhapesquisa.getProjetos().get(0).getDescricao());	
+		"MÃ©todos de OtimizaÃ§Ã£o", linhapesquisa.getProjetos().get(0).getDescricao());	
 	
 	assertSame("Deveria devolver o nome do segundo projeto da linha de pesquisa",
-		"Uso eficaz de Métricas", linhapesquisa.getProjetos().get(1).getDescricao());	
+		"Uso eficaz de MÃ©tricas", linhapesquisa.getProjetos().get(1).getDescricao());	
 	
 	assertArrayEquals(projetos.toArray(), linhapesquisa.getProjetos().toArray());
     }
@@ -45,8 +45,8 @@ public class LinhaPesquisaTest {
 	Projeto projeto1 = mock(Projeto.class);
 	Projeto projeto2 = mock(Projeto.class);	
 	
-	when(projeto1.getDescricao()).thenReturn("Métodos de Otimização");
-	when(projeto2.getDescricao()).thenReturn("Uso eficaz de Métricas");	
+	when(projeto1.getDescricao()).thenReturn("MÃ©todos de OtimizaÃ§Ã£o");
+	when(projeto2.getDescricao()).thenReturn("Uso eficaz de MÃ©tricas");	
 
 	projetos = new ArrayList<Projeto>(2);	
 	projetos.add(projeto1);

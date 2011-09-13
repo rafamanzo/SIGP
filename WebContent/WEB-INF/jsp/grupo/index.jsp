@@ -9,7 +9,7 @@
 	<table>
 		<tr>
 			<th>Nome</th>
-			<th>Respons·vel</th>
+			<th>Respons√°vel</th>
 			<th colspan="2">&nbsp;</th>
 		</tr>
 		<c:forEach items="${grupos}" var="grupo">
