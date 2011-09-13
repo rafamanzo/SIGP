@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class CriaTabela {
-	public static void main(String[] args) {
+	public static void init() {
 		Configuration configuration = new Configuration();
 		configuration.addAnnotatedClass(Disciplina.class);
 		configuration.addAnnotatedClass(Grupo.class);
