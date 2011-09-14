@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class GrupoDao {
-	private Session session;
+	private final Session session;
 
 	public GrupoDao(Session session) {
 		this.session = session;
@@ -21,7 +21,7 @@ public class GrupoDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Grupo> getList() {
+	public List<Grupo> list() {
 		return this.session.createCriteria(Grupo.class).list();
 	}
 	
@@ -31,15 +31,15 @@ public class GrupoDao {
 		tx.commit();
 	}
 
-	public void delete(Grupo grupo) {
-		Transaction tx = session.beginTransaction();
-		session.delete(grupo);
-		tx.commit();
-	}
-
 	public void update(Grupo grupo) {
 		Transaction tx = session.beginTransaction();
 		session.update(grupo);
+		tx.commit();
+	}
+	
+	public void delete(Grupo grupo) {
+		Transaction tx = session.beginTransaction();
+		session.delete(grupo);
 		tx.commit();
 	}
 }

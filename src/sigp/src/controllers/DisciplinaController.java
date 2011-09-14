@@ -18,12 +18,12 @@ public class DisciplinaController {
 
 	@Path("/disciplina/")
 	public void index() {
-		result.include("disciplinas", dao.getList());
+		result.include("disciplinas", dao.list());
 	}
 
 	@Path("/disciplina/novo")
 	public void novo_form() {
-		result.include("disciplinas", dao.getList());
+		result.include("disciplinas", dao.list());
 	}
 
 	@Path("/disciplina/cria")
