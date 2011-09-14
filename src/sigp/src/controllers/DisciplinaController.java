@@ -35,7 +35,6 @@ public class DisciplinaController {
 	@Path("/disciplina/ver/{id}")
 	public void visualiza(Long id) {
 		Disciplina disciplina = dao.getDisciplina(id);
-		System.out.println(disciplina);
 		if (disciplina == null)
 			result.redirectTo(DisciplinaController.class).index();
 		else
