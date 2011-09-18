@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class DisciplinaDao {
-	private Session session;
+	private final Session session;
 
 	public DisciplinaDao(Session session) {
 		this.session = session;
@@ -21,7 +21,7 @@ public class DisciplinaDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Disciplina> getList() {
+	public List<Disciplina> list() {
 		return this.session.createCriteria(Disciplina.class).list();
 	}
 	
@@ -31,15 +31,15 @@ public class DisciplinaDao {
 		tx.commit();
 	}
 
-	public void delete(Disciplina disciplina) {
-		Transaction tx = session.beginTransaction();
-		session.delete(disciplina);
-		tx.commit();
-	}
-
 	public void update(Disciplina disciplina) {
 		Transaction tx = session.beginTransaction();
 		session.update(disciplina);
+		tx.commit();
+	}
+
+	public void delete(Disciplina disciplina) {
+		Transaction tx = session.beginTransaction();
+		session.delete(disciplina);
 		tx.commit();
 	}
 }

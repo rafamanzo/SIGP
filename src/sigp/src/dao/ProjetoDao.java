@@ -16,24 +16,22 @@ public class ProjetoDao {
 		this.session = session;
 	}
 
+	public Projeto getProjeto(Long id) {
+		return (Projeto) this.session.load(Projeto.class, id);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Projeto> list() {
+		return this.session.createCriteria(Projeto.class).list();
+	}
+
 	public void save(Projeto p) {
 		Transaction t = this.session.beginTransaction();
 		this.session.save(p);
 		t.commit();
 	}
 
-	public Projeto getProjeto(Long id) {
-		return (Projeto) this.session.load(Projeto.class, id);
-	}
-
-	public List<Projeto> list() {
-		return this.session.createCriteria(Projeto.class).list();
-	}
-
-	public void update(Projeto proj) {
-		Projeto p = getProjeto(proj.getIdProjeto());
-		p.copy(proj);
-
+	public void update(Projeto p) {
 		Transaction t = this.session.beginTransaction();
 		this.session.update(p);
 		t.commit();

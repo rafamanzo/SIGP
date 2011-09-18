@@ -18,12 +18,12 @@ public class DisciplinaController {
 
 	@Path("/disciplina/")
 	public void index() {
-		result.include("disciplinas", dao.getList());
+		result.include("disciplinas", dao.list());
 	}
 
 	@Path("/disciplina/novo")
 	public void novo_form() {
-		result.include("disciplinas", dao.getList());
+		result.include("disciplinas", dao.list());
 	}
 
 	@Path("/disciplina/cria")
@@ -35,7 +35,6 @@ public class DisciplinaController {
 	@Path("/disciplina/ver/{id}")
 	public void visualiza(Long id) {
 		Disciplina disciplina = dao.getDisciplina(id);
-		System.out.println(disciplina);
 		if (disciplina == null)
 			result.redirectTo(DisciplinaController.class).index();
 		else

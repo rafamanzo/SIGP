@@ -18,12 +18,12 @@ public class GrupoController {
 
 	@Path("/grupo/")
 	public void index() {
-		result.include("grupos", dao.getList());
+		result.include("grupos", dao.list());
 	}
 
 	@Path("/grupo/novo")
 	public void novo_form() {
-		result.include("grupos", dao.getList());
+		result.include("grupos", dao.list());
 	}
 
 	@Path("/grupo/cria")
@@ -50,7 +50,7 @@ public class GrupoController {
 			result.redirectTo(GrupoController.class).index();
 		else
 			result.include("grupo", grupo);
-		result.include("grupos", dao.getList());
+		result.include("grupos", dao.list());
 	}
 
 	@Path("/grupo/altera")

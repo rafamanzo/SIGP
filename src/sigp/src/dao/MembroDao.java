@@ -15,25 +15,23 @@ public class MembroDao {
 	public MembroDao(Session session) {
 		this.session = session;
 	}
+	
+	public Membro getMembro(Long id) {
+		return (Membro) this.session.load(Membro.class, id);
+	}
 
+	@SuppressWarnings("unchecked")
+	public List<Membro> list() {
+		return this.session.createCriteria(Membro.class).list();
+	}
+	
 	public void save(Membro m) {
 		Transaction t = this.session.beginTransaction();
 		this.session.save(m);
 		t.commit();
 	}
 
-	public Membro getMembro(Long id) {
-		return (Membro) this.session.load(Membro.class, id);
-	}
-
-	public List<Membro> list() {
-		return this.session.createCriteria(Membro.class).list();
-	}
-
-	public void update(Membro mem) {
-		Membro m = getMembro(mem.getIdMembro());
-		m.copy(mem);
-
+	public void update(Membro m) {
 		Transaction t = this.session.beginTransaction();
 		this.session.update(m);
 		t.commit();

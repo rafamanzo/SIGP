@@ -19,6 +19,7 @@ package sigp.src.controllers;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import sigp.src.CriaTabela;
 
 @Resource
 public class IndexController {
@@ -34,4 +35,9 @@ public class IndexController {
 		result.include("variable", "VRaptor!");
 	}
 
+	@Path("/init")
+	public void init() {
+		CriaTabela.init();
+		result.redirectTo(IndexController.class).index();
+	}
 }
