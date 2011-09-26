@@ -27,7 +27,6 @@ public class Publicacao {
 	private Long idPublicacao;
 	private String titulo;
 	private Veiculo veiculo;
-	private String autor;
 	private Date data;
 	private List<Grupo> grupos = new ArrayList<Grupo>();
 
@@ -36,7 +35,6 @@ public class Publicacao {
 	}
 	
 	public Publicacao(String titulo, Veiculo veiculo, String autor, Date data, List<Grupo> grupos) {
-		this.autor = autor;
 		this.data = data;
 		this.grupos = grupos;
 		this.titulo = titulo;
@@ -83,14 +81,7 @@ public class Publicacao {
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
 	}
-	
-	@Column(name = "PUBLICACAO_AUTOR", nullable = false, length = 255)
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
+
 	
 	@Temporal (TemporalType.DATE)
 	@Column(name = "PUBLICACAO_DATA", nullable = false)

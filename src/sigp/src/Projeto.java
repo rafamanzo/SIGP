@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.caelum.vraptor.Resource;
@@ -20,24 +20,51 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "PROJETO")
 public class Projeto {
+	private Long idProjeto;
 	private String nome;
 	private String descricao;
-	private Long idProjeto;
 	private String financiamento;
-	private Grupo coordenador;
-	private List<Membro> membros = new ArrayList<Membro>();
+	private List<Filiacao> filiados = new ArrayList<Filiacao>();
+	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
+	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
+	
+	@OneToMany
+	@JoinTable(name = "PROJETO_LINHAP",
+				joinColumns = @JoinColumn(name = "PROJETO_ID"),
+				inverseJoinColumns = @JoinColumn(name = "LINHAP_ID"))
+	public List<LinhaPesquisa> getLinhasDePesquisa() {
+		return linhasDePesquisa;
+	}
+	public void setLinhasDePesquisa(List<LinhaPesquisa> linhasDePesquisa) {
+		this.linhasDePesquisa = linhasDePesquisa;
+	}
+	
 	
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable( name = "PROJETO_MEMBRO",
+	@JoinTable( name = "PROJETO_PUBLICACAO",
 	joinColumns = @JoinColumn( name = "PROJETO_ID"), 
-	inverseJoinColumns = @JoinColumn (name = "MEMBRO_ID"))
-	public List<Membro> getMembros() {
-		return membros;
+	inverseJoinColumns = @JoinColumn (name = "PUBLICACAO_ID"))
+	public List<Publicacao> getPublicacoes() {
+		return publicacoes;
 	}
-	public void setMembros(List<Membro> membros) {
-		this.membros = membros;
+
+	public void setPublicacoes(List<Publicacao> publicacoes) {
+		this.publicacoes = publicacoes;
 	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable( name = "PROJETO_FILIACAO",
+	joinColumns = @JoinColumn( name = "PROJETO_ID"), 
+	inverseJoinColumns = @JoinColumn (name = "FILIACAO_ID"))
+	public List<Filiacao> getFiliados() {
+		return filiados;
+	}
+	public void setFiliados(List<Filiacao> filiados) {
+		this.filiados = filiados;
+	}
+	
+	
 	
 	
 	@Column(name = "PROJETO_NOME", nullable = false)
@@ -71,22 +98,14 @@ public class Projeto {
 	public void setFinanciamento(String financiamento) {
 		this.financiamento = financiamento;
 	}
-	
-	@ManyToOne
-	@JoinColumn(name = "COORDENADOR_ID")
-	public Grupo getCoordenador() {
-		return coordenador;
-	}
-	public void setCoordenador(Grupo coordenador) {
-		this.coordenador = coordenador;
-	}
+
 	
 	
 	public void copy(Projeto p) {
-		this.setMembros(p.getMembros());
-		this.setCoordenador(p.getCoordenador());
+		this.setFiliados(p.getFiliados());
 		this.setNome(p.getNome());
 		this.setDescricao(p.getDescricao());
 		this.setFinanciamento(p.getFinanciamento());
 	}
+
 }
