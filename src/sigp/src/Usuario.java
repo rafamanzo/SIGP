@@ -2,7 +2,17 @@ package sigp.src;
 
 
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
 
@@ -13,35 +23,57 @@ import br.com.caelum.vraptor.Resource;
 @Table(name = "USUARIO")
 public class Usuario {
 	private Long idUsuario;
-	private String cpf;
-	private String tipo;
+	private byte[] avatar;
+	private TipoUsuario tipoUsuario;
 	private String senha;
 	private String login;
+	private Contribuinte contribuinte;
 	
-	public Long getIdPessoa() {
+	@OneToOne
+	@JoinColumn(name = "ID_CONTRIBUINTE")
+	public Contribuinte getContribuinte() {
+		return contribuinte;
+	}
+	public void setContribuinte(Contribuinte contribuinte) {
+		this.contribuinte = contribuinte;
+	}
+	
+	@Id @GeneratedValue @Column(name = "USUARIO_ID")
+	public Long getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdPessoa(Long idPessoa) {
-		this.idUsuario = idPessoa;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-	public String getCpf() {
-		return cpf;
+	
+	@Lob
+	@Basic(optional = true, fetch = FetchType.EAGER )
+	@Column(name = "USUARIO_AVATAR", nullable = true)
+	public byte[] getAvatar() {
+		return avatar;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setAvatar(byte[] avatar) {
+		this.avatar = avatar;
 	}
-	public String getTipo() {
-		return tipo;
+
+	@Enumerated (EnumType.STRING)
+	@Column(name = "USUARIO_TIPO", nullable = false, length = 50)
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
+	
+	@Column(name = "USUARIO_SENHA", nullable = false, length = 50)
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	@Column(name = "USUARIO_LOGIN", nullable = false, length = 50)
 	public String getLogin() {
 		return login;
 	}

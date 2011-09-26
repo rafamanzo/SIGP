@@ -11,7 +11,7 @@ public class CriaTabela {
 		Configuration configuration = new Configuration();
 		configuration.addAnnotatedClass(Disciplina.class);
 		configuration.addAnnotatedClass(Grupo.class);
-		configuration.addAnnotatedClass(Membro.class);
+		configuration.addAnnotatedClass(Filiacao.class);
 		configuration.addAnnotatedClass(Publicacao.class);
 		configuration.addAnnotatedClass(Projeto.class);
 		configuration.addAnnotatedClass(Veiculo.class);

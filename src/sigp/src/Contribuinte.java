@@ -11,29 +11,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-//import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+
+
 
 import br.com.caelum.vraptor.Resource;
 
 @Entity
 @Resource
-@Table(name = "PESSOA")
-public class Pessoa {
-	private Long idPessoa;
-	private String nusp;
+@Table(name = "CONTRIBUINTE")
+public class Contribuinte {
+	private Long idContribuinte;
 	private String nome;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
-
-	public Pessoa(String nusp, String nome) {
-		this.nusp = nusp;
-		this.nome = nome;
+	private Usuario usuario;
+	
+	@OneToOne(mappedBy = "usuario")
+	@Cascade(org.hibernate.annotations.CascadeType.ALL)
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
+	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable( name = "PESSOA_PUBLICACAO",
-	joinColumns = @JoinColumn( name = "PESSOA_ID"), 
-	inverseJoinColumns = @JoinColumn (name = "PUBLICACAO_ID"))
+	@JoinTable(name = "CONTRIBUINTE_PUBLICACAO", 
+				joinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "PUBLICACAO_ID") })
 	public List<Publicacao> getPublicacoes() {
 		return publicacoes;
 	}
@@ -41,29 +50,22 @@ public class Pessoa {
 		this.publicacoes = publicacoes;
 	}
 	
-	@Id @GeneratedValue @Column(name = "PESSOA_ID")
-	public Long getIdPessoa() {
-		return idPessoa;
+	@Id @GeneratedValue @Column(name = "CONTRIBUINTE_ID")
+	public Long getIdContribuinte() {
+		return idContribuinte;
 	}
-	public void setIdPessoa(Long idPessoa) {
-		this.idPessoa = idPessoa;
-	}
-	
-	@Column(name = "PESSOA_NUSP", nullable = false, length = 50)
-	public String getNusp() {
-		return nusp;
-	}
-	public void setNusp(String nusp) {
-		this.nusp = nusp;
+	public void setIdContribuinte(Long idContribuinte) {
+		this.idContribuinte = idContribuinte;
 	}
 	
-	@Column(name = "PESSOA_NOME", nullable = false, length = 255)
+	@Column(name = "CONTRIBUINTE_NOME", nullable = false, length = 255)
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	
 
 }
