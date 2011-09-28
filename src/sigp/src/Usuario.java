@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+import javax.persistence.UniqueConstraint;
 
 import javax.persistence.Table;
 
@@ -22,7 +23,9 @@ import br.com.caelum.vraptor.Resource;
 
 @Entity
 @Resource
-@Table(name = "USUARIO")
+@Table(name = "USUARIO", 
+	uniqueConstraints = 
+		{@UniqueConstraint(columnNames = {"USUARIO_LOGIN"})})
 public class Usuario {
 	private Long idUsuario;
 	private byte[] avatar;
