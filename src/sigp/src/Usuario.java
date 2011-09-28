@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
 
+import sigp.src.hash.PasswordCodificator;
+
 import br.com.caelum.vraptor.Resource;
 
 @Entity
@@ -65,12 +67,13 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 	
-	@Column(name = "USUARIO_SENHA", nullable = false, length = 50)
+	@Column(name = "USUARIO_SENHA", nullable = false, length = 255)
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
-		this.senha = senha;
+		PasswordCodificator p = new PasswordCodificator(senha);
+		this.senha = p.codificado();
 	}
 	
 	@Column(name = "USUARIO_LOGIN", nullable = false, length = 50)
