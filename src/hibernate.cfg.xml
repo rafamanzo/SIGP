@@ -15,7 +15,8 @@
 		<mapping class="sigp.src.LinhaPesquisa" />
 		<mapping class="sigp.src.Disciplina" />
 		<mapping class="sigp.src.Projeto" />
-		<mapping class="sigp.src.Pessoa" />
-		<mapping class="sigp.src.Membro" />
+		<mapping class="sigp.src.Contribuinte" />
+		<mapping class="sigp.src.Filiacao" />
+		<mapping class="sigp.src.Usuario" />
 	</session-factory>
 </hibernate-configuration>
