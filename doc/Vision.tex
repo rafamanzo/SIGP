@@ -1,0 +1,111 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+\fancyhead[RO,RE]{\today}
+\fancyhead[LO,LE]{MAC0332 - SI para grupos de pesquisa\\
+	Vision}
+\fancyfoot[LO,LE]{Confidential}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+\title{MAC 0332\\
+	Engenharia de Software\\
+	SI para grupos de pesquisa\\
+	Vision}
+\date{\today}
+
+\begin{document}
+
+	\maketitle
+	\newpage
+    \section{Introdução}
+        Este documento lista o porque do projeto existir e seus requerimentos.
+    
+    \section{Posicionamento}
+        Rapido review do projeto.
+        
+        \subsection{Declaração de problema}
+            %[Provide a statement summarizing the problem being solved by 
+            %this project. The following format may be used:]
+            \begin{tabular}{| l | c |}
+                \hline                       
+                O problema de & Listar projetos de grupos de pesquisa \\ \hline
+                Afeta & Quem publica algo num certo grupo de pesquisa \\ \hline
+                O impacto é & Categorixar e disponibilizar pesquisas \\ \hline
+                O sucesso traria & Um lugar para divulgar pesquisas \\
+                \hline  
+            \end{tabular}
+        
+        \subsection{Declaração de Posição do Produto}
+            %[Provide an overall statement summarizing, at the highest level, 
+            %the unique position the product intends to fill in the marketplace. 
+            %The following format may be used:]
+            \begin{tabular}{| l | c |}
+                \hline                       
+                Para & Academicos \\ \hline
+                O SIGP e uma & Web site \\ \hline
+                Este & Traria facilidade para divulgar pesquisas. \\
+                \hline
+            \end{tabular}
+    \section{Descrição dos Envolvidos}
+        %[Detail the working environment of the target user. Here are some suggestions:
+        %Number of people involved in completing the task? Is this changing?
+        %How long is a task cycle? Amount of time spent in each activity? Is this changing?
+        %Any unique environmental constraints: mobile, outdoors, in-flight, and so on?
+        %Which system platforms are in use today? Future platforms?
+        %What other applications are in use? Does your application need to integrate with them?
+        %This is where extracts from the Business Model could be included to outline the task and roles involved, and so on.]
+        Somos em nove pessoas nesse projeto, mesmo assim fica um pouco dificil de conclui-lo por conta de outras tarefas (provas) da faculdade. Cada interação dura 3 semanas, começando em em uma segunda, durante esse tempo cada membro tem deveres defindos, porém todos programam.
+        \indent Usamos para o projeto a linguagem Java, que é por definição multi-plataforma, alem deste usamos Vraptor e hibernate que já vem incluidos nos bibliotecas.
+    
+    \section{Visão Geral do Produto}
+        \subsection{Necessidades e recursos}
+            \begin{tabular}{| l | c | p{5cm} | c |}
+                \hline
+                Precisa & Prioridade & Recursos & Lançamento planejado \\ \hline
+                Parte Publica & Alta & Listar disciplina, projetos, publicações, linhas de pesquisa, membros do grupo & ???\\ \hline
+                Adminstrador & Alta & cadastra um grupo, que 
+                pode ser subgrupo de um grupo maior & ???\\ \hline
+                Membro & Alta & Cadastra publicação e faz 
+                upload de PDF's & ???\\ \hline
+                Projeto & Alta & Descrição e membros com suas 
+                publicações & ???\\ \hline
+                Linha de Pesquisa & Alta & Descrição, publicações, 
+                membros e projetos associados & ???\\ \hline
+                Projeto & Alta & Descrição e membros com suas 
+                publicações & ???\\ \hline
+                \hline
+            \end{tabular}
+                
+            
+
+
+    
+\end{document}
