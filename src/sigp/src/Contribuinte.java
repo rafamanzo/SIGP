@@ -29,7 +29,7 @@ public class Contribuinte {
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private Usuario usuario;
 	
-	@OneToOne(mappedBy = "usuario")
+	@OneToOne(cascade = CascadeType.ALL)
 	@Cascade(org.hibernate.annotations.CascadeType.ALL)
 	public Usuario getUsuario() {
 		return usuario;
