@@ -2,6 +2,8 @@ package sigp.src;
 
 
 
+import java.io.File;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +30,7 @@ import br.com.caelum.vraptor.Resource;
 		{@UniqueConstraint(columnNames = {"USUARIO_LOGIN"})})
 public class Usuario {
 	private Long idUsuario;
-	private byte[] avatar;
+	private File avatar;
 	private TipoUsuario tipoUsuario;
 	private String senha;
 	private String login;
@@ -54,10 +56,10 @@ public class Usuario {
 	@Lob
 	@Basic(optional = true, fetch = FetchType.EAGER )
 	@Column(name = "USUARIO_AVATAR", nullable = true)
-	public byte[] getAvatar() {
+	public File getAvatar() {
 		return avatar;
 	}
-	public void setAvatar(byte[] avatar) {
+	public void setAvatar(File avatar) {
 		this.avatar = avatar;
 	}
 
