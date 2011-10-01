@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.caelum.vraptor.Resource;
@@ -25,25 +26,29 @@ public class Grupo {
 	private Grupo responsavel;
 	private List<LinhaPesquisa> pesquisas = new ArrayList<LinhaPesquisa>();
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-
-	public Grupo() {
-	}
+	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
 
 	public Grupo(String name, List<LinhaPesquisa> pesquisas) {
 		this.nome = name;
 		this.pesquisas = pesquisas;
 	}
-
 	public Grupo(String name) {
 		this.nome = name;
 	}
 
+	@OneToMany(mappedBy = "grupo")
+	public List<Filiacao> getFiliacoes() {
+		return filiacoes;
+	}
+	public void setFiliacoes(List<Filiacao> filiacoes) {
+		this.filiacoes = filiacoes;
+	}
+	
 	@ManyToOne
 	@JoinColumn(name = "RESPONSAVEL_ID")
 	public Grupo getResponsavel() {
 		return responsavel;
 	}
-
 	public void setResponsavel(Grupo responsavel) {
 		this.responsavel = responsavel;
 	}
@@ -53,7 +58,6 @@ public class Grupo {
 	public List<LinhaPesquisa> getPesquisas() {
 		return pesquisas;
 	}
-
 	public void setPesquisas(List<LinhaPesquisa> pesquisas) {
 		this.pesquisas = pesquisas;
 	}
@@ -63,18 +67,16 @@ public class Grupo {
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
-
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "GRUPO_ID")
 	public Long getIdGrupo() {
 		return idGrupo;
 	}
-
 	public void setIdGrupo(Long idGrupo) {
 		this.idGrupo = idGrupo;
 	}
@@ -83,7 +85,6 @@ public class Grupo {
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
