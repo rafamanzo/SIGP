@@ -65,4 +65,10 @@ public class Filiacao {
 		this.projetos = projetos;
 	}
 
+	@Override
+	public String toString() {
+		return "Filiacao [idFiliacao=" + idFiliacao + ", contribuinte="
+				+ contribuinte.getNome() + ", grupo=" + grupo.getNome() + "]";
+	}
+
 }

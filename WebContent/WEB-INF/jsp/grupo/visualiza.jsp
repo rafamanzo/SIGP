@@ -18,28 +18,18 @@
 			<c:otherwise> - </c:otherwise>
 		</c:choose>
 	</p>
-	<table>
-		<tr>
-			<th>Pesquisas:</th>
-		</tr>
-		<c:forEach items="${grupo.pesquisas}" var="pesquisa">
-			<tr>
-				<td>
-					<!--<a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">-->${pesquisa.nome}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<table>
-		<tr>
-			<th>Disciplinas:</th>
-		</tr>
-		<c:forEach items="${grupo.disciplinas}" var="disciplina">
-			<tr>
-				<td><a href="/SIGP/disciplina/ver/${disciplina.idDisciplina}">${disciplina.nome}</a>
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<p>Pesquisas:</p>
+	<ul><c:forEach items="${grupo.pesquisas}" var="pesquisa">
+		<li><!--<a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">-->${pesquisa.nome}</li>
+	</c:forEach></ul>
+	<p>Disciplinas:</p>
+	<ul><c:forEach items="${grupo.disciplinas}" var="disciplina">
+		<li><a href="/SIGP/disciplina/ver/${disciplina.idDisciplina}">${disciplina.nome}</a></li>
+	</c:forEach></ul>
+	<p>Filiações:</p>
+	<ul><c:forEach items="${grupo.filiacoes}" var="filiacao">
+		<li><a href="/SIGP/contribuinte/ver/${filiacao.contribuinte.idContribuinte}">${filiacao.contribuinte.nome}</a></li>
+	</c:forEach></ul>
 	<p>
 		<a href="/SIGP/grupo/">Voltar</a>
 	</p>
