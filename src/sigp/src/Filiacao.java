@@ -1,10 +1,15 @@
 package sigp.src;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,6 +22,7 @@ public class Filiacao {
 	private Long idFiliacao;
 	private Contribuinte contribuinte;
 	private Grupo grupo;
+	private List<Projeto> projetos = new ArrayList<Projeto>();
 
 	@Id
 	@GeneratedValue
@@ -47,6 +53,16 @@ public class Filiacao {
 
 	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
+	}
+
+	@ManyToMany
+	@JoinTable(name = "PROJETO_FILIACAO", joinColumns = @JoinColumn(name = "FILIACAO_ID"), inverseJoinColumns = @JoinColumn(name = "PROJETO_ID"))
+	public List<Projeto> getFiliados() {
+		return projetos;
+	}
+
+	public void setFiliados(List<Projeto> projetos) {
+		this.projetos = projetos;
 	}
 
 }
