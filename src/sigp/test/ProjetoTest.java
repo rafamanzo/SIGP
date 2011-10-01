@@ -45,19 +45,6 @@ public class ProjetoTest {
     }
 
     @Test
-    public void deveriaDevolverGruposEnvolvidosNoProjeto() {
-	/*
-	 * assertSame(
-	 * "Deveria devolver o primeiro grupo da lista de Grupos envolvidos no projeto"
-	 * , grupos.get(0).getNome(), projeto.getGrupos().get(0).getNome());
-	 * assertSame(
-	 * "Deveria devolver o segundo grupo da lista de Grupos envolvidos no projeto"
-	 * , grupos.get(1).getNome(), projeto.getGrupos().get(1).getNome());
-	 * assertArrayEquals(grupos.toArray(), projeto.getGrupos().toArray());
-	 */
-    }
-
-    @Test
     public void deveriaDevolverFiliacoesQueParticipamDoProjeto() {
 	assertSame(
 		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
