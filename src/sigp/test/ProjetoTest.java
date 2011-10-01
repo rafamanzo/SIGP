@@ -12,18 +12,16 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import sigp.src.LinhaPesquisa;
+import sigp.src.Filiacao;
 import sigp.src.Projeto;
-import sigp.src.Grupo;
-import sigp.src.Membro;
+import sigp.src.Publicacao;
 
 public class ProjetoTest {
-    
+
     private Projeto projeto;
-    List<Grupo> grupos;
-    List<Membro> membros;
-    Membro membro11, membro12, membro21, membro22;    
-    
+    List<Publicacao> publicacoes;
+    List<Filiacao> filiados;
+    Filiacao filiacao11, filiacao12, filiacao21, filiacao22;
 
     @Before
     public void setUp() throws Exception {
@@ -36,100 +34,97 @@ public class ProjetoTest {
 
     @Test
     public void deveriaDevolverDescricao() {
-	assertSame("Deveria devolver a Descricao do projeto", "M�todos de Otimiza��o",
-		projeto.getDescricao());
+	assertSame("Deveria devolver a Descricao do projeto",
+		"M�todos de Otimiza��o", projeto.getDescricao());
     }
-    
+
     @Test
     public void deveriaDevolverFinanciamento() {
-	assertSame("Deveria devolver a Agencia Financiadora do projeto", "Fapesp",
-		projeto.getFinanciamento());
+	assertSame("Deveria devolver a Agencia Financiadora do projeto",
+		"Fapesp", projeto.getFinanciamento());
     }
-    
+
     @Test
-    public void deveriaDevolverGruposEnvolvidosNoProjeto(){
-	/*assertSame("Deveria devolver o primeiro grupo da lista de Grupos envolvidos no projeto", grupos.get(0).getNome(), 
-		projeto.getGrupos().get(0).getNome());
-	assertSame("Deveria devolver o segundo grupo da lista de Grupos envolvidos no projeto", grupos.get(1).getNome(), 
-		projeto.getGrupos().get(1).getNome());	
-	assertArrayEquals(grupos.toArray(), projeto.getGrupos().toArray());*/
+    public void deveriaDevolverGruposEnvolvidosNoProjeto() {
+	/*
+	 * assertSame(
+	 * "Deveria devolver o primeiro grupo da lista de Grupos envolvidos no projeto"
+	 * , grupos.get(0).getNome(), projeto.getGrupos().get(0).getNome());
+	 * assertSame(
+	 * "Deveria devolver o segundo grupo da lista de Grupos envolvidos no projeto"
+	 * , grupos.get(1).getNome(), projeto.getGrupos().get(1).getNome());
+	 * assertArrayEquals(grupos.toArray(), projeto.getGrupos().toArray());
+	 */
     }
-    
+
     @Test
-    //Trocar depois para Pessoas envolvidas no projeto
-    public void deveriaDevolverMembrosEnvolvidosNoProjeto(){
-	assertSame("Deveria devolver o id do primeiro membro de envolvidos no projeto", membro11.getIdMembro(), 
-		projeto.getMembros().get(0).getIdMembro());
-	assertSame("Deveria devolver o id do primeiro membro de envolvidos no projeto", membro12.getIdMembro(), 
-		projeto.getMembros().get(1).getIdMembro());
-	assertSame("Deveria devolver o id do primeiro membro de envolvidos no projeto", membro21.getIdMembro(), 
-		projeto.getMembros().get(2).getIdMembro());
-	assertSame("Deveria devolver o id do primeiro membro de envolvidos no projeto", membro22.getIdMembro(), 
-		projeto.getMembros().get(3).getIdMembro());
-	
-	assertArrayEquals(membros.toArray(), projeto.getMembros().toArray());
+    public void deveriaDevolverFiliacoesQueParticipamDoProjeto() {
+	assertSame(
+		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
+		filiacao11.getIdFiliacao(), projeto.getFiliados().get(0)
+			.getIdFiliacao());
+	assertSame(
+		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
+		filiacao12.getIdFiliacao(), projeto.getFiliados().get(1)
+			.getIdFiliacao());
+	assertSame(
+		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
+		filiacao21.getIdFiliacao(), projeto.getFiliados().get(2)
+			.getIdFiliacao());
+	assertSame(
+		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
+		filiacao22.getIdFiliacao(), projeto.getFiliados().get(3)
+			.getIdFiliacao());
+
+	assertArrayEquals(filiados.toArray(), projeto.getFiliados().toArray());
     }
-    
-    
-    
-    public Projeto criarProjeto(){
+
+    @Test
+    public void deveriaDevolverAListaDePublicacoesComOTamanhoCerto() {
+	assertEquals(2, publicacoes.size());
+	assertEquals(publicacoes.get(0).getTitulo(), "publicacao um");
+	assertEquals(publicacoes.get(1).getTitulo(), "publicacao dois");
+    }
+
+    public Projeto criarProjeto() {
 	projeto = new Projeto();
-	
-	projeto.setDescricao("M�todos de Otimiza��o");
-	projeto.setFinanciamento("Fapesp");	
-	
-	grupos = new ArrayList<Grupo>(2);	
-	Grupo grupo1 = mock(Grupo.class);
-	Grupo grupo2 = mock(Grupo.class);	
-	
-	LinhaPesquisa linha11 = mock(LinhaPesquisa.class);
-	LinhaPesquisa linha12 = mock(LinhaPesquisa.class);
-	LinhaPesquisa linha21 = mock(LinhaPesquisa.class);
-	LinhaPesquisa linha22 = mock(LinhaPesquisa.class);	
-	
-	ArrayList<LinhaPesquisa> linhas1 = new ArrayList<LinhaPesquisa>(2);
-	ArrayList<LinhaPesquisa> linhas2 = new ArrayList<LinhaPesquisa>(2);
-	linhas1.add(linha11);
-	linhas1.add(linha12);
-	linhas2.add(linha21);
-	linhas2.add(linha22);	
-	
-	when(grupo1.getNome()).thenReturn("Grupo de Engenharia de Software");
-	when(grupo1.getPesquisas()).thenReturn(linhas1);
-	when(linha11.getNome()).thenReturn("M�todos �geis");
-	when(linha12.getNome()).thenReturn("Software Livre");
-	
-	when(grupo2.getNome()).thenReturn("Grupo de Computa��o Gr�fica");
-	when(grupo2.getPesquisas()).thenReturn(linhas2);
-	when(linha21.getNome()).thenReturn("High Quality Image Rendering");
-	when(linha22.getNome()).thenReturn("Applied Discrete Geometry");	
-	
-	grupos.add(grupo1);
-	grupos.add(grupo2);	
-	
-	//projeto.setGrupos(grupos);	
-	
-	membros = new ArrayList<Membro>(2);	
-	membro11 = mock(Membro.class);
-	membro12 = mock(Membro.class);	
-	membro21 = mock(Membro.class);
-	membro22 = mock(Membro.class);	
-	
-	when(membro11.getIdMembro()).thenReturn((long) 11);
-	when(membro12.getIdMembro()).thenReturn((long) 12);
-	when(membro21.getIdMembro()).thenReturn((long) 21);
-	when(membro22.getIdMembro()).thenReturn((long) 22);
-	
-	membros.add(membro11);
-	membros.add(membro12);
-	membros.add(membro21);
-	membros.add(membro22);
-	
-	//projeto.setGrupos(grupos);
-	projeto.setMembros(membros);
+
+	projeto.setNome("Projeto Gamma3");
+	projeto.setDescricao("Metodos de Otimizacao");
+	projeto.setFinanciamento("Fapesp");
+
+	publicacoes = new ArrayList<Publicacao>(2);
+	Publicacao publicacao1 = mock(Publicacao.class);
+	Publicacao publicacao2 = mock(Publicacao.class);
+
+	publicacao1.setTitulo("publicacao um");
+	publicacao2.setTitulo("publicacao dois");
+
+	publicacoes.add(publicacao1);
+	publicacoes.add(publicacao2);
+
+	when(publicacao1.getTitulo()).thenReturn("publicacao um");
+	when(publicacao2.getTitulo()).thenReturn("publicacao dois");
+
+	filiados = new ArrayList<Filiacao>(2);
+	filiacao11 = mock(Filiacao.class);
+	filiacao12 = mock(Filiacao.class);
+	filiacao21 = mock(Filiacao.class);
+	filiacao22 = mock(Filiacao.class);
+
+	when(filiacao11.getIdFiliacao()).thenReturn((long) 11);
+	when(filiacao12.getIdFiliacao()).thenReturn((long) 12);
+	when(filiacao21.getIdFiliacao()).thenReturn((long) 21);
+	when(filiacao22.getIdFiliacao()).thenReturn((long) 22);
+
+	filiados.add(filiacao11);
+	filiados.add(filiacao12);
+	filiados.add(filiacao21);
+	filiados.add(filiacao22);
+
+	projeto.setFiliados(filiados);
 	return projeto;
-	
+
     }
-    
 
 }
