@@ -35,7 +35,7 @@ public class ProjetoTest {
     @Test
     public void deveriaDevolverDescricao() {
 	assertSame("Deveria devolver a Descricao do projeto",
-		"M�todos de Otimiza��o", projeto.getDescricao());
+		"Metodos de Otimizacao", projeto.getDescricao());
     }
 
     @Test
