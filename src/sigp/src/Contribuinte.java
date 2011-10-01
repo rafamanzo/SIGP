@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,6 +28,7 @@ public class Contribuinte {
 	private Long idContribuinte;
 	private String nome;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
+	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
 	private Usuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -36,6 +38,14 @@ public class Contribuinte {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	@OneToMany(mappedBy = "contribuinte")
+	public List<Filiacao> getFiliacoes() {
+		return filiacoes;
+	}
+	public void setFiliacoes(List<Filiacao> filiacoes) {
+		this.filiacoes = filiacoes;
 	}
 	
 	
