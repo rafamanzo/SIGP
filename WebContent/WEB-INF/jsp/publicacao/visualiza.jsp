@@ -18,9 +18,6 @@
 		<b>Veículo:</b> <br /> ${publicacao.veiculo}
 	</p>
 	<p>
-		<b>Tipo:</b> <br /> ${publicacao.tipo}
-	</p>
-	<p>
 		<b>Autores:</b>
 	</p>
 	<ul>

@@ -1,26 +1,43 @@
 SIGP - Sistema de Informacão para Grupos de Pesquisa
 
-Pivotal: https://www.pivotaltracker.com/projects/354269
-Github: https://github.com/rafamanzo/SIGP
-Servidor de funcionando: http://www.linux.ime.usp.br:8080/SIGP/
+	SIGP é um projeto criado por alunos do IME-USP como parte disciplina MAC332. É um sistema de informações para grupos de pesquisa que facilita o gerenciamento de grupos, membros e publicações acadêmicas. O SIGP é software livre.
 
---------------------------------------------------------------------------------
+	Este projeto é baseado nas tecnologias Java, Hibernate, VRaptor, Tomcat, e MySQL. Os desenvolvedores usam o Eclipse como ferramenta desenvolvimento.
 
-IMPORTING THIS PROJECT ON ECLIPSE
+	Uma versão do servidor funcionando pode ser acessad em
 
-In order to import this project on Eclipse, you'll need:
-	* choose menu file/import existent projects
-	* choose the directory that contains vraptor-blank-project (the directory in which you decompressed it)
-	* after importing, if there is  a classpath problem it means you dont have Apache Tomcat 6 configured. You
-	   can just configure a new server in window/preferences/servers, creating a new instance, and add the Server Runtime
-	   as a library inside the project build path
-	* just right click on the project, run as, run on server. choose a servlet container or configure a new one
-	* done! check the log files. access http://localhost:8080/vraptor-blank-project/ (or change 8080 to the appropriate port).
-	
-IMPORTING THIS PROJECT ON NETBEANS 6.8
-	
-	* choose menu File >> Open Project
-	* choose the directory that contains vraptor-blank-project
-	* right click on project and choose Run
-	* There might be a "It Works! VRaptor" message on the browser that has just opened. 
+    http://www.linux.ime.usp.br:8080/SIGP/
 
+
+DESENVOLVIMENTO
+
+	O código fonte do SIGP é disponibilizado no github. Para começar, baixe o projeto e importe-o no Eclipse. Você precisará de um servidor Tomcat e banco de dados MySQL para rodar o sistema.
+
+    https://github.com/rafamanzo/SIGP
+
+	O sistema Pivotal é utilizado para gerenciar o desenvolvimento, e pode ser acessado no endereço:
+
+    https://www.pivotaltracker.com/projects/354269
+
+
+DOCUMENTAÇÃO
+
+	A documentação do projeto está no diretório Doc no código fonte, e pode ser visualizada online pelo link:
+
+    https://github.com/rafamanzo/SIGP/tree/master/doc
+
+
+CONTATO
+    
+	Para entrar em contato com os responsáveis pelo projeto envie uma mensagem para mac0332gruposdepesquisa-@googlegroups.com.
+
+	Os autores do projeto são:
+
+Rafael Reggiani Manzo
+Evandro Fernandes Giovanini
+Geraldo Castro Zampoli
+Henrique Gemignani Passos Lima
+Jorge J G Leandro
+Samuel Placa
+Wilson Kazuo Mizutani
+Fernando Omar Aluani

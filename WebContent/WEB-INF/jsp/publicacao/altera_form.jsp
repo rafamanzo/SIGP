@@ -31,11 +31,6 @@
 					value="${publicacao.data}" /> (Modifique para formato DD/MM/YYYY)</td>
 			</tr>
 			<tr>
-				<td>Tipo:</td>
-				<td><input type="text" name="publicacao.tipo"
-					value="${publicacao.tipo}" /></td>
-			</tr>
-			<tr>
 				<td colspan="2"><input type="hidden"
 					name="publicacao.idPublicacao" value="${publicacao.idPublicacao}" />
 					<input type="submit" value="Alterar" /></td>

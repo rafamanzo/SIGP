@@ -27,11 +27,6 @@
 				<td><input type="text" name="publicacao.data" /></td>
 			</tr>
 			<tr>
-				<td>Tipo:</td>
-				<td><input type="text" name="publicacao.tipo" />
-				</td>
-			</tr>
-			<tr>
 				<td colspan="2"><input type="submit" value="Criar" /></td>
 			</tr>
 		</table>
