@@ -19,56 +19,56 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "FILIACAO")
 public class Filiacao {
-	private Long idFiliacao;
-	private Contribuinte contribuinte;
-	private Grupo grupo;
-	private List<Projeto> projetos = new ArrayList<Projeto>();
+    private Long idFiliacao;
+    private Contribuinte contribuinte;
+    private Grupo grupo;
+    private List<Projeto> projetos = new ArrayList<Projeto>();
 
-	@Id
-	@GeneratedValue
-	@Column(name = "FILIACAO_ID", nullable = false)
-	public Long getIdFiliacao() {
-		return idFiliacao;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "FILIACAO_ID", nullable = false)
+    public Long getIdFiliacao() {
+	return idFiliacao;
+    }
 
-	public void setIdFiliacao(Long idFiliacao) {
-		this.idFiliacao = idFiliacao;
-	}
+    public void setIdFiliacao(Long idFiliacao) {
+	this.idFiliacao = idFiliacao;
+    }
 
-	@ManyToOne
-	@JoinColumn(name = "CONTRIBUINTE_ID", nullable = false)
-	public Contribuinte getContribuinte() {
-		return contribuinte;
-	}
+    @ManyToOne
+    @JoinColumn(name = "CONTRIBUINTE_ID", nullable = false)
+    public Contribuinte getContribuinte() {
+	return contribuinte;
+    }
 
-	public void setContribuinte(Contribuinte contribuinte) {
-		this.contribuinte = contribuinte;
-	}
+    public void setContribuinte(Contribuinte contribuinte) {
+	this.contribuinte = contribuinte;
+    }
 
-	@ManyToOne
-	@JoinColumn(name = "GRUPO_ID", nullable = false)
-	public Grupo getGrupo() {
-		return grupo;
-	}
+    @ManyToOne
+    @JoinColumn(name = "GRUPO_ID", nullable = false)
+    public Grupo getGrupo() {
+	return grupo;
+    }
 
-	public void setGrupo(Grupo grupo) {
-		this.grupo = grupo;
-	}
+    public void setGrupo(Grupo grupo) {
+	this.grupo = grupo;
+    }
 
-	@ManyToMany
-	@JoinTable(name = "PROJETO_FILIACAO", joinColumns = @JoinColumn(name = "FILIACAO_ID"), inverseJoinColumns = @JoinColumn(name = "PROJETO_ID"))
-	public List<Projeto> getFiliados() {
-		return projetos;
-	}
+    @ManyToMany
+    @JoinTable(name = "PROJETO_FILIACAO", joinColumns = @JoinColumn(name = "FILIACAO_ID"), inverseJoinColumns = @JoinColumn(name = "PROJETO_ID"))
+    public List<Projeto> getProjetos() {
+	return projetos;
+    }
 
-	public void setFiliados(List<Projeto> projetos) {
-		this.projetos = projetos;
-	}
+    public void setProjetos(List<Projeto> projetos) {
+	this.projetos = projetos;
+    }
 
-	@Override
-	public String toString() {
-		return "Filiacao [idFiliacao=" + idFiliacao + ", contribuinte="
-				+ contribuinte.getNome() + ", grupo=" + grupo.getNome() + "]";
-	}
+    @Override
+    public String toString() {
+	return "Filiacao [idFiliacao=" + idFiliacao + ", contribuinte="
+		+ contribuinte.getNome() + ", grupo=" + grupo.getNome() + "]";
+    }
 
 }
