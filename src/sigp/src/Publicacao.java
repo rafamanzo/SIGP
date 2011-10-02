@@ -1,6 +1,5 @@
 package sigp.src;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +28,6 @@ public class Publicacao {
 	private String titulo;
 	private Veiculo veiculo;
 	private Date data;
-	private String tipo;
 
 	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
 
@@ -93,15 +91,6 @@ public class Publicacao {
 
 	public void setData(Date data) {
 		this.data = data;
-	}
-
-	@Column(name = "PUBLICACAO_TIPO", nullable = false, length = 20)
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 }
