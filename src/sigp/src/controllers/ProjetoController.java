@@ -19,16 +19,17 @@ public class ProjetoController {
 		this.dao = dao;
 	}
 	
-	@Path("/projetos")
+	@Path("/projeto/")
 	public void main() {
 		result.include("projetos", dao.list());
 	}
 
-	@Path("/projetos/novoProjeto")
-	public void novoProjeto() {
+	@Path("/projeto/novoProjeto")
+	public void novoProjeto(final Projeto projeto) {
+	    result.include("projetos", dao.list());
 	}
 
-	@Path("/projetos/salva")
+	@Path("/projeto/salva")
 	public void salva(final Projeto projeto) {
 		String errormsg = checkProjeto(projeto);
 		if (!errormsg.equals("")) {
@@ -39,18 +40,18 @@ public class ProjetoController {
 		}
 	}
 
-	@Path("/projetos/msg")
+	@Path("/projeto/msg")
 	public void msg(String msg) {
 		result.include("mensagem", msg);
 	}
 
-	@Path("/projetos/infoProjeto")
+	@Path("/projeto/infoProjeto")
 	public void infoProjeto(Long id) {
 		Projeto projeto = dao.getProjeto(id);
 		result.include("projeto", projeto);
 	}
 	
-	@Path("/projetos/editProjeto")
+	@Path("/projeto/editProjeto")
 	public void editProjeto(Long id) {
 		Projeto projeto = dao.getProjeto(id);
 		result.include("projeto", projeto);
@@ -58,7 +59,7 @@ public class ProjetoController {
 		result.include("editDelTitle", editDelTitle);
 	}
 
-	@Path("/projetos/updateProjeto")
+	@Path("/projeto/updateProjeto")
 	public void updateProjeto(final Projeto projeto, String oQueFazer) {
 		String errormsg = checkProjeto(projeto);
 		if (!errormsg.equals("")) {
