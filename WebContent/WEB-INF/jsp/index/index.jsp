@@ -18,7 +18,7 @@
 		<a href="/SIGP/disciplina/">Disciplina</a>
 	</p>
 	<p>
-		<a href="/SIGP/projetos">Projetos</a>
+		<a href="/SIGP/projeto/">Projetos</a>
 	</p>
 	<p>
 		<a href="/SIGP/publicacao/">Publicações</a>

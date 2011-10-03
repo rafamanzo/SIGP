@@ -10,7 +10,7 @@
 <body>
 	<h1>Adicionar Projeto Novo...</h1>
 	<br />
-	<form action="salva">
+	<form method ="post" action="/SIGP/projeto/salva">
 		<table>
 		 	<!-- idProjeto, nome, descricao, financiamento, grupos, membros -->
 		 	<tr>

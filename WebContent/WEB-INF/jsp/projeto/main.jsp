@@ -11,7 +11,7 @@
 <body>
 	<h1>Projetos</h1>
 	<br />
-	<a href="/SIGP/projetos/novoProjeto">Adicionar Novo Projeto...</a>
+	<a href="/SIGP/projeto/novoProjeto">Adicionar Novo Projeto...</a>
 	<br />
 	<table>
 	    <!-- idProjeto, nome, descricao, financiamento, grupos, membros -->

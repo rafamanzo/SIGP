@@ -1,0 +1,372 @@
+\documentclass[11pt, a4paper]{book}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[pdftex]{hyperref}
+\usepackage[pdftex]{graphicx}  
+\usepackage[square,sort,nonamebreak]{natbib}
+
+
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}         
+\usepackage[pagebackref,colorlinks=true,urlcolor=cyan,citecolor=red,linkcolor=blue]{hyperref}
+
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}                  
+\usepackage[small,compact]{titlesec} 		
+
+\usepackage[Lenny]{fncychap}					
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+\fancyhead[RO,RE]{\today}
+\fancyhead[LO,LE]{MAC0332 - SI para grupos de pesquisa\\
+	Casos de Teste Caixa Preta para Análise Funcional}
+\fancyfoot[LO,LE]{Confidencial}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+
+% numeração para subsubsection
+%errado: \renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection.}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+
+\begin{document}
+
+% Capa
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{0.2cm}
+    \textbf{\Large{Sistema de Informação para Grupos de Pesquisa}}\\
+	
+    \vspace*{1.2cm}
+    \Large{Desenvolvedor - Jorge J. G. Leandro}\\
+    \Large{Grupo 3}
+    
+    \vskip 2cm
+	\textsc{
+	MAC0332 - 2011\\[-0.25cm] 
+          	Engenharia de Software\\[-0.25cm] 	
+	IME - USP\\[-0.25cm]
+	}
+    
+    \vskip 1.5cm
+    Casos de Teste Caixa Preta - \textbf{Testes de Unidade}\\
+    Prof: Marco Gerosa\\
+
+	
+    \vskip 0.5cm
+ %   \normalsize{São Paulo, Julho de 2008}
+   {\normalsize São Paulo, \today}
+\end{center}
+
+
+\chapter[Apresentação]{Apresentação}
+\label{cap:apresentacao}	
+	
+	 	O presente documento descreve o cumprimento da tarefa \emph{Criar casos de teste}, mediante uma coleção de Casos de Teste Caixa Preta para Análise Funcional de classes POJO, por meio de dois tipos de testes:
+
+\begin{itemize}
+ \item Testes Baseados em Execução (Testes de Unidade), conforme o documento de requisitos do sistema e de acordo com diretrizes de \citep{schach2007} e gabaritos do \emph{Processo Unificado Aberto - OpenUP}, descritos nas Seção~\ref{sec:exec}.
+
+\item Testes Não-Baseados em Execução, Revisões do tipo \emph{Walkthrough}, descritos na Seção~\ref {sec:naoexec}.
+
+\end{itemize}
+
+\chapter[Casos de Teste]{Casos de Teste Caixa Preta - Testes de Unidade - Análise Funcional}
+\label{cap:casosdeteste}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Contribuinte e Classes de Equivalência}
+  \label{tab:table1}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Nome & Marco Aurélio Gerosa & aceitável \\
+Nome& Engenharia de Software & aceitável \\
+Publicacao & Lista de publicações \emph{mocked} & aceitável \\
+
+Usuario 1 & Usuário \emph{mocked} & aceitável \\
+
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Disciplina e Classes de Equivalência}
+  \label{tab:table2}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Sigla & mac0332 & aceitável \\
+Nome& Engenharia de Software & aceitável \\
+Ementa & Gerenciamento de projeto. & \\
+             & Análise e especificação de requisitos. & aceitável \\
+
+Nome do grupo 1 & Grupo de Engenharia de Software & aceitável \\
+Linha de Pesquisa 1 do grupo 1& Métodos Ágeis & aceitável \\
+Linha de Pesquisa 2 do grupo 1& Software Livre & aceitável \\
+
+Nome do grupo 2 & Grupo de Computação Gráfica & aceitável \\
+Linha de Pesquisa 1 do grupo 2& High Quality Image Rendering & aceitável \\
+Linha de Pesquisa 2 do grupo 2& Applied Discrete Geometry & aceitável \\
+
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Filiação e Classes de Equivalência}
+  \label{tab:table3}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Nome do projeto 1& Projeto Gamma & aceitável \\
+Nome do projeto 2& Projeto Beta & aceitável \\
+Financiamento do projeto 1& Fapesp & aceitável \\
+Financiamento do projeto 2 & CNPq & aceitável \\
+Descrição do projeto 1 & Metodos de Otimizacao & aceitável \\
+Descrição do projeto 2& Metodos de Criptografia & aceitável \\
+
+Nome do contribuinte & Marco Aurélio Gerosa & aceitável \\
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Grupo e Classes de Equivalência}
+  \label{tab:table4}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Nome& Grupo de Sistemas de Software & aceitável \\
+Linha de Pesquisa 1& Métodos Ágeis & aceitável \\
+Linha de Pesquisa 2& Software Livre & aceitável \\
+
+Projeto 11 da linha 1& Métodos de Otimização & aceitável \\
+Projeto 12 da linha 1 &  Uso eficaz de Métricas & aceitável \\
+Projeto 21 da linha 2& Achmus & aceitável \\
+Projeto 22 da linha 2  &  Arquimedes & aceitável \\
+
+Nome do grupo 2 & Grupo de Computação Gráfica & aceitável \\
+Linha de Pesquisa 1 do grupo 2& High Quality Image Rendering & aceitável \\
+Linha de Pesquisa 2 do grupo 2& Applied Discrete Geometry & aceitável \\
+
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de LinhaPesquisa e Classes de Equivalência}
+  \label{tab:table5}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Descrição do Projeto 1 & Métodos de Otimização & aceitável \\
+Descrição do Projeto 2 & Uso eficaz de Métricas & aceitável \\
+Financiamento do projeto 1& Fapesp & aceitável \\
+Financiamento do projeto 2&CNPq & aceitável \\
+Nome do grupo 1 & Grupo de Engenharia de Software & aceitável \\
+Nome da linha de pesquisa 11 do grupo 1 & Métodos Ágeis & aceitável \\
+Nome da linha de pesquisa 12 do grupo 1 & Software Livre & aceitável\\
+Nome do grupo 2 & Grupo de Computação Gráfica & aceitável\\
+Nome da linha de pesquisa 21 do grupo 2 & High Quality Image Rendering & aceitável\\
+Nome da linha de pesquisa 22 do grupo 2 & Applied Discrete Geometry & aceitável\\
+Veiculo & Veiculo.JOURNAL & aceitável \\
+Financiamento & Fapesp & aceitável \\
+Titulo & Service-oriented middleware for the & \\
+          &  Future Internet: state of the art&\\
+         & and research directions & aceitável \\
+Autor & Marco Gerosa & aceitável \\
+Data & 25/05/2011 & aceitável\\
+Nome do grupo 1 & Grupo de Engenharia de Software & aceitável\\
+Nome da linha de pesquisa 11 do grupo 1 & Métodos Ágeis & aceitável\\
+Nome da linha de pesquisa 12 do grupo 1 & Software Livre & aceitável\\
+
+Nome do grupo 2 & Grupo de Engenharia de Computação Gráfica & aceitável\\
+Nome da linha de pesquisa 21 do grupo 1 & High Quality Image Rendering & aceitável\\
+Nome da linha de pesquisa 22 do grupo 1 & Applied Discrete Geometry & aceitável\\
+
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Projeto e Classes de Equivalência}
+  \label{tab:table6}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Descricao & Metodos de Otimizacao & aceitável \\
+Financiamento &  Fapesp & aceitável \\
+Filiacao 11& Filiacacao mocked & aceitável \\
+Filiacao 12 & Filiacao mocked & aceitável \\
+Filiacao 21 & Filiacao mocked & aceitável \\
+Filiacao 22& Filiacao mocked & aceitável \\
+Publicacao 1 & Publicacao 1  mocked & aceitável \\
+Publicacao 2 & Publicacao 2 mocked & aceitável \\
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Publicacao e Classes de Equivalência}
+  \label{tab:table6}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Titulo & Service-oriented middleware for the Future Internet & aceitável \\
+Veiculo &  Journal & aceitável \\
+Data 11&25/05/2011 & aceitável \\
+Contribuinte 1 & Marco Aurelio Gerosa mocked & aceitável \\
+Contribuinte 2 & Valdemar Setzer mocked& aceitável \\
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\renewcommand{\arraystretch}{1.3}
+ \caption{Teste de Unidade - Dados de Usuario e Classes de Equivalência}
+  \label{tab:table6}
+\centering
+\begin{tabular}[htb]{l|l|c}
+\hline\hline
+atributo & caso de teste & resultado\\
+\hline
+Login & magerosa & aceitável \\
+Senha &  pressmanschach & aceitável \\
+Avatar & File mocked & aceitável \\
+Contribuinte & Marco Aurelio Gerosa mocked & aceitável \\
+\hline 
+\end{tabular}
+\end{table}
+
+\section{Testes Baseados em Execução}
+
+\subsection{Testes de Unidade}
+\label{sec:exec}
+
+As tabelas \ref{tab:table1} a \ref{tab:table5} resumem as Classes de Equivalência consideradas significativas para a Análise Funcional das classes aqui documentadas. Segundo \citep{schach2007}, classes de equivalência são conjuntos de casos de teste, cujos elementos são tão bons quanto quaisquer outros. O uso das mesmas evita o número exponencial de casos de testes, mesmo para poucos parâmetros.
+
+\section{Testes Não-baseados em Execução}
+\label{sec:naoexec}
+
+\subsection{Revisão de Código - \emph{Walkthrough}}
+
+A revisão de código do tipo \emph{Walkthrough} é semelhante à revisão do tipo Inspeção, mas um tanto menos formal.  Como resultado de uma tal revisão, são produzidas listas de \emph{ítens não bem compreendidos} e/ou \emph{ítens possivelmente errados}\citep{schach2007}.
+Neste documento, mesclamos ambas as listas em apenas uma, como segue.
+
+
+\subsubsection{Classe Contribuinte}
+
+Testada  e funcionando.
+
+\subsubsection{Classe Usuário}
+
+Testada e funcionando.
+
+\subsubsection{Classe Grupo}
+
+O caso mais frequente é o de grupos com muitas pessoas. A classe Grupo deveria ter então uma referência para uma lista de pessoas. Nesta iteração foi acrescentada uma referência para lista de filiações.
+
+\subsubsection{Classe Projeto}
+
+Na 1a iteração, dever-se-ia criar um atributo \emph{Nome} para projeto, tendo em vista que usualmente os projetos são referenciados entre participantes pelo nome daquele. O tipo do atributo \emph{Financiamento} foi alterado para \emph{String}, pois pretende-se que este represente o nome da Agência de Fomento que financia o projeto em questão. Ambos os pontos foram corrigidos na 2a iteração.
+
+\subsubsection{Classe Publicacao}
+
+O caso mais frequente é o de publicações com muitos autores. A classe Publicacao deveria ter então uma referência para uma lista de autores, no lugar de um atributo Autor do tipo \emph{String}. Isto foi corrigido na 2a iteração, acrescentando-se uma referência para lista de contribuintes.
+
+
+\subsubsection{Controllers}
+
+Até o final da 2a iteração, foram implementados testes de unidade para os seguintes controllers:
+
+\begin{itemize}
+\item DisciplinaController.java
+\item GrupoController.java
+\item ProjetoControllerTest.java
+\end{itemize}
+
+\subsection{Comentários e Recomendações}
+
+\subsubsection{Novos Testes de Unidade}
+Os métodos de todas as classes aqui testadas foram aprovados, uma vez que foram usados os mesmos tipos de dados para parâmetros reais que os parâmetros formais das assinaturas de cada método. No entanto, pelo método de Teste Não-baseado em Execução de Código(Seção~\ref{sec:naoexec}) , denominado revisão do tipo \emph{Walkthrough}~\citep{schach2007}, constatou-se que não há métodos de validação de tipos nestas classes. 
+
+
+Portanto, o código deve ser adaptado para passar por outros testes de unidade, em que os tipos dos parâmetros reais sejam diferentes dos parâmetros formais.
+Nesta 2a iteração foram iniciadas tarefas visando à implementação da validação de dados de entrada.
+
+\subsubsection{Ítens a serem testados}
+
+Ítens que ainda devem ser testadas todas as classes DAO e CONTROLLER.
+As classes DAOs devem ser testadas com testes de integração nas próximas iterações.
+
+% Bibliografia
+\backmatter \singlespacing   
+\bibliographystyle{apalike}
+\bibliography{sigpbib}
+
+
+
+\end{document}
