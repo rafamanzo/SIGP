@@ -41,7 +41,7 @@ public class DisciplinaTest {
     public void deveriaDevolverEmenta() {
 	assertSame(
 		"Deveria devolver a Ementa inserida",
-		"Gerenciamento de projeto. An�lise e especifica��o de requisitos.",
+		"Gerenciamento de projeto. Análise e especificação de requisitos.",
 		disciplina.getEmenta());
     }
 
