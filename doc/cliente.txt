@@ -1,0 +1,9 @@
+
+Um contribuinte só pode ter filiação com grupos que não têm subgrupos. (folhas)
+Linhas de pesquisa têm sub-linhas de pesquisa. Um linha tem no máximo uma linha pai.
+Um contribuinte pode trabalhar em qualquer linha de pesquisa. (não só nas folhas)
+Se um contribuinte trabalha em uma linha de pesquisa, então ele trabalha também nas super-linhas de pesquisa dessa linha de pesquisa.
+As relações com linhas de pesquisa, grupos e projetos são independentes entre si.
+Um usuário pode não estar relacionado com um contribuinte somente se for um admin.
+
+
