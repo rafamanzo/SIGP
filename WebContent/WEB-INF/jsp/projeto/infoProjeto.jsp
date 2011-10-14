@@ -22,10 +22,10 @@
 		<b>Financiamento:</b> ${projeto.financiamento}
 	</p>
 	
-	<p>
-		<b>Grupo Coordenador: </b> 
-		<a href="/SIGP/grupo/ver/${projeto.coordenador.idGrupo}">${projeto.coordenador.nome}</a>
-	</p>
+<!-- 	<p> -->
+<!-- 		<b>Grupo Coordenador: </b>  -->
+<%-- 		<a href="/SIGP/grupo/ver/${projeto.coordenador.idGrupo}">${projeto.coordenador.nome}</a> --%>
+<!-- 	</p> -->
 
 	
 	<a href="<c:url value="/projetos/editProjeto"/>?id=${projeto.idProjeto}">Alterar Projeto</a>

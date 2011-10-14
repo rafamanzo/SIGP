@@ -44,7 +44,7 @@ public class Publicacao {
 	}
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "PUB_CONTRIBUINTE", joinColumns = @JoinColumn(name = "PUBLICACAO_ID"), inverseJoinColumns = @JoinColumn(name = "CONTRIBUINTE_ID"))
+	@JoinTable(name = "CONTRIBUINTE_PUBLICACAO", joinColumns = @JoinColumn(name = "PUBLICACAO_ID"), inverseJoinColumns = @JoinColumn(name = "CONTRIBUINTE_ID"))
 	public List<Contribuinte> getContribuintes() {
 		return contribuintes;
 	}
