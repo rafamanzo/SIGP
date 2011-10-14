@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.caelum.vraptor.Resource;
@@ -22,6 +23,28 @@ public class LinhaPesquisa {
 	private Long idPesquisa;
 	private String nome;
 	private List<Projeto> projetos = new ArrayList<Projeto>();
+	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
+	private LinhaPesquisa subLinha;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CONTRIBUINTE_LINHAP", 
+				joinColumns = { @JoinColumn(name = "LINHAP_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") })
+	public List<Contribuinte> getContribuintes() {
+		return contribuintes;
+	}
+	public void setContribuintes(List<Contribuinte> contribuintes) {
+		this.contribuintes = contribuintes;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "SUB_LINHA_ID")
+	public LinhaPesquisa getSubLinha() {
+		return subLinha;
+	}
+	public void setSubLinha(LinhaPesquisa subLinha) {
+		this.subLinha = subLinha;
+	}
 	
 	
 	public LinhaPesquisa() {
