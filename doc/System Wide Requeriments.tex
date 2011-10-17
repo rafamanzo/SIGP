@@ -55,11 +55,28 @@
 		%[Statement of system-wide functional requirements, not expressed as 
 		% use cases. Examples include auditing, authentication, printing, 
 		% reporting.]
-		O programa devera ter um cadastro de \textit{usuarios} (membros) onde 
-		\indent alguns tambem serão \textit{administradores}, um tipo de usuario 
-		especial.\\
-		\indent \textit{Adminstradores} são os unicos que podem cadastrar 
-		grupos e subgrupos.\\
+		% =====================================================================
+		% Usuários e administradoes, parte 1.
+		O programa devera ter um cadastro de \textit{usuarios}, que poderão ser 
+		\textit{administradores} -- um tipo especial de usuario -- ou não.
+		\textit{Adminstradores} são os unicos que podem cadastrar 
+		\textit{grupos de pesquisa}, \textit{linhas de pesquisa} e
+		\textit{contribuintes}.\\
+		% Grupos de pesquisa.
+		\indent \textit{Grupos de pesquisa} podem ter \textit{subgrupos de pesquisa}
+		e/ou serem subgrupo de outro \textit{grupo de pesquisa}. Cada
+		\textit{grupo de pesquisa} pode também ministrar \textit{disciplinas}, além de
+		conduzir pelo menos uma \textit{linha de pesquisa}. Uma \textit{disciplina} é
+		ministrada por exatamente um \textit{grupo de pesquisa}.\\
+		% Linhas de pesquisa.
+		\indent \textit{Linhas de pesquisa}, assim como os \textit{grupos de pesquisa},
+		possuem uma hierarquia recursiva própria, isso é, podem ter
+		\textit{sublinhas de pesquisa} ou serem sublinha de outra \textit{linha de pesquisa}.
+		\textit{Linhas de pesquisa} podem conter diversos \textit{projetos}.\\
+		% Contribuintes.
+		\indent \textit{Contribuintes} podem ter \textit{filiações} com diferentes
+		\textit{grupos de pesquisa}. Cabe ao \textit{administrador} cadastrar essas
+		\textit{filiações}.\\
 		\indent Um \textit{membro} do grupo cadastra uma publicação e pode 
 		dizer a quais projetos aquela publicação se aplica.\\
 		\indent O \textit{membro} tambem pode Fazer uploads de PDF's.\\
@@ -68,8 +85,7 @@
 	\section{Qualidades do Sistema}
 		%[Qualities represent the URPS in FURPS+ classification of 
 		%supporting requirements.]
-		Nessa seção sera descrito as funcionalidades do sistema, seu uso, 
-		confiabilidade, performance e suporte.
+		Nessa seção são descritas as qualidades que o sistema deverá apresentar.
 		
 		\subsection{Uso}
 			%[Describe requirements for qualities such as easy of use, 
@@ -131,8 +147,8 @@
 				%should be grouped together.]
 				O sistema deve dividido em parte publica, a que todos os 
 				visitantes podem ver, e parte restrita na qual só os membros 
-				terão acesso.\\
-				\\
+				terão acesso.
+				
 				\noindent \textbf{Parte publica deve ter:}
 				\begin{itemize}
 					\item lista das disciplinas oferecidas pelo grupo;
