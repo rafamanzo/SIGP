@@ -46,17 +46,29 @@
 	\maketitle
 	\newpage
     \section{Introdução}
-        Este documento lista a motivação do projeto e seus requisitos.
+        Nosso projeto visa sistematizar a estrutura de grupos de pesquisa em um contexto acadêmico
+        de maneira que seja fácil identificar e relacionar esses grupos com seus membros, suas
+        linhas de pesquisas, seus projetos e suas publicações. Além disso, visa também apresentar
+        algumas funcionalidades básicas de sistemas WEB como: cadastros de usuários, possibilidade
+        de comentar sobre publicações e fazer \textit{upload} de PDFs.
     
     \section{Posicionamento}
-        Rápido \emph{Review} do projeto.
+        Devido ao forte caráter hierárquico do sistema de grupos de pesquisa acadêmicos, a solução
+        apresentada pelo nosso projeto foca na listagens de elementos a partir de algum outro
+        elemento que lhe seja superior nessa hierarquia. Por exemplo, a partir de um grupo de
+        pesquisa, nosso sistema será capaz de listar todos os subgrupos de pesquisa desse grupo e
+        todas as linhas de pesquisa sobre as quais ele opera.
+        
+        No caso específico das linhas de pesquisa, que apresentam uma hierarquia própria, além de
+        ser possível listá-las, o sistema deverá ser capaz de descrever, de alguma maneira, essas
+        relações hierárquicas das linhas de pesquisa em que cada grupo de pesquisa trabalha.
         
         \subsection{Declaração de problema}
             %[Provide a statement summarizing the problem being solved by 
             %this project. The following format may be used:]
             \begin{tabular}{| l | l |}
                 \hline                       
-                O problema de & Listar projetos de grupos de pesquisa \\ \hline
+                O problema de & Disponibilizar informações sobre grupos de pesquisa \\ \hline
                 Afeta & Quem publica algo num certo grupo de pesquisa \\ \hline
                 O impacto do qual é & Não ter meios para categorizar e disponibilizar\\ 
                                                  &  informações sobre pesquisas \\ \hline
@@ -90,25 +102,27 @@
 
            \begin{tabular}{| l | l | l|}
                 \hline
-                Nome & Descrição & Responsabilidades \\ \hline
-                Rafael Reggiani Manzo & Desenvolvedor & Model e testes\\  \hline
-                Evandro Giovanini & Desenvolvedor & Interface do Usuário\\ \hline
-               Geraldo Castro Zampoli  & Gerente & Model e testes\\ \hline
-                Henrique Gemignani Passos Lima & Desenvolvedor & Controllers, Views e testes\\ \hline
-               Jorge J G Leandro  & Desenvolvedor & Testes e Projeto BD \\  \hline
-              Samuel Placa & Arquiteto & \\ \hline
-             Wilson Kazuo Mizutani  & Analista de Requisitos & Negociação com cliente e Projeto BD\\ \hline
-             Fernando Omar Aluani   & Desenvolvedor & Controllers, Views e testes\\ \hline
+                Nome &                      Descrição &              Responsabilidades \\ \hline
+                Rafael Reggiani Manzo &     Desenvolvedor &          Model e testes\\  \hline
+                Evandro Giovanini &         Desenvolvedor &          Interface do Usuário\\ \hline
+                Geraldo Castro Zampoli  &   Desenvolvedor &          Model e testes\\ \hline
+                Henrique G Passos Lima &    Arquiteto &              Soluções de modelagem,\\
+                                        &                       &    Controllers, Views e testes\\ \hline
+                Jorge J G Leandro  &        Desenvolvedor &          Testes e Projeto BD \\  \hline
+                Samuel Placa &              Analista de Qualidade &  Qualidade do código e testes \\ \hline
+                Wilson Kazuo Mizutani  &    Analista de Requisitos & Negociação com cliente  e\\
+                                   &                            &    Projeto BD\\ \hline
+                Fernando Omar Aluani   &    Gerente &                Gerenciamento dos membros, \\
+                                   &                            &    Controllers, Views e testes\\ \hline
                 \hline
           \end{tabular}
          
   \subsection{Ambiente de Usuário}
 
-Nosso grupo é formado por nove pessoas. Mesmo assim, tem sido um desafio cumprir todas as histórias durante a iteração atual (segunda), considerando a prioridade requerida por outras tarefas concorrentes nesse mesmo período (quinzena de provas) no IME-USP. 
-
- Cada iteração dura 3 semanas, começando em uma segunda-feira. Durante esse período, são atribuídos papéis a cada membro, no entanto todos atuam desenvolvendo também.
-
-Para o projeto SIGP, foi adotada a linguagem \emph{Java}, que é, por definição, multi-plataforma. Usamos também \emph{frameworks} como o \emph{Vraptor} que implementa o modelo \emph{MVC} e o \emph{Hibernate}, para interface com banco de dados, os quais são fornecidos como bibliotecas para \emph{Java}.
+    O ambiente do usuário poderá ser qualquer computador pessoal capaz de rodar um navegador WEB
+    moderno (IE8 ou mais recente, Mozilla Firefox e afins, Chromium e derivados, Safari, Opera,
+    etc). A interface para o usuário do sistema será totalmente disponibilizado através de um
+    \textit{Web Site}.
     
     \section{Visão Geral do Produto}
         \subsection{Necessidades e recursos}

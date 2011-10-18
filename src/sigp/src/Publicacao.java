@@ -28,8 +28,21 @@ public class Publicacao {
 	private String titulo;
 	private Veiculo veiculo;
 	private Date data;
-
+	private List<Projeto> projetos = new ArrayList<Projeto>();
 	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable( name = "PROJETO_PUBLICACAO",
+	joinColumns = @JoinColumn( name = "PUBLICACAO_ID"), 
+	inverseJoinColumns = @JoinColumn (name = "PROJETO_ID"))
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
+	}
+
 
 	public Publicacao() {
 	}
@@ -44,7 +57,9 @@ public class Publicacao {
 	}
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CONTRIBUINTE_PUBLICACAO", joinColumns = @JoinColumn(name = "PUBLICACAO_ID"), inverseJoinColumns = @JoinColumn(name = "CONTRIBUINTE_ID"))
+	@JoinTable(name = "CONTRIBUINTE_PUBLICACAO", 
+		joinColumns = @JoinColumn(name = "PUBLICACAO_ID"),
+		inverseJoinColumns = @JoinColumn(name = "CONTRIBUINTE_ID"))
 	public List<Contribuinte> getContribuintes() {
 		return contribuintes;
 	}

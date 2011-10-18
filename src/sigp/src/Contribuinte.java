@@ -1,6 +1,7 @@
 package sigp.src;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 
@@ -29,6 +32,73 @@ public class Contribuinte {
 	private String nome;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
+	private List<Projeto> projetos = new ArrayList<Projeto>();
+	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
+	private Date participacaoDataInicio;
+	private Date participacaoDataFim;
+	private Date pesquisaDataInicio;
+	private Date pesquisaDataFim;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "PESQUISA_DATA_INICIO", nullable = false)
+	public Date getPesquisaDataInicio() {
+		return pesquisaDataInicio;
+	}
+	public void setPesquisaDataInicio(Date pesquisaDataInicio) {
+		this.pesquisaDataInicio = pesquisaDataInicio;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "PESQUISA_DATA_INICIO", nullable = false)
+	public Date getPesquisaDataFim() {
+		return pesquisaDataFim;
+	}
+	public void setPesquisaDataFim(Date pesquisaDataFim) {
+		this.pesquisaDataFim = pesquisaDataFim;
+	}	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CONTRIBUINTE_LINHAP", 
+				joinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "LINHAP_ID") })
+	public List<LinhaPesquisa> getLinhasDePesquisa() {
+		return linhasDePesquisa;
+	}
+	public void setLinhasDePesquisa(List<LinhaPesquisa> linhasDePesquisa) {
+		this.linhasDePesquisa = linhasDePesquisa;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "PARTICIPACAO_DATA_INICIO", nullable = false)
+	public Date getParticipacaoDataInicio() {
+		return participacaoDataInicio;
+	}
+	public void setParticipacaoDataInicio(Date participacaoDataInicio) {
+		this.participacaoDataInicio = participacaoDataInicio;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "PARTICIPACAO_DATA_FIM", nullable = false)
+	public Date getParticipacaoDataFim() {
+		return participacaoDataFim;
+	}
+	public void setParticipacaoDataFim(Date participacaoDataFim) {
+		this.participacaoDataFim = participacaoDataFim;
+	}
+
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CONTRIBUINTE_PROJETO", 
+				joinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "PROJETO_ID") })
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
+	}
+	
+	
 	private Usuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)

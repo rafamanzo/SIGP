@@ -24,12 +24,23 @@ public class Projeto {
 	private String nome;
 	private String descricao;
 	private String financiamento;
-	private List<Filiacao> filiados = new ArrayList<Filiacao>();
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
+	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "CONTRIBUINTE_PROJETO", 
+				joinColumns = { @JoinColumn(name = "PROJETO_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") })
+	public List<Contribuinte> getContribuintes() {
+		return contribuintes;
+	}
+	public void setContribuintes(List<Contribuinte> contribuintes) {
+		this.contribuintes = contribuintes;
+	}
 	
 	@OneToMany
-	@JoinTable(name = "PROJETO_LINHAP",
+	@JoinTable(name = "LINHAP_PROJETO",
 				joinColumns = @JoinColumn(name = "PROJETO_ID"),
 				inverseJoinColumns = @JoinColumn(name = "LINHAP_ID"))
 	public List<LinhaPesquisa> getLinhasDePesquisa() {
@@ -51,21 +62,7 @@ public class Projeto {
 
 	public void setPublicacoes(List<Publicacao> publicacoes) {
 		this.publicacoes = publicacoes;
-	}
-
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable( name = "PROJETO_FILIACAO",
-	joinColumns = @JoinColumn( name = "PROJETO_ID"), 
-	inverseJoinColumns = @JoinColumn (name = "FILIACAO_ID"))
-	public List<Filiacao> getFiliados() {
-		return filiados;
-	}
-	public void setFiliados(List<Filiacao> filiados) {
-		this.filiados = filiados;
-	}
-	
-	
-	
+	}	
 	
 	@Column(name = "PROJETO_NOME", nullable = false)
 	public String getNome() {
@@ -102,7 +99,6 @@ public class Projeto {
 	
 	
 	public void copy(Projeto p) {
-		this.setFiliados(p.getFiliados());
 		this.setNome(p.getNome());
 		this.setDescricao(p.getDescricao());
 		this.setFinanciamento(p.getFinanciamento());
