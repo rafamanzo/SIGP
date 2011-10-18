@@ -57,30 +57,42 @@
 		% reporting.]
 		% =====================================================================
 		% Usuários e administradoes, parte 1.
-		O programa devera ter um cadastro de \textit{usuarios}, que poderão ser 
-		\textit{administradores} -- um tipo especial de usuario -- ou não.
-		\textit{Adminstradores} são os unicos que podem cadastrar 
-		\textit{grupos de pesquisa}, \textit{linhas de pesquisa} e
-		\textit{contribuintes}.\\
+		O sistema deverá ter um cadastro de \textbf{usuarios}, que poderão ser
+		\textbf{administradores} -- um tipo especial de usuario -- ou não. Usuários possuem
+		\textit{login}, senha e avatar e podem comentar sobre \textbf{publicações}. Adminstradores
+		são os únicos que podem cadastrar \textbf{grupos de pesquisa}, \textbf{linhas de pesquisa} e
+		\textbf{contribuintes}.\\
 		% Grupos de pesquisa.
-		\indent \textit{Grupos de pesquisa} podem ter \textit{subgrupos de pesquisa}
-		e/ou serem subgrupo de outro \textit{grupo de pesquisa}. Cada
-		\textit{grupo de pesquisa} pode também ministrar \textit{disciplinas}, além de
-		conduzir pelo menos uma \textit{linha de pesquisa}. Uma \textit{disciplina} é
-		ministrada por exatamente um \textit{grupo de pesquisa}.\\
+		\indent Grupos de pesquisa podem ter \textbf{subgrupos de pesquisa} e/ou serem subgrupo de
+		outro grupo de pesquisa. Cada grupo de pesquisa pode também ministrar \textbf{disciplinas}, 
+		e de conduzir pelo menos uma linha de pesquisa. Uma disciplina é ministrada por exatamente
+		um grupo de pesquisa. Só o administrador pode cadastrar novos grupos de pesquisa.\\
 		% Linhas de pesquisa.
-		\indent \textit{Linhas de pesquisa}, assim como os \textit{grupos de pesquisa},
-		possuem uma hierarquia recursiva própria, isso é, podem ter
-		\textit{sublinhas de pesquisa} ou serem sublinha de outra \textit{linha de pesquisa}.
-		\textit{Linhas de pesquisa} podem conter diversos \textit{projetos}.\\
+		\indent Linhas de pesquisa, assim como os grupos de pesquisa, possuem uma hierarquia
+		recursiva própria, isso é, podem ter \textbf{sublinhas de pesquisa} ou serem sublinha de
+		outra linha de pesquisa. Linhas de pesquisa podem conter diversos \textbf{projetos}. Só o
+		administrador pode cadastrar novas linhas de pesquisa.\\
 		% Contribuintes.
-		\indent \textit{Contribuintes} podem ter \textit{filiações} com diferentes
-		\textit{grupos de pesquisa}. Cabe ao \textit{administrador} cadastrar essas
-		\textit{filiações}.\\
-		\indent Um \textit{membro} do grupo cadastra uma publicação e pode 
-		dizer a quais projetos aquela publicação se aplica.\\
-		\indent O \textit{membro} tambem pode Fazer uploads de PDF's.\\
-		\indent Só os \textit{Adminstradores} podem cadastrar novos membros.
+		\indent Contribuintes devem ter pelo menos uma \textbf{filiação} com algum grupo de pesquisa
+		ou ser autor de alguma publicação. Só o administrador pode cadastrar novos contribuintes, e
+		deverá no momento do cadastro satisfazer pelo menos uma das duas condições anteriores. Todo
+		usuário, com excessão do administrador, deve corresponder a um contribuinte. Contribuintes
+		podem também estudar em linhas de pesquisa e participar de projetos.\\
+		\indent A filiação de um contribuinte a um grupo de pesquisa possui uma data de início e uma
+		data de fim. Analogamente, o período de tempo que um contribuinte passa pesquisando em uma
+		linha de pesquisa é delimitado por uma data de início e data de fim. Contribuintes podem
+		estar filiados somente a grupos de pesquisa que não tenham subgrupos de pesquisa, e será
+		subentendido que ele está filiado a todos os grupos acima deste grupo. No entanto, um
+		contribuinte poderá pesquisar em qualquer linha de pesquisa, sendo igualmente subentendido
+		que ele pesquisa em todas as linhas de pesquisa acima desta.\\
+		\indent Projetos possuem uma descrição e um financiamento e podem produzir publicações.
+		Qualquer contribuinte que esteja estudando em uma linha de pesquisa pode cadastrar um novo
+		projeto nela.\\
+		\indent Publicações possuem título, veículo, data de publicação e possivelmente um arquivo
+		pdf associado a ela que contenha a publicação em si. Além disso, as publicações possuem
+		autores, que devem ser contribuintes, como já mencionado. Qualquer usuário contribuinte pode
+		cadastrar uma publicação e dizer a quais projetos ela se aplica, assim como fazer
+		\textit{upload} do arquivo pdf para aquela publicação.
 		
 	\section{Qualidades do Sistema}
 		%[Qualities represent the URPS in FURPS+ classification of 
@@ -91,8 +103,10 @@
 			%[Describe requirements for qualities such as easy of use, 
 			%easy of learning, usability standards and localization.]
 			O sistema deve ser de facil entendimento para que os 
-			\textit{membros} e \textit{administradores} o usem sem maiores 
-			dificuldades. Ou pelo menos seja de facil aprendizado.
+			\textit{contribuintes} e \textit{administradores} o usem sem maiores 
+			dificuldades. Ou pelo menos seja de facil aprendizado.\\
+			\indent Todo o conteúdo e todas as operações deverão ser acessível do
+			\textit{WebSite}, contanto que o usuário tenha as devidas permissões de acessá-los.
 		
 		%\subsection{Confiabilidade}
 			%[Reliability includes the product and/or system's ability to keep 
@@ -116,90 +130,128 @@
 			%installation, level of support and maintenance.]
 			O sistema deve ser de facil manutenção e atualização.
 		
-	\section{Interfaces do Sistema}
+	\section{Interface do Sistema com o Usuário}
 		%[Interface Requirements are part of the + in the FURPS+ classification 
 		%of supporting requirements. Define the interfaces that must be 
 		%supported by the application. It should contain adequate specificity, 
 		%protocols, ports and logical addresses, and so forth, so that the 
 		%software can be developed and verified against the interface 
 		%requirements.]
-		Nessa seção definimos as interfaces que deverão ser suportadas pela 
-		aplicação.
+		Nessa seção definimos como deverá ser a interface do usuário do nosso sistema.
+		%[Describe the user interfaces that are to be implemented by the 
+		%software. The intention of this section is to state requirements 
+		%relating to the interface. Interface design may overlap the 
+		%requirements gathering process.]
 		
-		\subsection{Interface do Usuario}
-			%[Describe the user interfaces that are to be implemented by the 
-			%software. The intention of this section is to state requirements 
-			%relating to the interface. Interface design may overlap the 
-			%requirements gathering process.]
-			Descrição das interfaces do usuario implementadas por software.
+		\subsection{Aparencia}
+			%[Provide a description of the spirit of the interface. Your 
+			%client may have given you particular demands such as style, 
+			%colors to be used, and degree of interaction and so on. This 
+			%section captures the requirements for the interface rather 
+			%than the design for the interface.]
+			Os html's devem ser bem estruturados possibilitando mudanças na
+			aparencia quando necessario. Além disso, devem ser capazes de
+			listar de maneira intuitiva informações com caráter hierárquico.\\
+			\indent Não precisa ser nada muito exagerado, mas sim objetivo.
 			
-			\subsubsection{Aparencia}
-				%[Provide a description of the spirit of the interface. Your 
-				%client may have given you particular demands such as style, 
-				%colors to be used, and degree of interaction and so on. This 
-				%section captures the requirements for the interface rather 
-				%than the design for the interface.]
-				Os html's devem ser bem estruturados possibilitando mudanças 
-				na aparencia quando necessario.
-				
-			\subsubsection{Layout e Requerimentos de Navegação}
-				%[Capture requirements on major screen areas and how they 
-				%should be grouped together.]
-				O sistema deve dividido em parte publica, a que todos os 
-				visitantes podem ver, e parte restrita na qual só os membros 
-				terão acesso.
-				
-				\noindent \textbf{Parte publica deve ter:}
-				\begin{itemize}
-					\item lista das disciplinas oferecidas pelo grupo;
-					\item lista dos projetos oferecidos pelo grupo, com 
-					descrição, membros do projeto e publicações;
-					\item lista das publicações do grupo, separados por tipo e 
-					se disponivel seu PDF tambem deve ser mostrado;
-					\item na lista de publicação deve ser possivel ordenar por 
-					tipo, por ano ou por veículo;
-					\item lista de  membros do grupo;
-					\item lista das linhas de pesquisa organizadas 
-					hierarquicamente.
-				\end{itemize}
-				
-				\indent Alem disso um membro do grupo cadastra uma publicação e
-				pode dizer a quais projetos aquela publicação se aplica.\\
-				\indent Ao clicar em uma linha de pesquisa deve aparecer sua 
-				descrição e tambem as publicações, os membros do grupo e os 
-				projetos associados a ela.
-							
-			\subsubsection{Consistencia}
-				% [Consistency in the user interface enables users to predict 
-				% what will happen. This section states requirements on the use 
-				% of mechanisms to be employed in the user interface. This 
-				% applies both within the system and with other systems and 
-				% can be applied at different levels: navigation controls, 
-				% screen areas sizes and shapes, placements for entering / 
-				% presenting data, terminology.]
-				Como uma boa organização dos html's essa parte pode ser 
-				facilmente ,odificada, caso for necessario.
+		\subsection{Layout e Requerimentos de Navegação}
+			%[Capture requirements on major screen areas and how they 
+			%should be grouped together.]
+			O sistema deve ser dividido em uma parte pública, que todos os
+			visitantes podem ver, e duas partes restritas: uma à qual todos
+			os usuários terão acesso, e outra à qual apenas os administradores
+			terão acesso.
+			
+			\noindent \textbf{A parte publica fornece:}
+			\begin{itemize}
+				\item Listagem dos grupo de pesquisa;
+				\item Listagem das disciplinas oferecidas por um grupo;
+				\item Listagem dos projetos oferecidos por um grupo, com
+				descrição, membros do projeto e publicações;
+				\item Listagem das publicações do grupo, separados por veículo
+				e, se disponivel, seu PDF também deve ser mostrado;
+				\item Nessa listagem de publicações deve ser possivel ordenar
+				por título, por ano ou por veículo;
+				\item Listagem dos contribuintes filiados a um grupo;
+				\item Listagem das linhas de pesquisa organizadas
+				hierarquicamente;
+				\item Exibição da descrição de uma linha de pesquisam, assim
+				como a listagem de suas publicações, contribuintes e projetos
+				associados a ela;
+				\item Exibição da descrição e financiamento de um projeto.
+			\end{itemize}
+			
+			\noindent \textbf{A parte dos usuários contribuintes fornece:}
+			\begin{itemize}
+				\item Cadastro de um novo projeto, indicando a quais linhas de
+				pesquisa ele se aplica;
+				\item Cadastro de uma nova publicação, indicando a quais
+				projetos ela se aplica e podendo fazer \textit{upload} do
+				arquivo PDF que contenha a publicação em si;
+				\item Registro de que está estudando determinada linha de
+				pesquisa;
+				\item Registro de que está participando de um determinado
+				projeto.
+			\end{itemize}
+			
+			\noindent \textbf{A parte dos administradores fornece:}
+			\begin{itemize}
+				\item Cadastro de um novo grupo de pesquisa;
+				\item Cadastro de uma nova linha de pesquisa;
+				\item Cadastro de um novo contribuinte;
+				\item Cadastro de uma nova filiação de um contribuinte com
+				algum grupo de pesquisa.
+				\item Autenticação de um usuário como correspondente a um
+				contribuinte.
+			\end{itemize}
+			
+			Vale lembrar que tudo que o administrador é apenas um tipo especial
+			de usuário, e portanto também tem acesso à interface dos usuários
+			contribuintes.
+						
+		\subsection{Consistência}
+			% [Consistency in the user interface enables users to predict 
+			% what will happen. This section states requirements on the use 
+			% of mechanisms to be employed in the user interface. This 
+			% applies both within the system and with other systems and 
+			% can be applied at different levels: navigation controls, 
+			% screen areas sizes and shapes, placements for entering / 
+			% presenting data, terminology.]
+			Como uma boa organização dos html's essa parte pode ser 
+			facilmente modificada, caso for necessario.\\
+			\indent Basicamente, haverá três tipos de operações na interface do
+			sistema: listagem, detalhamento e cadastros. A princípio, o usuário
+			pode clicar em links que forneçam as listagens básicas.
+			Selecionando um item de uma listagem, aparecerá o detalhamento
+			dele, que pode envolver outras listagens. Em qualquer um desses
+			dois casos, dependendo do nível de permissão do usuário, links
+			possibilitandos cadastros poderão estar disponíveis. Por exemplo,
+			no detalhamento de um projeto, um usuário contribuinte poderá
+			escolher uma opção do tipo "Particar desse projeto".
 
-			\subsubsection{Requerimentos de personalização pelo usuario}
-				%[Requirements on content that should automatically displayed 
-				% to users or available based on user attributes. Sometimes users
-				% allowed to customize the content displayed or to personalize
-				% displayed content.]
-				\noindent Os requerimentos de personalização são:
-				\begin{itemize}
-					\item suporte a mais linguagens, definida pelo usuario;
-					\item avatar para usuarios;
-					\item comentarios dos usuarios em pesquisas.
-				\end{itemize}
+		\subsection{Requerimentos de personalização pelo usuario}
+			%[Requirements on content that should automatically displayed 
+			% to users or available based on user attributes. Sometimes users
+			% allowed to customize the content displayed or to personalize
+			% displayed content.]
+			\noindent Os requerimentos de personalização pelo usuário são:
+			\begin{itemize}
+				\item Suporte a mais linguagens, definidas pelo usuário;
+				\item Avatar para usuarios;
+				\item Comentários dos usuarios em publicações.
+			\end{itemize}
 				
     \section{Componentes do Sistema}
-		\noindent O sistema deve ser feito com as seguintes tecnologias:
+		\noindent O sistema deverá ter as seguintes componentes:
 		\begin{itemize}
-			\item Java;
-			\item VRaptor;
-			\item Hibernate;
-			\item JUnit;
-			\item Mockito.
+			\item Um banco de dados para os grupos de pesquisa;
+			\item Um \textit{Web Site} através do qual o sistema interagirá com
+			seus diversos usuários;
+			\item Uma aplicação que gerenciará os requisitos dessa interface
+			\textit{web}, fazendo as devidas consultas ao banco de dados e
+			fornecendo corretamente as informações e operações solicitadas;
+			\item E um servidor Tomcat, no qual ficarão hospedado as
+			componentes acima.
 		\end{itemize}
     
 
