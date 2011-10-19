@@ -2,6 +2,7 @@ package sigp.src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -96,6 +98,20 @@ public class Grupo {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	@Transient
+	public List<Projeto> getProjetos() {
+		LinhaPesquisa pesquisa;
+		List<Projeto> projetos = new ArrayList<Projeto>();
+		Iterator<LinhaPesquisa> pesquisasit = pesquisas.iterator();
+		
+		while(pesquisasit.hasNext()){
+			pesquisa = pesquisasit.next();
+			projetos.addAll(pesquisa.getProjetos());
+		}
+		
+		return projetos;
 	}
 
 	@Override
