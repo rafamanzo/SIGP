@@ -113,6 +113,20 @@ public class Grupo {
 		
 		return projetos;
 	}
+	
+	@Transient
+	public List<Publicacao> getPublicacoes() {
+		Projeto projeto;
+		List<Publicacao> publicacoes = new ArrayList<Publicacao>();
+		Iterator<Projeto> projetos = this.getProjetos().iterator();
+		
+		while(projetos.hasNext()){
+			projeto = projetos.next();
+			publicacoes.addAll(projeto.getPublicacoes());
+		}
+		
+		return publicacoes;
+	}
 
 	@Override
 	public String toString() {
