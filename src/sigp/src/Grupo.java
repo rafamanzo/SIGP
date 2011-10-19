@@ -69,8 +69,7 @@ public class Grupo {
 		this.pesquisas = pesquisas;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "GRUPO_DISCIPLINA", joinColumns = { @JoinColumn(name = "GRUPO_ID") }, inverseJoinColumns = { @JoinColumn(name = "DISCIPLINA_ID") })
+	@OneToMany(mappedBy = "grupo")
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}

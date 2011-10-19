@@ -48,20 +48,20 @@ public class DisciplinaTest {
     @Test
     public void deveriaDevolverGrupos() {
 	assertSame("Deveria devolver o primeiro grupo", "Grupo de Engenharia de Software",
-		disciplina.getGrupos().get(0).getNome());
+		disciplina.getGrupo().get(0).getNome());
 	assertSame("Deveria devolver o segundo grupo",
-		"Grupo de Computação Gráfica", disciplina.getGrupos().get(1)
+		"Grupo de Computação Gráfica", disciplina.getGrupo().get(1)
 			.getNome());	
     }
     
     @Test
     public void deveriaDevolverLinhaPesquisaDeGrupos() {
 	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 1", "Métodos Ágeis",
-		disciplina.getGrupos().get(0).getPesquisas().get(0).getNome());
+		disciplina.getGrupo().get(0).getPesquisas().get(0).getNome());
 	assertSame("Deveria devolver a segunda Linha de Pesquisa do Grupto 1",
-		"Software Livre", disciplina.getGrupos().get(0).getPesquisas().get(1).getNome());
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","High Quality Image Rendering",disciplina.getGrupos().get(1).getPesquisas().get(0).getNome());
-	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","Applied Discrete Geometry",disciplina.getGrupos().get(1).getPesquisas().get(1).getNome());
+		"Software Livre", disciplina.getGrupo().get(0).getPesquisas().get(1).getNome());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","High Quality Image Rendering",disciplina.getGrupo().get(1).getPesquisas().get(0).getNome());
+	assertSame("Deveria devolver a primeira Linha de Pesquisa do Grupo 2","Applied Discrete Geometry",disciplina.getGrupo().get(1).getPesquisas().get(1).getNome());
     }
 
     @After

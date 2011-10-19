@@ -40,7 +40,7 @@ public class Contribuinte {
 	private Date pesquisaDataFim;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "PESQUISA_DATA_INICIO", nullable = false)
+	@Column(name = "PESQUISA_DATA_INICIO", nullable = false, insertable = false, updatable = false)
 	public Date getPesquisaDataInicio() {
 		return pesquisaDataInicio;
 	}
