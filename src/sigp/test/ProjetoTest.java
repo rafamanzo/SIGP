@@ -44,27 +44,7 @@ public class ProjetoTest {
 		"Fapesp", projeto.getFinanciamento());
     }
 
-    @Test
-    public void deveriaDevolverFiliacoesQueParticipamDoProjeto() {
-	assertSame(
-		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
-		filiacao11.getIdFiliacao(), projeto.getFiliados().get(0)
-			.getIdFiliacao());
-	assertSame(
-		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
-		filiacao12.getIdFiliacao(), projeto.getFiliados().get(1)
-			.getIdFiliacao());
-	assertSame(
-		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
-		filiacao21.getIdFiliacao(), projeto.getFiliados().get(2)
-			.getIdFiliacao());
-	assertSame(
-		"Deveria devolver o id do primeiro membro de envolvidos no projeto",
-		filiacao22.getIdFiliacao(), projeto.getFiliados().get(3)
-			.getIdFiliacao());
-
-	assertArrayEquals(filiados.toArray(), projeto.getFiliados().toArray());
-    }
+   
 
     @Test
     public void deveriaDevolverAListaDePublicacoesComOTamanhoCerto() {
@@ -109,7 +89,6 @@ public class ProjetoTest {
 	filiados.add(filiacao21);
 	filiados.add(filiacao22);
 
-	projeto.setFiliados(filiados);
 	return projeto;
 
     }

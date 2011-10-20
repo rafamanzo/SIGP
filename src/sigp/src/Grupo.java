@@ -2,6 +2,7 @@ package sigp.src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -69,8 +71,7 @@ public class Grupo {
 		this.pesquisas = pesquisas;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "GRUPO_DISCIPLINA", joinColumns = { @JoinColumn(name = "GRUPO_ID") }, inverseJoinColumns = { @JoinColumn(name = "DISCIPLINA_ID") })
+	@OneToMany(mappedBy = "grupo")
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
@@ -97,6 +98,34 @@ public class Grupo {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	@Transient
+	public List<Projeto> getProjetos() {
+		LinhaPesquisa pesquisa;
+		List<Projeto> projetos = new ArrayList<Projeto>();
+		Iterator<LinhaPesquisa> pesquisasit = pesquisas.iterator();
+		
+		while(pesquisasit.hasNext()){
+			pesquisa = pesquisasit.next();
+			projetos.addAll(pesquisa.getProjetos());
+		}
+		
+		return projetos;
+	}
+	
+	@Transient
+	public List<Publicacao> getPublicacoes() {
+		Projeto projeto;
+		List<Publicacao> publicacoes = new ArrayList<Publicacao>();
+		Iterator<Projeto> projetos = this.getProjetos().iterator();
+		
+		while(projetos.hasNext()){
+			projeto = projetos.next();
+			publicacoes.addAll(projeto.getPublicacoes());
+		}
+		
+		return publicacoes;
 	}
 
 	@Override

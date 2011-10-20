@@ -30,6 +30,14 @@
 	<ul><c:forEach items="${grupo.filiacoes}" var="filiacao">
 		<li><a href="/SIGP/contribuinte/ver/${filiacao.contribuinte.idContribuinte}">${filiacao.contribuinte.nome}</a></li>
 	</c:forEach></ul>
+	<p>Projetos:</p>
+	<ul><c:forEach items="${grupo.projetos}" var="projeto">
+		<li>${projeto.nome}</li>
+	</c:forEach></ul>
+	<p>Publicações:</p>
+	<ul><c:forEach items="${grupo.publicacoes}" var="publicacao">
+		<li>${publicacao.titulo}</li>
+	</c:forEach></ul>	
 	<p>
 		<a href="/SIGP/grupo/">Voltar</a>
 	</p>
