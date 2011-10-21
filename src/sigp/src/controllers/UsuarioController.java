@@ -31,10 +31,26 @@ public class UsuarioController {
 		Usuario usuario = dao.pegaUsuarioPorLogin(login);
 		if(usuario == null){
 			result.include("usuarioNaoCadastrado", "Usuario nao cadastrado.");
-			result.redirectTo(UsuarioController.class).index();
-			
+			result.redirectTo(UsuarioController.class).index();	
+		}
+		else{
+			//TODO
 		}
 	}
 	
+	@Path("/login/novoUsuario")
+	public void novoUsuario(){
+	}
+	
+	@Path("/login/salva")
+	public void salva(Usuario usuario){
+		if (dao.pegaUsuarioPorLogin(usuario.getLogin()) != null){
+			result.include("usuarioJaExistente", "Login nao disponivel.");
+			result.redirectTo(UsuarioController.class).novoUsuario();	
+		}
+	//	if (usuario.getSenha() == confirma)
+		dao.save(usuario);
+		result.redirectTo(UsuarioController.class).novoUsuario();
+	}
 	
 }

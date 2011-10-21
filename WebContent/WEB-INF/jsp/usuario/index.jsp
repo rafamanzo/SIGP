@@ -7,20 +7,28 @@
 <title>Login</title>
 </head>
 <body>
-	<h1>SIGP</h1>
-	<form action="verifica" method="post">
-		<p>
-			Login <input type="text" value="Login" name="login">
-		</p>
-		<p>
-			Senha <input type="password" name="senha">
-		</p>	
-		<p>
-			<input type="submit" value="Login">
-		</p>
-		<p>
-			<a href="/usuario/criaUsuario"> Registrar usuario.</a>
-		</p>
-	</form>
+	<div id=header>
+		<h1>SIGP</h1>
+	</div>
+	<div id=login>
+		<form action="verifica" method="post">
+			<p>
+				Login <input type="text" value="Login" name="login">
+			</p>
+			<p>
+				Senha <input type="password" name="senha">
+			</p>	
+			<p>
+				<input type="submit" value="Login">
+			</p>
+			<p>
+				<a href="/SIGP/"> Registrar usuario.</a>
+			</p>
+		</form>
+	</div>
+	<div id=erro>
+		${usuarioNaoCadastrado}
+	</div>
+	
 </body>
 </html>

@@ -27,9 +27,11 @@ public class UsuarioDao {
 	}
 	
 	public Usuario pegaUsuarioPorLogin (String login){
-		Usuario usuario = null;
-		usuario = (Usuario) this.session.createCriteria(Usuario.class).add(Restrictions.eq("login", login));
-		return usuario;
+		List<Usuario> usuarios = this.session.createCriteria(Usuario.class).add(Restrictions.eq("login", login)).list();
+		if(usuarios.size() > 0)
+			return usuarios.get(0);
+		return null;
+		 
 	}
 	
 	@SuppressWarnings("unchecked")
