@@ -41,46 +41,10 @@ public class FiliacaoTest {
     public void deveriaDevolverRespectivoContribuinte() {
 	assertNotNull(filiacao.getContribuinte());
 	assertNotNull(filiacao.getGrupo());
-	assertSame(filiacao.getProjetos(), this.projetos);
     }
 
-    @Test
-    public void deveriaDevolverNomesDosProjetosDoFiliado() {
-	assertEquals(
-		"Deveria devolver o Nome do projeto 1 em que o Filiado participa",
-		"Projeto Gamma", filiacao.getProjetos().get(0).getNome());
-	assertEquals(
-		"Deveria devolver o Nome do projeto 2 em que o Filiado participa",
-		"Projeto Beta", filiacao.getProjetos().get(1).getNome());
-    }
-
-    @Test
-    public void deveriaDevolverFinanciamentosDosProjetosDoFiliado() {
-	assertEquals("Deveria devolver a Agencia Financiadora do projeto 1",
-		"Fapesp", filiacao.getProjetos().get(0).getFinanciamento());
-	assertEquals("Deveria devolver a Agencia Financiadora do projeto 2",
-		"CNPq", filiacao.getProjetos().get(1).getFinanciamento());
-    }
-
-    @Test
-    public void deveriaDevolverDescricaoDosProjetosDoFiliado() {
-	assertEquals(
-		"Deveria devolver a Descricao do projeto 1 em que o Filiado participa",
-		"Metodos de Otimizacao", filiacao.getProjetos().get(0)
-			.getDescricao());
-	assertEquals(
-		"Deveria devolver a Descricao do projeto 2 em que o Filiado participa",
-		"Metodos de Criptografia", filiacao.getProjetos().get(1)
-			.getDescricao());
-    }
-
-    @Test
-    public void deveriaDevolverFinanciamentoDoProjetoDoFiliado() {
-	assertEquals("Deveria devolver a Agencia Financiadora do projeto 1",
-		"Fapesp", filiacao.getProjetos().get(0).getFinanciamento());
-	assertEquals("Deveria devolver a Agencia Financiadora do projeto 2",
-		"CNPq", filiacao.getProjetos().get(1).getFinanciamento());
-    }
+   
+ 
 
     @Test
     public void deveriaDevolverNomeDoRespectivoContribuinte() {
@@ -112,7 +76,6 @@ public class FiliacaoTest {
 	projetos.add(projeto1);
 	projetos.add(projeto2);
 
-	filiacao.setProjetos(projetos);
 	filiacao.setContribuinte(contribuinte);
 	filiacao.setGrupo(grupo);
 

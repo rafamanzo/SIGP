@@ -69,7 +69,6 @@ public class ProjetoControllerTest {
 
 	    p.setLinhasDePesquisa(linhas);
 	    p.setPublicacoes(publicacoes);
-	    p.setFiliados(filiados);
 	    projetos.add(p);
 	}
 
@@ -100,7 +99,6 @@ public class ProjetoControllerTest {
 
 	    p.setLinhasDePesquisa(linhas);
 	    p.setPublicacoes(publicacoes);
-	    p.setFiliados(filiados);
 	    projetos.add(p);
 	}
 	when(dao.list()).thenReturn(projetos);

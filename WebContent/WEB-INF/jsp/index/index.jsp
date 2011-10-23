@@ -8,8 +8,12 @@
 </head>
 <body>
 	<h1>Prototipo da Pagina Principal SIGP</h1>
+
 	<p>
-		<a href="/SIGP/membros">Membros</a>
+		<a href="/SIGP/login/">Login</a>
+	</p>
+	<p>
+		<a href="/SIGP/linhaDePesquisa/">Linha de Pesquisa</a>
 	</p>
 	<p>
 		<a href="/SIGP/grupo/">Grupos</a>
