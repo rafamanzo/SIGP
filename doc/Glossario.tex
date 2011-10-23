@@ -47,23 +47,26 @@
 
 	\noindent\textbf{\huge{A}}\\
 	\line(1,0){450}\\
-	\textbf{Administrador}: Um membro especial do grupo de pesquisa, o único 
-	que pode inscrever um novo grupo.\\
+	\textbf{Administrador}: Um tipo especial de usuário, o único 
+	que pode inscrever um novo grupo, uma nova linha de pesquisa
+	e um novo contribuinte.\\
 	\textbf{Annotation}: Definições especiais para variaveis e 
 	classes em Java.\\
 	\textbf{Arcabouço}: Framework.\\
 	
 	\noindent\textbf{\huge{B}}\\
 	\line(1,0){450}\\
-	\textbf{Banco de Dados}: Repositório de dados gravado em disco.\\
+	\textbf{Banco de Dados}: Repositório de dados persistentes gravado em disco.\\
 
 	\noindent\textbf{\huge{C}}\\
 	\line(1,0){450}\\
+	\textbf{Contribuinte}: Aquele que contribui seja como filiado a um grupo de pesquisa ou como
+	autor de alguma publicação.\\
 	\textbf{CSS}: Cascading Style Sheets - linguagem de estilo utilizada para descrever a semântica de apresentação de documentos escritos em uma linguagem de marcação, como HTML ou XML.\\
 
 	\noindent\textbf{\huge{D}}\\
 	\line(1,0){450}\\
-	\textbf{DER}: Diagrama Entidade Relacionamenro.\\
+	\textbf{DER}: Diagrama de Entidade-Relacionamenro.\\
 	\textbf{Departamento}: a menor fração da estrutura universitária para os efeitos de organização didático-científica e administrativa. Pode conter muitos grupos de pesquisa.\\
 	\textbf{Disciplina}: estudo de um ramo do saber humano. Um departamento pode ministrar várias disciplinas dentro da área de sua especialidade.\\
 	\textbf{DRY}: Don't Repeat Yourseft.\\
@@ -71,10 +74,11 @@
 	\noindent\textbf{\huge{E}}\\
 	\line(1,0){450}\\
 	\textbf{Eclipse}: Ambiente Integrado para Desenvolvimento (Integrated Development Environment - IDE).\\
-	\textbf{Entidade}: objeto básico do modelo Entidade-Relacionamento que representa um objeto do mundo real, com existência independente e é representado por uma relação (tabela) no Banco de Dados.\\
+	\textbf{Entidade}: Objeto básico do modelo Entidade-Relacionamento que representa um objeto do mundo real, com existência independente e é representado por uma relação (tabela) no Banco de Dados.\\
 	
 	\noindent\textbf{\huge{F}}\\
 	\line(1,0){450}\\
+	\textbf{Filiação}: Qualidade do contribuinte que está filiado a um grupo de pesquisa.\\
 	\textbf{Framework}: Arcabouço.\\
 
 	\noindent\textbf{\huge{G}}\\
@@ -104,12 +108,13 @@
 		
 	\noindent\textbf{\huge{L}}\\
 	\line(1,0){450}\\
-	\textbf{Linhas de Pesquisa}: A linha de pesquisa é o campo temático que delimita os objetos de estudos e pesquisas do Programa. São conduzidas por um grupo de pesquisa.\\
+	\textbf{Linhas de Pesquisa}: São campos temáticos que delimitam os objetos de estudos e pesquisas em um ambiente acadêmico.
+	São conduzidas por um grupo de pesquisa.\\
 		
 	\noindent\textbf{\huge{M}}\\
 	\line(1,0){450}\\
-	\textbf{Membros}: Membros de um grupo podem propor linhas de pesquisas e projetos; 
-	o administrador tambem é um membro.\\
+	\textbf{Membros}: Membros de um grupo de pesquisa. Termo depreciado, ver Contribuinte,
+	Filiação e Usuário.\\
 	\textbf{MER}: Modelo Entidade Relacionamento.\\
 	\textbf{Mockito}: \emph{framework} de código aberto que provê suporte para criação de testes automatizados, em particular, Testes de Unidade em Java, permitindo a criação de objetos \emph{mock}, que simulam objetos reais.\\
 	\textbf{MVC}: Model-View-Controller - é um padrão de arquitetura de software
@@ -122,14 +127,19 @@
 	
 	\noindent\textbf{\huge{O}}\\
 	\line(1,0){450}\\
-	\textbf{OpenUp}: Processo Unificado Aberto - \emph{framework} de processos que fornece as melhores práticas colhidas entre opinões de líderes em desenvolvimento de software e aplica abordagens incremental e iterativa dentro de um ciclo de vida estruturado.\\
+	\textbf{OpenUp}: Processo Unificado Aberto - \emph{framework} de processos que fornece as
+	melhores práticas colhidas entre opinões de líderes em desenvolvimento de software e aplica
+	abordagens incremental e iterativa dentro de um ciclo de vida estruturado.\\
 	
 	\noindent\textbf{\huge{P}}\\
 	\line(1,0){450}\\
 	\textbf{Pencil}: Aplicativo para desenho de telas.\\
-	\textbf{Projetos}: um texto que define e detalha as minúcias do planejamento para a execução de um trabalho científico de pesquisa.\\
-	\textbf{Publicação}: trabalho escrito na forma de artigo para descrição e registro de uma produção científica, artística ou tecnológica.\\
-	\textbf{Público}: a parte do sistema dispobilizada para visualização por todo usuário da comunidade de internautas.\\
+	\textbf{Projetos}: um texto que define e detalha as minúcias do planejamento para a execução de
+	um trabalho científico de pesquisa. Estão associados a uma ou mais linhas de pesquisa.\\
+	\textbf{Publicação}: trabalho escrito na forma de artigo para descrição e registro de uma
+	produção científica, artística ou tecnológica. Podem estar associadas a diversos projetos.\\
+	\textbf{Público}: a parte do sistema dispobilizada para visualização por todo visitante
+	da comunidade de internautas.\\
 	
 	\noindent\textbf{\huge{Q}}\\
 	\line(1,0){450}\\
@@ -148,10 +158,15 @@
 		
 	\noindent\textbf{\huge{U}}\\
 	\line(1,0){450}\\
+	\textbf{Usuário}: São os usuários cadastrados no sistema. Ou correspondem a um contribuinte
+	ou são um administrador - um tipo especial de usuário. Quando correspondem a um contribuinte,
+	podem propor novos projetos nas linhas de pesquisa em que estudam e podem registrar publicações
+	no sistema.\\
 		
 	\noindent\textbf{\huge{V}}\\
 	\line(1,0){450}\\
-	\textbf{VRaptor}: \emph{framework} MVC para desenvolvimento Web com Java, focado no desenvolvimento ágil e no conceito DRY.\\
+	\textbf{VRaptor}: \emph{framework} MVC para desenvolvimento Web com Java, focado no
+	desenvolvimento ágil e no conceito DRY.\\
 	
 	\noindent\textbf{\huge{W}}\\
 	\line(1,0){450}\\
