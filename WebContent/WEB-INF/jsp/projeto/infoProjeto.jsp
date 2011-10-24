@@ -28,8 +28,8 @@
 <!-- 	</p> -->
 
 	
-	<a href="<c:url value="/projetos/editProjeto"/>?id=${projeto.idProjeto}">Alterar Projeto</a>
+	<a href="<c:url value="/projeto/editProjeto"/>?id=${projeto.idProjeto}">Alterar Projeto</a>
 	<hr/>
-	<a href="/SIGP/projetos">Voltar</a>
+	<a href="/SIGP/projeto/">Voltar</a>
 </body>
 </html>

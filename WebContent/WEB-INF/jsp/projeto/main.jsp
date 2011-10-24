@@ -22,7 +22,7 @@
 		</tr>
 		<c:forEach items="${projetos}" var="projeto">
 			<tr>
-				<td><a href="<c:url value="/projetos/infoProjeto"/>?id=${projeto.idProjeto}">${projeto.nome}</a>
+				<td><a href="<c:url value="/projeto/infoProjeto"/>?id=${projeto.idProjeto}">${projeto.nome}</a>
 				</td>
 				<td><center>${projeto.financiamento}</center>
 				</td>
