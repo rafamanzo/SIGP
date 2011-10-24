@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sigp.src.Contribuinte;
+import sigp.src.Projeto;
 import sigp.src.Publicacao;
 import sigp.src.Veiculo;
 
@@ -21,6 +22,7 @@ public class PublicacaoTest {
 
     private Publicacao publicacao;
     private List<Contribuinte> contribuintes;
+    private List<Projeto> projetos = new ArrayList<Projeto>();
     private SimpleDateFormat formatador = new SimpleDateFormat("dd/mm/yyyy");
 
     @Before
@@ -65,6 +67,16 @@ public class PublicacaoTest {
 	assertArrayEquals(contribuintes.toArray(), publicacao
 		.getContribuintes().toArray());
     }
+    
+    @Test
+    public void deveriaDevolverProjetosProprietariosDaPublicacao(){
+	assertArrayEquals(publicacao.getProjetos().toArray(),
+		projetos.toArray());
+    }
+    @Test
+    public void deviaDevolverMesmaReferenciaParaListaDeProjetosDaPublicacao() {
+	assertSame(publicacao.getProjetos(), projetos);
+    }    
 
     public Publicacao criarPublicacao() throws ParseException {
 
@@ -84,8 +96,15 @@ public class PublicacaoTest {
 
 	contribuintes.add(contribuinte1);
 	contribuintes.add(contribuinte2);
-
+	
+	projetos = new ArrayList<Projeto>(2);
+	Projeto projeto1 = mock(Projeto.class);
+	Projeto projeto2 = mock(Projeto.class);
+	projetos.add(projeto1);
+	projetos.add(projeto2);		
+	
 	publicacao.setContribuintes(contribuintes);
+	publicacao.setProjetos(projetos);
 
 	return publicacao;
 
