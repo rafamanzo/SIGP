@@ -46,11 +46,12 @@ public class UsuarioController {
 	public void salva(Usuario usuario){
 		if (dao.pegaUsuarioPorLogin(usuario.getLogin()) != null){
 			result.include("usuarioJaExistente", "Login nao disponivel.");
-			result.redirectTo(UsuarioController.class).novoUsuario();	
+			result.redirectTo(UsuarioController.class).novoUsuario();
+			return;
 		}
 	//	if (usuario.getSenha() == confirma)
 		dao.save(usuario);
-		result.redirectTo(UsuarioController.class).novoUsuario();
+		result.redirectTo(UsuarioController.class).index();
 	}
 	
 }
