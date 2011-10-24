@@ -105,20 +105,20 @@
         %
         \subsection{Dependências tecnológicas do projeto:}
             \begin{itemize}
-                \item Um servidor Tomcat (versão ???) para hospedar nosso
+                \item Um servidor Tomcat, com a versão 6, para hospedar nosso
                 sistema;
                 
                 \item Um banco de dados MySQL para persistir os dados
                 gerenciados pelo sistema;
                 
-                \item a JDK e o Eclupse (Enterprise Edition ou equivalente),
+                \item a JDK e o Eclipse (Enterprise Edition ou equivalente),
                 para desenvolvermos nossos sitema usando Java para Web;
                 
                 \item Um navegador para visualizarmos a interface Web do nosso
                 sistema;
                 
-                \item A biblioteca JDBC para comunicar nossa aplicação Java com
-                o banco de dados;
+                \item A biblioteca JDBC, junto de seu plugin para MySQL, para 
+				comunicar nossa aplicação Java com o banco de dados;
                 
                 \item A implementação Hibernate da JPA para abstrair o banco de
                 dados através de um mapeamento objeto-relacional, facilitando
@@ -128,8 +128,11 @@
                 \item A bilbioteca VRaptor, para comunicarmos facilmente nossa
                 aplicação Java com a interface Web do sistema;
                 
-                \item As bibliotecas Junit e Mockito para testarmos nosso
+                \item As bibliotecas JUnit e Mockito para testarmos nosso
                 sistema;
+				
+				\item As bibliotecas JQuery e JQueryUI para interatividade nas
+				páginas Web;
                 
                 \item Git para controle de versão do projeto;
                 
@@ -147,8 +150,8 @@
                 
                 \item Modelar bancos de dados;
                 
-                \item Saber usar as bibliotecas Hibernate, VRaptor, JUnit e
-                Mockito;
+                \item Saber usar as bibliotecas Hibernate, VRaptor, JQuery, 
+				JUnit e Mockito;
                 
                 \item Saber usar o controle de versão Git.
             \end{itemize}
@@ -245,13 +248,24 @@
             orientação a objetos, onde classes corresponderão, aproximadamente,
             a relações.
 
-            \item Para realizar testes de unidade nas nossas classes, usaremos a
-            biblioteca Mockito. a JUnit é a ferramenta padrão de testes em Java,
-            e tem \textit{plug-ins} no Eclipse que auxiliam seu uso. A Mockito
-            servirá para que possamos simular objetos, impondo-lhes um
-            comportamento pré-definido e, assim, podermos realizar testes de
-            unidade que de fato não dependam de outras unidades para serem
-            testados.
+            \item Para realizar testes de unidade nas nossas classes, usaremos as
+            bibliotecas JUnit e Mockito. a JUnit é a ferramenta padrão de testes em 
+			Java, e o Eclipse tem \textit{plug-ins} que auxiliam seu uso. A Mockito
+            servirá para que possamos simular objetos, impondo-lhes um comportamento 
+			pré-definido e, assim, podermos realizar testes de unidade que de fato 
+			não dependam de outras unidades para serem testados.
+			
+			\item Para facilitar o desenvolvimento das páginas Web, usamos a 
+			biblioteca JQuery, que possui uma facilidade de uso assim como ferramentas
+			poderosas assim como suporte a diversos navegadores, permitindo os
+			desenvolvedores focarem seu tempo em novas funcionalidades e não em
+			diferenças entre navegadores.
+			
+			\item Para elementos de interface Web, a JQuery UI fornece diversos
+			recursos avançados através de comandos simples. É possível criar um
+			calendário, telas com abas ou até mesmo formulários dinâmicos com
+			pouco esforço.
+			
             %
             % \item [Decision or constraint and justification]
             % 
@@ -275,22 +289,31 @@
             Módulo responsável por controlar a parte lógica por trás da
             interface Web.
 
-            Propósito: %TODO
+            Propósito: Fornecer as páginas web pedidas pelo usuário, assim
+			como executar qualquer lógica de alguma página em particular, como
+			por exemplo, o cadastro de um usuário.
 
-            Funcionamento: %TODO
+            Funcionamento: Cada endereço pedido pelo usuário deve estar associado
+			com algum método de algum controlador, que será então chamado, passando
+			os dados que o usuário enviou junto da requisição. Esse método irá
+			processar o pedido, e terminar enviando uma página web.
 
         \subsection{\textit{Data Access Object}}
             Módulo responsável por fornecer acesso a um certo tipo de dado do
             banco de dados.
 
-            Propósito: %TODO
+            Propósito: Encapsular o Hibernate, integrando-se melhor ao sistema
+			e facilitando testes.
 
-            Funcionamento: %TODO
+            Funcionamento: Por ser uma classe do nosso próprio sistema, é mais
+			facilmente mockada e integrado ao VRaptor.
+			Cada método é basicamente uma chamada direta ao Hibernate, com algumas
+			também utilizando Transactions.
 
         \subsection{Injeção de Dependência}
             Método utilizado para lidar com dependências de uma classe com
             outra. Sempre que uma classe precisar de um objeto de outra,
-            deverá dar-se preferÊncia ao uso de injeções de dependência.
+            deverá dar-se preferência ao uso de injeções de dependência.
 
             Propósito: %TODO
 
@@ -298,19 +321,23 @@
 
         \subsection{\textit{Factories}}
             Módulo que facilita a criação de objetos com configurações
-            pré-determinadas. Comoatível com injeção de dependências.
+            pré-determinadas. Compatível com injeção de dependências.
 
-            Propósito: %TODO
+            Propósito: Fornecer objetos prontos para o uso.
 
-            Funcionamento: %TODO
+            Funcionamento: Uma classe com diversos métodos, onde cada um
+			devolve um dos objetos desejados já configurados.
 
         \subsection{Testes de unidade}
             Método utilizado para testar unidades individuais do sistema de
             maneira isolada.
 
-            Propósito: %TODO
+            Propósito: Garantir de cada classe do projeto funciona individualmente.
 
-            Funcionamento: %TODO
+            Funcionamento: Para cada classe do projeto (excluindo aquelas que 
+			apenas encapsulam uma biblioteca externa), cria-se um teste utilizando
+			o JUnit. Nesse teste, verifica-se se cada método dessa classa devolve
+			os valores esperados.
         
         %
         % \subsection{Architectural Mechanism}
@@ -358,8 +385,8 @@
         %
         Há no total seis camadas na arquitetura do projeto. A primeira, e mais
         externa, é a interface Web, composta pelos diversos arquivos
-        \texttt{*.jsp} que faremos, formando as diversas páginas Web que os
-        usuários poderão ver ao acessar nosso sistema.
+        \texttt{*.jsp}, \texttt{*.css} e \texttt{*.js} que faremos, formando as 
+		diversas páginas Web que os usuários verão ao acessar nosso sistema.
         A segunda camada é o VRaptor, que serve para ligar a primeira camada com
         a terceira, que são os controladores. Estes, por sua vez, se comunicam
         com a quarta camada que é a que compõe a lógica do sistema. É nela que
