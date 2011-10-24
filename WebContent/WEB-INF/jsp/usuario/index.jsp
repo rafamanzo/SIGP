@@ -22,7 +22,7 @@
 				<input type="submit" value="Login">
 			</p>
 			<p>
-				<a href="/SIGP/"> Registrar usuario.</a>
+				<a href="/SIGP/login/novoUsuario"> Registrar usuario.</a>
 			</p>
 		</form>
 	</div>
