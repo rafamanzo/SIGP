@@ -95,7 +95,7 @@ public class PublicacaoControllerTest {
 	}
 	when(dao.list()).thenReturn(publicacoes);
 	when(dao.getPublicacao(1L)).thenReturn(publicacoes.get(0));
-	when(dao.getPublicacao(2L)).thenReturn(publicacoes.get(1));	
+	when(dao.getPublicacao(2L)).thenReturn(publicacoes.get(1));		
     }
 
     @After
@@ -127,8 +127,16 @@ public class PublicacaoControllerTest {
     
     @Test
     public void testVisualiza(){
-	controller.visualiza(1L);
-	verify(result).include("publicacao",publicacoes.get(0));
+	Publicacao p = publicacoes.get(0);
+	controller.visualiza(p.getIdPublicacao());
+	verify(result).include("publicacao",p);
+    }
+    
+    @Test
+    public void testAltera_form(){
+	Publicacao p = publicacoes.get(0);
+	controller.altera_form(p.getIdPublicacao());
+	verify(result).include("publicacao",p);
     }
 
 }
