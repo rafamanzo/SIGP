@@ -9,7 +9,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>SI para Grupos de Pesquisa</title>
+	<link rel="stylesheet" type="text/css" href="styles/sigp.css">
+	<title><fmt:message key="header.titulo" /></title>
 </head>
 <body>
 
