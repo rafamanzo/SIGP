@@ -1,0 +1,200 @@
+\documentclass[11pt, a4paper,oneside]{book}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[pdftex]{hyperref}
+\usepackage[pdftex]{graphicx}  
+\usepackage[square,sort,nonamebreak]{natbib}
+
+
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}         
+\usepackage[pagebackref,colorlinks=true,urlcolor=cyan,citecolor=red,linkcolor=blue]{hyperref}
+
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}                  
+\usepackage[small,compact]{titlesec} 		
+
+%\usepackage[Lenny]{fncychap}					
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Formatação
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}                     % Sem numero de paginas
+\pagestyle{fancy}                         %cabecalhos e rodares
+
+\rhead{}
+
+%\fancyhead[RO,RE]{\today}
+%\fancyhead[LO,LE]{MAC0332 - SIGP - Sistema de Informação para Grupos de Pesquisa\\
+%Descrições de Casos de Uso}
+
+\fancyhead[LO,LE]{
+\centering
+\begin{tabular}[h]{|l|l|}
+\hline
+MAC0332 & SIGP - Sistema de Informação para Grupos de Pesquisa \\
+\hline
+Descrição de Casos de Uso & Data: \today \\
+\hline 
+\end{tabular}
+}
+
+%\pagestyle{myheadings}
+%\markright{
+%\centering
+%\begin{tabular}[h]{|l|l|}
+%\hline
+%MAC0332 & SIGP - Sistema de Informação para Grupos de Pesquisa \\
+%\hline
+%Descrição de Casos de Uso & Data: \today \\
+%\hline 
+%\end{tabular}
+%}
+
+%\fancyfoot[LO,LE]{Confidencial}
+\fancyfoot[RO,RE] {\thepage}
+\fancyfoot[CO,CE]{Grupo 3, 2011}
+
+
+\parskip 7.2pt                        % Espaço entre paragrafos 7.2
+%\renewcommand{\baselinestretch}{1.5} % Espaçamento entre linhas = 1.5
+%\parindent 0pt
+
+% Tirar hifenização
+\hyphenpenalty = 5000
+\tolerance = 1000
+\sloppy
+
+
+% numeração para subsubsection
+%errado: \renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection.}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+
+\begin{document}
+
+% Capa
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{0.2cm}
+    \textbf{\Large{Sistema de Informação para Grupos de Pesquisa}}\\
+	
+    \vspace*{1.2cm}
+    \Large{Arquiteto: Jorge J. G. Leandro}\\
+    \Large{Iteração 4 - Grupo 3}
+    
+    \vskip 2cm
+	\textsc{
+	MAC0332 - 2011\\[-0.25cm] 
+          	Engenharia de Software\\[-0.25cm] 	
+	IME - USP\\[-0.25cm]
+	}
+    
+    \vskip 1.5cm
+    \textbf{Descrições de Casos de Uso}\\
+    Prof: Marco Gerosa\\
+
+	
+    \vskip 0.5cm
+ %   \normalsize{São Paulo, Julho de 2008}
+   {\normalsize São Paulo, \today}
+\end{center}
+
+
+\chapter[Caso de Uso]{Caso de uso: \bf Visitante lista Disciplinas oferecidas por um Grupo}
+\label{cap:casodeuso}	
+
+\section{Breve descrição}
+
+O caso de uso \textbf{Visitante lista Disciplinas oferecidas por um Grupo} permite que um visitante solicite uma listagem das disciplinas oferecidas por um grupo de pesquisa.
+
+\section{Breve Descrição dos Atores}
+
+\subsection{Visitante}
+
+O \textbf{Visitante} é o usuário de um computador com acesso à \emph{Internet}.
+
+\section{Pré-condições}
+O visitante tem acesso a um computador com software navegador e conexão à \emph{Internet}
+O navegador exibe a página de algum Grupo cadastrado no SIGP
+
+\subsection{Fluxo Básico de Eventos}
+
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de um GRUPO cadastrado no SIGP
+\item O Visitante clica no botão listar disciplinas
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com as disciplinas oferecidas por aquele Grupo.
+\item O caso de uso termina.
+\end{enumerate}
+
+\section{Fluxos Alternativos}
+
+\subsection{Imprimessão da Lista}
+Se no passo $3$ do fluxo básico, o Visitante desejar, pode solicitar a impressão da página, então
+
+\begin{enumerate}
+\item O Visitante aciona o botão de impressão
+\item O SIGP apresenta uma página amigável de impressão contendo a lista desejada
+\item O Visitante aciona o botão fechar página de impressão
+\item O caso de uso retoma o passo 4
+\end{enumerate}
+
+\subsection{Nenhuma Disciplina é oferecida pelo Grupo}
+Se no passo $3$ do fluxo básico, não houver disciplinas oferecidas pelo Grupo em questão, o SIGP o exibe uma página com uma lista vazia e uma mensagem informando que este Grupo não oferece nenhuma disciplina no momento.
+
+\begin{enumerate}
+\item O Visitante aciona o botão de impressão
+\item O SIGP apresenta uma página amigável de impressão contendo a lista desejada
+\item O Visitante aciona o botão fechar página de impressão
+\item O caso de uso retoma o passo 4
+\end{enumerate}
+
+%\section{Subfluxos}
+%
+%\subsection{Subfluxo 1}
+%
+%\begin{enumerate}
+%\item subfluxo 1, passo 1
+%\item $\ldots$
+%\item subfluxo 1, passo n
+%\end{enumerate}
+%
+%\section{Cenários Chaves}
+%
+%\subsection{Cenário 1}
+%\begin{enumerate}
+%\item cenário 1, passo 1
+%\item $\ldots$
+%\item cenário 1, passo n
+%\end{enumerate}
+
+\section{Pós-condições}
+
+\subsection{Listagem bem sucedida}
+
+O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
+
+%\section{Requisitos Especiais}
+%
+%Requisito especial 1
+
+	
+
+\end{document}
