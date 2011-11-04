@@ -8,6 +8,8 @@
 		<tr>
 			<td><a href="/SIGP/linhadepesquisa/ver/${linhapesquisa.idlinhapesquisa}">${linhapesquisa.nome}</a></td>
 			<td>${linhapesquisa.nome}</td>
+			<td><a href="/SIGP/linhaDePesquisa/alterar/${linhapesquisa.idlinhapesquisa}">Alterar</a></td>
+			<td><a href="/SIGP/linhaDePesquisa/remover/${linhapesquisa.idlinhapesquisa}">Apagar</a></td>
 		</tr>
 	</c:forEach>
 </table>

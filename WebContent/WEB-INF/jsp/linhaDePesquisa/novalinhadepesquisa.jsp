@@ -2,7 +2,7 @@
 
 <h1>Adicionar Nova Linha de Pesquisa...</h1>
 <br />
-<form method ="post" action="/SIGP/linhaDePesquisa/salva">
+<form method ="post" action="/SIGP/linhadepesquisa/salva">
 	<table>
 	 	<!-- idPesquisa, nome, sublinha, projetos, contribuintes -->
 	 	<tr>

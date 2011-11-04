@@ -18,19 +18,18 @@ public class LinhaDePesquisaController {
 	this.dao = dao;
     }
 
-    @Path("/linhaDePesquisa/")
+    @Path("/linhadepesquisa/")
     public void index() {
-	result.include("linhasDePesquisa", dao.list());
+	result.include("linhasdepesquisa", dao.list());	
     }
 
     public List<LinhaPesquisa> lista() {
 	return dao.list();
     }
 
-    @Path("/linhadepPesquisa/novalinhadesquisa/")
+    @Path("/linhadepesquisa/novalinhadesquisa/")
     public void inserir(final LinhaPesquisa linhapesquisa) {
-	dao.save(linhapesquisa);
-	result.redirectTo(this).lista();
+	dao.save(linhapesquisa);	
     }
 
     @Path("/linhadepesquisa/{idlinhapesquisa}/editar")
