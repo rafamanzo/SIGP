@@ -13,9 +13,10 @@
 			<td>Sublinha:</td>
 			<td><textarea name="linhapesquisa.sublinha"></textarea></td>
 		</tr>		
-	</table>
-	<br/> 
+	<tr><td>
 	<input type="submit" value="Adicionar Linha de Pesquisa" />
+	</td>
+	</tr>
+	</table>	
 </form>
-
 <%@ include file="/footer.jsp" %> 
