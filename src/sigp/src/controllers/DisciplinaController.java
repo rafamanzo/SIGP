@@ -5,15 +5,19 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import sigp.src.Disciplina;
 import sigp.src.dao.DisciplinaDao;
+import sigp.src.dao.GrupoDao;
 
 @Resource
 public class DisciplinaController {
 	private final Result result;
 	private final DisciplinaDao dao;
+	private final GrupoDao gdao;
+	
 
-	public DisciplinaController(Result result, DisciplinaDao dao) {
+	public DisciplinaController(Result result, DisciplinaDao dao, GrupoDao gdao) {
 		this.result = result;
 		this.dao = dao;
+		this.gdao = gdao;
 	}
 
 	@Path("/disciplina/")
@@ -22,8 +26,9 @@ public class DisciplinaController {
 	}
 
 	@Path("/disciplina/novo")
-	public void novo_form() {
-		result.include("disciplinas", dao.list());
+	public void novo_form() { 	    
+		result.include("disciplinas", dao.list());	
+		result.include("grupos", gdao.list());
 	}
 
 	@Path("/disciplina/cria")

@@ -15,7 +15,7 @@
 			<td><textarea name="disciplina.ementa"></textarea></td>
 		</tr>
 		<tr>
-			<td>Ministrante:</td>
+			<td>Grupo ministrante:</td>
 			<td><select name="disciplina.grupo">
 					<option value="0">Nenhum</option>
 					<c:forEach items="${grupos}" var="grupo">
