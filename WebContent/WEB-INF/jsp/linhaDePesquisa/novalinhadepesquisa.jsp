@@ -17,6 +17,21 @@
 			</select>
 			</td>
 		</tr>
+		
+			<tr>
+			<td>Projetos</td>
+			<td><select name="projeto">
+					<option value="0">Nenhum</option>
+					 <c:set var="list" value="${projetos}," scope="session" />
+					<c:forEach items="${projetos}" var="projeto">
+						<option value="${projeto.idProjeto}">${projeto.nome}</option>
+						<c:set var="list" value="${projetos}${param.item}" scope="session" />
+					</c:forEach>
+			</select>
+			</td>
+			</tr>
+			
+			
 		<tr>
 			<td colspan="2"><input type="submit" value="Criar" />
 			</td>
