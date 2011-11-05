@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<td>Grupo ministrante:</td>
-			<td><select name="disciplina.grupo">
+			<td><select name="disciplina.grupo.idGrupo">
 					<option value="0">Nenhum</option>
 					<c:forEach items="${grupos}" var="grupo">
 						<option value="${grupo.idGrupo}">${grupo.nome}</option>
