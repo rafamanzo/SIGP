@@ -1,22 +1,30 @@
 <%@ include file="/header.jsp" %> 
 
-<h1>Adicionar Nova Linha de Pesquisa...</h1>
-<br />
-<form method ="post" action="/SIGP/linhadepesquisa/salva">
+<form method="post" action="/SIGP/linhadepesquisa/inserir">
 	<table>
-	 	<!-- idPesquisa, nome, sublinha, projetos, contribuintes -->
-	 	<tr>
+		<tr>
 			<td>Nome:</td>
-			<td><input type="text" name="linhapesquisa.nome" /></td>
+			<td><input type="text" name="linhapesquisa.nome" />
+			</td>
 		</tr>
 		<tr>
-			<td>Sublinha:</td>
-			<td><textarea name="linhapesquisa.sublinha"></textarea></td>
-		</tr>		
-	<tr><td>
-	<input type="submit" value="Adicionar Linha de Pesquisa" />
-	</td>
-	</tr>
-	</table>	
+			<td>Sublinha de Pesquisa</td>
+			<td><select name="subLinha">
+					<option value="0">Nenhum</option>
+					<c:forEach items="${linhasdepesquisa}" var="linhapesquisa">
+						<option value="${linhapesquisa.idPesquisa}">${linhapesquisa.nome}</option>
+					</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Criar" />
+			</td>
+		</tr>
+	</table>
 </form>
+<p>
+	<a href="/SIGP/linhadepesquisa/">Voltar</a>
+</p>
+
 <%@ include file="/footer.jsp" %> 
