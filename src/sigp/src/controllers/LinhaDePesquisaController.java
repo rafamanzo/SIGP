@@ -20,7 +20,7 @@ public class LinhaDePesquisaController {
 
     @Path("/linhadepesquisa/")
     public void index() {
-	result.include("linhasdepesquisa", dao.list());	
+	result.include("linhasdepesquisa", dao.list());
     }
 
     public List<LinhaPesquisa> lista() {
@@ -33,28 +33,35 @@ public class LinhaDePesquisaController {
     }
 
     @Path("/linhadepesquisa/inserir")
-    public void inserir(final LinhaPesquisa linhapesquisa) {	
+    public void inserir(final LinhaPesquisa linhapesquisa) {
 	dao.save(linhapesquisa);
-	result.redirectTo(this).index();	
+	result.redirectTo(this).index();
     }
 
-    @Path("/linhadepesquisa/{idPesquisa}/editar")
-    public LinhaPesquisa editar(Long idPesquisa) {
-	return dao.getLinhaPesquisa(idPesquisa);
-    }
-
-    @Path("/linhadepesquisa/{idPesquisa}/alterar")
-    public void alterar(LinhaPesquisa linhapesquisa) {
-	dao.update(linhapesquisa);
-	result.redirectTo(this).lista();
-    }
-
-    @Path("/linhadepesquisa/{idPesquisa}/remover")
-    public boolean remover(Long idPesquisa) {
+    @Path("/linhadepesquisa/alterar/{idPesquisa}")
+    public void editar(Long idPesquisa) {
 	LinhaPesquisa linhapesquisa = dao.getLinhaPesquisa(idPesquisa);
-	dao.delete(linhapesquisa);
-	result.redirectTo(this).lista();
-	return true;
+	if (linhapesquisa == null)
+	    result.redirectTo(this).index();
+	else
+	    result.include("linhapesquisa", linhapesquisa);
+	result.include("linhasdepesquisa", dao.list());
+    }
+
+    @Path("/linhadepesquisa/altera")
+    public void altera(final LinhaPesquisa linhapesquisa,
+	    final Long subLinha) {
+	linhapesquisa.setSubLinha(dao.getLinhaPesquisa(subLinha));
+	dao.update(linhapesquisa);
+	result.redirectTo(this).index();
+    }
+
+    @Path("/linhadepesquisa/apagar/{idPesquisa}")
+    public void remove(Long idPesquisa) {
+	LinhaPesquisa linhapesquisa = dao.getLinhaPesquisa(idPesquisa);
+	if (linhapesquisa != null)
+	    dao.delete(linhapesquisa);
+	result.redirectTo(this).index();
     }
 
     @Path("/linhadepesquisa/ver/{idPesquisa}")
