@@ -15,6 +15,17 @@
 			<td><textarea name="disciplina.ementa"></textarea></td>
 		</tr>
 		<tr>
+			<td>Ministrante:</td>
+			<td><select name="disciplina.grupo">
+					<option value="0">Nenhum</option>
+					<c:forEach items="${grupos}" var="grupo">
+						<option value="${grupo.idGrupo}">${grupo.nome}</option>
+					</c:forEach>
+			</select>
+			</td>
+		</tr>
+						
+		<tr>
 			<td colspan="2"><input type="submit" value="Criar" /></td>
 		</tr>
 	</table>
