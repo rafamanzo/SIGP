@@ -436,4 +436,97 @@ O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
 %
 %Requisito especial 1
 
+\chapter[Caso de Uso]{Caso de uso: \bf Visitante lista contribuintes}
+\label{cap:casodeuso}	
+
+\section{Breve descrição}
+
+O caso de uso \textbf{Visitante lista contribuinte} permite que um visitante liste projetos cadastrados no SIGP em três pontos: Na página de um grupo são listados todos os contribuintes deste; na página de uma linha de pesquisa são listadas todos os contribuintes desta; e na página de um projeto são listados todos os contribuintes deste.
+
+\section{Breve Descrição dos Atores}
+
+\subsection{Visitante}
+
+O \textbf{Visitante} é o usuário de um computador com acesso à \emph{Internet}.
+
+\section{Pré-condições}
+O visitante tem acesso a um computador com software navegador e conexão à \emph{Internet}
+O navegador exibe a página inicial do SIGP
+
+\subsection{Fluxo Básico de Eventos}
+
+\subsubsection{Através da página de um grupo}
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de um grupo no SIGP;
+\item O Visitante clica no botão listar contribuintes;
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com os contribuintes participando deste no SIGP;
+\item O caso de uso termina.
+\end{enumerate}
+
+\subsubsection{Através da página de uma linha de pesquisa}
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de uma linha de pesquisa no SIGP;
+\item O Visitante clica no botão listar contribuintes;
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com os contribuintes participando desta no SIGP;
+\item O caso de uso termina.
+\end{enumerate}
+
+\subsubsection{Através da página de um projeto}
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de um projeto no SIGP;
+\item O Visitante clica no botão listar contribuintes;
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com os contribuintes participando deste no SIGP;
+\item O caso de uso termina.
+\end{enumerate}
+
+\section{Fluxos Alternativos}
+
+\subsection{Impressão da Lista}
+Se no passo $3$ do fluxo básico através da página de grupo, o Visitante desejar, pode solicitar a impressão da página, então
+
+\begin{enumerate}
+\item O Visitante aciona o botão de impressão
+\item O SIGP apresenta uma página amigável de impressão contendo a lista desejada
+\item O Visitante aciona o botão fechar página de impressão
+\item O caso de uso retoma o passo 4
+\end{enumerate}
+
+\subsection{Nenhum contribuinte está no grupo no SIGP}
+Se no passo $3$ do fluxo básico, não houverem contribuintes no grupo no sistema, o SIGP exibe uma página com uma lista vazia e uma mensagem informando.
+
+\subsection{Nenhum contribuinte está na linha de pesquisa sendo vista no SIGP}
+Se no passo $3$ do fluxo básico, não houverem contribuintes na linha de pesquisa no sistema, o SIGP exibe uma página com uma lista vazia e uma mensagem informando.
+
+\subsection{Nenhum contribuinte faz parte do projeto sendo visto no SIGP}
+Se no passo $3$ do fluxo básico, não houverem contribuintes fazendo parte do projeto sendo visto no sistema, o SIGP exibe uma página com uma lista vazia e uma mensagem informando.
+
+%\section{Subfluxos}
+%
+%\subsection{Subfluxo 1}
+%
+%\begin{enumerate}
+%\item subfluxo 1, passo 1
+%\item $\ldots$
+%\item subfluxo 1, passo n
+%\end{enumerate}
+%
+%\section{Cenários Chaves}
+%
+%\subsection{Cenário 1}
+%\begin{enumerate}
+%\item cenário 1, passo 1
+%\item $\ldots$
+%\item cenário 1, passo n
+%\end{enumerate}
+
+\section{Pós-condições}
+
+\subsection{Listagem bem sucedida}
+
+O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
+
+%\section{Requisitos Especiais}
+%
+%Requisito especial 1
+
 \end{document}
