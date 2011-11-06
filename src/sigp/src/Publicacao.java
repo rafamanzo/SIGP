@@ -17,6 +17,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -24,10 +27,18 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "PUBLICACAO")
 public class Publicacao {
+    
 	private Long idPublicacao;
+	
+	@NotEmpty(message = "Publicação precisa ter um título.")
 	private String titulo;
+	
+	@NotNull(message = "Publicação precisa ter um veículo válido.")
 	private Veiculo veiculo;
+	
+	@NotNull(message = "Publicação precisa ter uma data válida.")
 	private Date data;
+	
 	private List<Projeto> projetos = new ArrayList<Projeto>();
 	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
 

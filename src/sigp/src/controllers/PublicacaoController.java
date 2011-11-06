@@ -3,6 +3,7 @@ package sigp.src.controllers;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import sigp.src.Publicacao;
 import sigp.src.Veiculo;
 import sigp.src.dao.PublicacaoDao;
@@ -11,9 +12,11 @@ import sigp.src.dao.PublicacaoDao;
 public class PublicacaoController {
 	private final Result result;
 	private final PublicacaoDao dao;
+    private Validator validator;
 
-	public PublicacaoController(Result result, PublicacaoDao dao) {
+	public PublicacaoController(Result result, Validator validator, PublicacaoDao dao) {
 		this.result = result;
+		this.validator = validator;
 		this.dao = dao;
 	}
 
@@ -29,6 +32,8 @@ public class PublicacaoController {
 
 	@Path("/publicacao/cria")
 	public void cria(final Publicacao publicacao) {
+	    validator.validate(publicacao);
+	    validator.onErrorForwardTo(this).novo_form();
 		dao.save(publicacao);
 		result.redirectTo(PublicacaoController.class).index();
 	}
@@ -54,6 +59,8 @@ public class PublicacaoController {
 
 	@Path("/publicacao/altera")
 	public void altera(final Publicacao publicacao) {
+        validator.validate(publicacao);
+        validator.onErrorForwardTo(this).altera_form(publicacao.getIdPublicacao());
 		dao.update(publicacao);
 		result.redirectTo(PublicacaoController.class).index();
 	}
