@@ -7,27 +7,45 @@
 			<td><input type="text" name="linhapesquisa.nome" />
 			</td>
 		</tr>
-		<tr>
-			<td>Sublinha de Pesquisa</td>
+<!-- 		<tr> -->
+<!-- 			<td>Sublinha de Pesquisa</td> -->
+<!-- 			<td><select name="subLinha"> -->
+<!-- 					<option value="0">Nenhum</option> -->
+<%-- 					<c:forEach items="${linhasdepesquisa}" var="linhapesquisa"> --%>
+<%-- 						<option value="${linhapesquisa.idPesquisa}">${linhapesquisa.nome}</option> --%>
+<%-- 					</c:forEach> --%>
+<!-- 			</select> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+
+             <tr>
+			<td>SubLinha:</td>
 			<td><select name="subLinha">
 					<option value="0">Nenhum</option>
-					<c:forEach items="${linhasdepesquisa}" var="linhapesquisa">
-						<option value="${linhapesquisa.idPesquisa}">${linhapesquisa.nome}</option>
+					<c:forEach items="${linhasdepesquisa}" var="linhaslista">
+						<c:if test="${linhaslista.idPesquisa != linhapesquisa.idPesquisa}">
+							<option value="${linhaslista.idPesquisa}"
+								<c:if test="${linhapesquisa.subLinha.idPesquisa == linhaslista.idPesquisa}">selected="selected"</c:if>>${linhaslista.nome}</option>
+						</c:if>
 					</c:forEach>
-			</select>
-			</td>
-		</tr>
+			</select></td>
+		   </tr>
+
+
+
+
+
+
 		
 			<tr>
 			<td>Projetos</td>
 			<td><select name="projeto">
-					<option value="0">Nenhum</option>
-					 <c:set var="list" value="${projetos}," scope="session" />
+					<option value="0">Nenhum</option>					
 					<c:forEach items="${projetos}" var="projeto">
 						<option value="${projeto.idProjeto}">${projeto.nome}</option>
-						<c:set var="list" value="${projetos}${param.item}" scope="session" />
+						<c:set var="projetos" value="${projetos}${param.item}" scope="session" />						
 					</c:forEach>
-			</select>
+			</select>									
 			</td>
 			</tr>
 			

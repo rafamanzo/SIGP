@@ -12,7 +12,7 @@
 </p>
 <p>Projetos:</p>
 <ul><c:forEach items="${linhapesquisa.projetos}" var="projeto">
-	<li><!--<a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">-->${projeto.nome}</li>
+	<li><a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">${projeto.nome}</a></li>
 </c:forEach></ul>
 <p>Contribuintes:</p>
 <ul><c:forEach items="${linhapesquisa.contribuintes}" var="contribuinte">
