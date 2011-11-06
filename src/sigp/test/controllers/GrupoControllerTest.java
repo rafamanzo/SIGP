@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 import sigp.src.Grupo;
 import sigp.src.controllers.GrupoController;
@@ -20,16 +21,19 @@ public class GrupoControllerTest {
 	GrupoController controller;
 	Result result;
 	GrupoDao dao;
+	Validator validator;
 	List<Grupo> list;
 	
 	@Before
 	public void setUp() throws Exception {
 		result = mock(Result.class);
 		dao = mock(GrupoDao.class);
-		controller = new GrupoController(result, dao);
+		validator = mock(Validator.class);
+		controller = new GrupoController(result, validator, dao);
 		
 		GrupoController controlmock = mock(GrupoController.class);
 		when(result.redirectTo(GrupoController.class)).thenReturn(controlmock);
+		when(validator.onErrorForwardTo(controller)).thenReturn(controlmock);
 		
 		setUpDao();
 	}

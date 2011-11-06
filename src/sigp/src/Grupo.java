@@ -16,6 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -23,9 +26,15 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "GRUPO")
 public class Grupo {
+    
+    @NotNull(message = "O ID de um grupo não pode ser nulo.")
 	private Long idGrupo;
+
+    @NotEmpty(message = "O campo \"nome\" não deve ficar vazio.")
 	private String nome;
+    
 	private Grupo responsavel;
+	
 	private List<LinhaPesquisa> pesquisas = new ArrayList<LinhaPesquisa>();
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();

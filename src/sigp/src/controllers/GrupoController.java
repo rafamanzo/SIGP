@@ -3,6 +3,7 @@ package sigp.src.controllers;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import sigp.src.Grupo;
 import sigp.src.dao.GrupoDao;
 
@@ -10,9 +11,11 @@ import sigp.src.dao.GrupoDao;
 public class GrupoController {
 	private final Result result;
 	private final GrupoDao dao;
+    private Validator validator;
 
-	public GrupoController(Result result, GrupoDao dao) {
+	public GrupoController(Result result, Validator validator, GrupoDao dao) {
 		this.result = result;
+		this.validator = validator;
 		this.dao = dao;
 	}
 
@@ -28,8 +31,9 @@ public class GrupoController {
 
 	@Path("/grupo/cria")
 	public void cria(final Grupo grupo, final Long responsavel) {
-		if (responsavel != 0)
-			grupo.setResponsavel(dao.getGrupo(responsavel));
+	    validator.validate(grupo);
+        validator.onErrorForwardTo(this).novo_form();
+		grupo.setResponsavel(dao.getGrupo(responsavel));
 		dao.save(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}
@@ -55,6 +59,8 @@ public class GrupoController {
 
 	@Path("/grupo/altera")
 	public void altera(final Grupo grupo, final Long responsavel) {
+        validator.validate(grupo);
+        validator.onErrorForwardTo(this).altera_form(grupo.getIdGrupo());
 		grupo.setResponsavel(dao.getGrupo(responsavel));
 		dao.update(grupo);
 		result.redirectTo(GrupoController.class).index();
