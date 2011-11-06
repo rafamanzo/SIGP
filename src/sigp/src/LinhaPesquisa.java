@@ -14,14 +14,20 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import br.com.caelum.vraptor.Resource;
 
 @Entity
 @Resource
 @Table(name = "LINHAP")
 public class LinhaPesquisa {
+    
 	private Long idPesquisa;
+	
+	@NotEmpty(message = "Linha de pesquisa precisa ter nome.")
 	private String nome;
+	
 	private List<Projeto> projetos = new ArrayList<Projeto>();
 	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
 	private LinhaPesquisa subLinha;
