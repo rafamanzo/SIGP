@@ -33,6 +33,7 @@ public class Usuario {
 	private File avatar;
 	private TipoUsuario tipoUsuario;
 	private String senha;
+	private String confirma;
 	private String login;
 	private Contribuinte contribuinte;
 	
@@ -89,6 +90,14 @@ public class Usuario {
 		this.login = login;
 	}
 	
+	@Column(name = "USUARIO_CONFIRMA", nullable = false, length = 255)
+	public String getConfirma() {
+		return confirma;
+	}
+	public void setConfirma(String confirma) {
+		PasswordCodificator p = new PasswordCodificator(confirma);
+		this.confirma = p.codificado();
+	}
 	
 	
 }
