@@ -14,18 +14,21 @@ import br.com.caelum.vraptor.Result;
 import sigp.src.Disciplina;
 import sigp.src.controllers.DisciplinaController;
 import sigp.src.dao.DisciplinaDao;
+import sigp.src.dao.GrupoDao;
 
 public class DisciplinaControllerTest {
 	DisciplinaController controller;
 	Result result;
 	DisciplinaDao dao;
+	GrupoDao grupoDao;
 	List<Disciplina> list;
 	
 	@Before
 	public void setUp() throws Exception {
 		result = mock(Result.class);
 		dao = mock(DisciplinaDao.class);
-		controller = new DisciplinaController(result, dao);
+		grupoDao = mock(GrupoDao.class);
+		controller = new DisciplinaController(result, dao, grupoDao);
 		
 		DisciplinaController controlmock = mock(DisciplinaController.class);
 		when(result.redirectTo(DisciplinaController.class)).thenReturn(controlmock);
