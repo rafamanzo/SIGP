@@ -270,6 +270,88 @@ O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
 
 %\section{Requisitos Especiais}
 %
-%Requisito especial 1	
+%Requisito especial 1
+
+\chapter[Caso de Uso]{Caso de uso: \bf Visitante lista linhas de pesquisa}
+\label{cap:casodeuso}	
+
+\section{Breve descrição}
+
+O caso de uso \textbf{Visitante lista linhas de pesquisa} permite que um visitante liste linhas de pesquisa cadastradas no SIGP em dois pontos: Na página de um grupo são listadas as linhas de pesquisa associadas a este; e na página de uma linha de pesquisa são listadas as linhas de pesquisa hierarquicamente inferiores a esta.
+
+\section{Breve Descrição dos Atores}
+
+\subsection{Visitante}
+
+O \textbf{Visitante} é o usuário de um computador com acesso à \emph{Internet}.
+
+\section{Pré-condições}
+O visitante tem acesso a um computador com software navegador e conexão à \emph{Internet}
+O navegador exibe a página inicial do SIGP
+
+\subsection{Fluxo Básico de Eventos}
+
+\subsubsection{Através da página de um grupo}
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de um grupo no SIGP;
+\item O Visitante clica no botão listar linhas de pesquisa;
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com as linhas de pesquisa associadas a este no SIGP;
+\item O caso de uso termina.
+\end{enumerate}
+
+\subsubsection{Através da página de uma linha de pesquisa}
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de uma linha de pesquisa no SIGP;
+\item O Visitante clica no botão listar linhas de pesquisa;
+\item O SIGP redireciona o visitante para outra página, contendo uma lista com as linhas de pesquisa hierarquicamente inferiores a esta no SIGP;
+\item O caso de uso termina.
+\end{enumerate}
+
+\section{Fluxos Alternativos}
+
+\subsection{Impressão da Lista}
+Se no passo $3$ do fluxo básico através da página de grupo, o Visitante desejar, pode solicitar a impressão da página, então
+
+\begin{enumerate}
+\item O Visitante aciona o botão de impressão
+\item O SIGP apresenta uma página amigável de impressão contendo a lista desejada
+\item O Visitante aciona o botão fechar página de impressão
+\item O caso de uso retoma o passo 4
+\end{enumerate}
+
+\subsection{Nenhuma linha de pesquisa está associada ao grupo no SIGP}
+Se no passo $3$ do fluxo básico, não houverem linhas de pesquisa associadas ao grupo no sistema, o SIGP exibe uma página com uma lista vazia e uma mensagem informando.
+
+\subsection{Nenhuma linha de pesquisa está abaixo à linha de pesquisa sendo vista no SIGP}
+Se no passo $3$ do fluxo básico, não houverem linhas de pesquisa hierarquicamente inferiores no sistema, o SIGP exibe uma página com uma lista vazia e uma mensagem informando.
+
+%\section{Subfluxos}
+%
+%\subsection{Subfluxo 1}
+%
+%\begin{enumerate}
+%\item subfluxo 1, passo 1
+%\item $\ldots$
+%\item subfluxo 1, passo n
+%\end{enumerate}
+%
+%\section{Cenários Chaves}
+%
+%\subsection{Cenário 1}
+%\begin{enumerate}
+%\item cenário 1, passo 1
+%\item $\ldots$
+%\item cenário 1, passo n
+%\end{enumerate}
+
+\section{Pós-condições}
+
+\subsection{Listagem bem sucedida}
+
+O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
+
+%\section{Requisitos Especiais}
+%
+%Requisito especial 1
 
 \end{document}
