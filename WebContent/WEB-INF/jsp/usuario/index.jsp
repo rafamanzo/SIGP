@@ -21,6 +21,8 @@
 </div>
 <div id=erro>
 	${usuarioNaoCadastrado}
+	${logado}
+	${usuarioOuSenhaIncorreta}
 </div>
 
 <%@ include file="/footer.jsp" %> 
