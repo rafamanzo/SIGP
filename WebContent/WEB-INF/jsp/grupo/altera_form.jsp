@@ -27,6 +27,10 @@
 		</tr>
 	</table>
 </form>
+
+
+<%@ include file="/errors.jsp" %> 
+
 <p>
 	<a href="/SIGP/grupo/">Voltar</a>
 </p>

@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 import sigp.src.Disciplina;
 import sigp.src.controllers.DisciplinaController;
@@ -19,6 +20,7 @@ import sigp.src.dao.GrupoDao;
 public class DisciplinaControllerTest {
 	DisciplinaController controller;
 	Result result;
+	Validator validator;
 	DisciplinaDao dao;
 	GrupoDao grupoDao;
 	List<Disciplina> list;
@@ -28,10 +30,12 @@ public class DisciplinaControllerTest {
 		result = mock(Result.class);
 		dao = mock(DisciplinaDao.class);
 		grupoDao = mock(GrupoDao.class);
-		controller = new DisciplinaController(result, dao, grupoDao);
+		validator = mock(Validator.class);
+		controller = new DisciplinaController(result, validator, dao, grupoDao);
 		
 		DisciplinaController controlmock = mock(DisciplinaController.class);
 		when(result.redirectTo(DisciplinaController.class)).thenReturn(controlmock);
+		when(validator.onErrorForwardTo(controller)).thenReturn(controlmock);
 		
 		setUpDao();
 	}

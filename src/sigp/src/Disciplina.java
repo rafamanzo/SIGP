@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -15,12 +18,21 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "DISCIPLINA")
 public class Disciplina {
+    
+    @NotEmpty(message = "Discplina precisa ter uma sigla.")
 	private String sigla;
+    
+    @NotEmpty(message = "Discplina precisa ter um nome.")
 	private String nome;
+    
+    @NotEmpty(message = "Discplina precisa ter uma ementa.")
 	private String ementa;
+    
+    @NotNull(message = "Discplina precisa ter uma sigla.")
 	private Long idDisciplina;
+    
+    @NotNull(message = "Discplina precisa ser oferecida por um grupo.")
     private Grupo grupo;
-
 	
     @ManyToOne
     @JoinColumn(name = "GRUPO_ID", nullable = false)

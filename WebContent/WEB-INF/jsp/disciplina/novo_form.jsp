@@ -30,6 +30,9 @@
 		</tr>
 	</table>
 </form>
+
+<%@ include file="/errors.jsp" %> 
+
 <p>
 	<a href="/SIGP/disciplina/">Voltar</a>
 </p>
