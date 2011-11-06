@@ -30,5 +30,7 @@
 	<input type="submit" name="oQueFazer" value="Voltar" />
 	<br />
 </form>
+
+<%@ include file="/errors.jsp" %> 
 	
 <%@ include file="/footer.jsp" %> 

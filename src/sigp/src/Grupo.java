@@ -27,7 +27,6 @@ import br.com.caelum.vraptor.Resource;
 @Table(name = "GRUPO")
 public class Grupo {
     
-    @NotNull(message = "O ID de um grupo não pode ser nulo.")
 	private Long idGrupo;
 
     @NotEmpty(message = "O campo \"nome\" não deve ficar vazio.")

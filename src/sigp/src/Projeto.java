@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -20,10 +23,17 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "PROJETO")
 public class Projeto {
+    
 	private Long idProjeto;
+    
+    @NotEmpty(message = "Projeto precisa ter um nome.")
 	private String nome;
+    
+    @NotEmpty(message = "Projeto precisa ter uma descrição.")
 	private String descricao;
+    
 	private String financiamento;
+	
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
 	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();

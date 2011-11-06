@@ -28,7 +28,6 @@ public class Disciplina {
     @NotEmpty(message = "Discplina precisa ter uma ementa.")
 	private String ementa;
     
-    @NotNull(message = "Discplina precisa ter uma sigla.")
 	private Long idDisciplina;
     
     @NotNull(message = "Discplina precisa ser oferecida por um grupo.")

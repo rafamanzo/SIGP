@@ -22,4 +22,6 @@
 	<br /> <input type="submit" value="Adicionar Projeto" />
 </form>
 
+<%@ include file="/errors.jsp" %> 
+
 <%@ include file="/footer.jsp" %> 
