@@ -1,4 +1,25 @@
-<%@ include file="/header.jsp" %> 
+<%@ include file="/header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+
+<script>
+$(function(){
+	$("#responsavelBusca").autocomplete({
+		source: function( request, response ) {
+			$.ajax({
+				url: "procura/" + request.term,
+				dataType: "json",
+				success: function( data ) {
+					response($.map(data.list, function(item) {
+						return { id: item.idGrupo, 
+								 value: item.nome };
+					}));
+				}
+			});
+		},
+		minLength: 2
+	});
+});
+</script>
 
 <form method="post" action="/SIGP/grupo/cria">
 	<table>
@@ -9,12 +30,8 @@
 		</tr>
 		<tr>
 			<td>Responsável:</td>
-			<td><select name="responsavel">
-					<option value="0">Nenhum</option>
-					<c:forEach items="${grupos}" var="grupo">
-						<option value="${grupo.idGrupo}">${grupo.nome}</option>
-					</c:forEach>
-			</select>
+			<td>
+				<input type="text" id="responsavelBusca" name="responsavel" />
 			</td>
 		</tr>
 		<tr>
