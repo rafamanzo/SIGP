@@ -55,6 +55,7 @@ public class GrupoControllerTest {
 			list.add(d);
 		}
 		when(dao.list()).thenReturn(list);
+        when(dao.find("Grupo Principal")).thenReturn(list.get(0));
 		when(dao.getGrupo(1L)).thenReturn(list.get(0));
 		when(dao.getGrupo(2L)).thenReturn(list.get(1));
 	}
@@ -76,13 +77,13 @@ public class GrupoControllerTest {
 	public void testCria() {
 		{
 			Grupo d = list.get(0);
-			controller.cria(d, 0L);
+			controller.cria(d, "");
 			verify(dao).save(d);
 		}
 		{
 			Grupo d = new Grupo();
 			d.setNome("Teste Particular");
-			controller.cria(d, 1L);
+			controller.cria(d, "Grupo Principal");
 			verify(dao).save(d);
 			assertSame(d.getResponsavel(), list.get(0));
 		}
