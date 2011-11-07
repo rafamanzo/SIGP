@@ -1,7 +1,5 @@
 package sigp.src;
 
-
-
 import java.io.File;
 
 import javax.persistence.Basic;
@@ -33,7 +31,6 @@ public class Usuario {
 	private File avatar;
 	private TipoUsuario tipoUsuario;
 	private String senha;
-	private String confirma;
 	private String login;
 	private Contribuinte contribuinte;
 	
@@ -78,6 +75,9 @@ public class Usuario {
 		return senha;
 	}
 	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public void codificaSenha() {
 		PasswordCodificator p = new PasswordCodificator(senha);
 		this.senha = p.codificado();
 	}
@@ -88,15 +88,6 @@ public class Usuario {
 	}
 	public void setLogin(String login) {
 		this.login = login;
-	}
-	
-	@Column(name = "USUARIO_CONFIRMA", nullable = false, length = 255)
-	public String getConfirma() {
-		return confirma;
-	}
-	public void setConfirma(String confirma) {
-		PasswordCodificator p = new PasswordCodificator(confirma);
-		this.confirma = p.codificado();
 	}
 	
 	

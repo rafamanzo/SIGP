@@ -18,7 +18,7 @@
 			Senha <input type="password" name="usuario.senha">
 		</p>	
 		<p>
-			Confime a Senha <input type="password" name="usuario.confirma">
+			Confime a Senha <input type="password" name="confirma">
 		</p>	
 		<p>
 			<input type="submit" value="Registrar">
