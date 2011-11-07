@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -19,10 +20,23 @@ public class GrupoDao {
 	public Grupo getGrupo(Long id) {
 		return (Grupo) session.get(Grupo.class, id);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Grupo find(String nome) {
+		List<Grupo> l = this.session.createCriteria(Grupo.class).add( Restrictions.like("nome", nome) ).list();
+		if(l.size() != 1) return null;
+		return l.get(0);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Grupo> list() {
 		return this.session.createCriteria(Grupo.class).list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Grupo> search(String name) {
+		return this.session.createCriteria(Grupo.class)
+				.add( Restrictions.like("nome", "%" + name + "%") ).list();
 	}
 	
 	public void save(Grupo grupo) {

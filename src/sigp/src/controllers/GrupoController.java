@@ -4,6 +4,8 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.view.Results;
 import sigp.src.Grupo;
 import sigp.src.dao.GrupoDao;
 
@@ -23,6 +25,11 @@ public class GrupoController {
 	public void index() {
 		result.include("grupos", dao.list());
 	}
+	
+	@Path("/grupo/procura/{query}")
+	public void procura(String query) {
+		result.use(Results.json()).from(dao.search(query)).serialize();
+	}
 
 	@Path("/grupo/novo")
 	public void novo_form() {
@@ -30,10 +37,17 @@ public class GrupoController {
 	}
 
 	@Path("/grupo/cria")
-	public void cria(final Grupo grupo, final Long responsavel) {
+	public void cria(final Grupo grupo, final String responsavel) {
 	    validator.validate(grupo);
         validator.onErrorForwardTo(this).novo_form();
-		grupo.setResponsavel(dao.getGrupo(responsavel));
+        
+        Grupo respon = dao.find(responsavel);
+        if(respon == null && !responsavel.equals("")) {
+        	// TODO: adicionar um erro! Tentei e falhei usar o validator...
+        	result.redirectTo(GrupoController.class).novo_form();
+        	return;
+        }
+		grupo.setResponsavel(respon);
 		dao.save(grupo);
 		result.redirectTo(GrupoController.class).index();
 	}
