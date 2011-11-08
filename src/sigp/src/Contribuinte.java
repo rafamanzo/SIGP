@@ -30,60 +30,44 @@ import br.com.caelum.vraptor.Resource;
 public class Contribuinte {
 	private Long idContribuinte;
 	private String nome;
+	private Usuario usuario;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
-	private List<Projeto> projetos = new ArrayList<Projeto>();
-	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
-	private Date participacaoDataInicio;
-	private Date participacaoDataFim;
-	private Date pesquisaDataInicio;
-	private Date pesquisaDataFim;
+	private List<Participacao> participacoes = new ArrayList<Participacao>();
+	private List<RelacaoPesquisa> relacoes = new ArrayList<RelacaoPesquisa>();
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "PESQUISA_DATA_INICIO", nullable = false, insertable = false, updatable = false)
-	public Date getPesquisaDataInicio() {
-		return pesquisaDataInicio;
+	@OneToMany(mappedBy = "contribuinte")
+	public List<Filiacao> getFiliacoes() {
+		return filiacoes;
 	}
-	public void setPesquisaDataInicio(Date pesquisaDataInicio) {
-		this.pesquisaDataInicio = pesquisaDataInicio;
+	public void setFiliacoes(List<Filiacao> filiacoes) {
+		this.filiacoes = filiacoes;
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "PESQUISA_DATA_INICIO", nullable = false)
-	public Date getPesquisaDataFim() {
-		return pesquisaDataFim;
+	@OneToMany(mappedBy = "contribuinte")
+	public List<Participacao> getParticipacoes() {
+		return participacoes;
 	}
-	public void setPesquisaDataFim(Date pesquisaDataFim) {
-		this.pesquisaDataFim = pesquisaDataFim;
-	}	
+	public void setParticipacoes(List<Participacao> participacoes) {
+		this.participacoes = participacoes;
+	}
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "contribuinte")
+	public List<RelacaoPesquisa> getRelacoes() {
+		return relacoes;
+	}
+	public void setRelacoes(List<RelacaoPesquisa> relacoes) {
+		this.relacoes = relacoes;
+	}
+	/*@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CONTRIBUINTE_LINHAP", 
 				joinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") }, 
 				inverseJoinColumns = { @JoinColumn(name = "LINHAP_ID") })
-	public List<LinhaPesquisa> getLinhasDePesquisa() {
+	public List<RelacaoPesquisa> getRelacoesPesquisa() {
 		return linhasDePesquisa;
 	}
 	public void setLinhasDePesquisa(List<LinhaPesquisa> linhasDePesquisa) {
 		this.linhasDePesquisa = linhasDePesquisa;
-	}
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "PARTICIPACAO_DATA_INICIO", nullable = false)
-	public Date getParticipacaoDataInicio() {
-		return participacaoDataInicio;
-	}
-	public void setParticipacaoDataInicio(Date participacaoDataInicio) {
-		this.participacaoDataInicio = participacaoDataInicio;
-	}
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "PARTICIPACAO_DATA_FIM", nullable = false)
-	public Date getParticipacaoDataFim() {
-		return participacaoDataFim;
-	}
-	public void setParticipacaoDataFim(Date participacaoDataFim) {
-		this.participacaoDataFim = participacaoDataFim;
 	}
 
 	
@@ -96,10 +80,8 @@ public class Contribuinte {
 	}
 	public void setProjetos(List<Projeto> projetos) {
 		this.projetos = projetos;
-	}
+	}*/
 	
-	
-	private Usuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -108,14 +90,6 @@ public class Contribuinte {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-	
-	@OneToMany(mappedBy = "contribuinte")
-	public List<Filiacao> getFiliacoes() {
-		return filiacoes;
-	}
-	public void setFiliacoes(List<Filiacao> filiacoes) {
-		this.filiacoes = filiacoes;
 	}
 	
 	

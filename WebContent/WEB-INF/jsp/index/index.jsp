@@ -5,6 +5,9 @@
 	<a href="/SIGP/login/">Login</a>
 </p>
 <p>
+	<a href="/SIGP/contribuinte/">Contribuintes</a>
+</p>
+<p>
 	<a href="/SIGP/linhadepesquisa/">Linha de Pesquisa</a>
 </p>
 <p>
@@ -17,7 +20,7 @@
 	<a href="/SIGP/projeto/">Projetos</a>
 </p>
 <p>
-	<a href="/SIGP/publicacao/">Publicações</a>
+	<a href="/SIGP/publicacao/">Publicaï¿½ï¿½es</a>
 </p>
 <hr />
 <p><a href="/SIGP/SIGP.zip">CÃ³digo Fonte</a></p>
