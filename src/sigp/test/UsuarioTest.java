@@ -16,55 +16,56 @@ import sigp.src.Usuario;
 
 public class UsuarioTest {
 
-    Usuario usuario;
-    File avatar;
-    Contribuinte contribuinte;
+	Usuario usuario;
+	File avatar;
+	Contribuinte contribuinte;
 
-    @Before
-    public void setUp() throws Exception {
-	criarUsuario();
-    }
+	@Before
+	public void setUp() throws Exception {
+		criarUsuario();
+	}
 
-    @After
-    public void tearDown() throws Exception {
-	usuario = null;
-    }
+	@After
+	public void tearDown() throws Exception {
+		usuario = null;
+	}
 
-    @Test
-    public void deveriaDevolverOLoginDoUsuario() {
-	assertEquals("magerosa", usuario.getLogin());
-    }
+	@Test
+	public void deveriaDevolverOLoginDoUsuario() {
+		assertEquals("magerosa", usuario.getLogin());
+	}
 
-    @Test
-    public void deveriaDevolverOPasswordDoUsuario() {
-	assertEquals("0ca290254c08590dae516265a68ba950", usuario.getSenha());
-    }
+	@Test
+	public void deveriaDevolverOPasswordDoUsuario() {
+		assertEquals("0ca290254c08590dae516265a68ba950", usuario.getSenha());
+	}
 
-    @Test
-    public void deveriaVerificarAExistenciaDeAvatar() {
-	assertNotNull(usuario.getAvatar());
-    }
+	@Test
+	public void deveriaVerificarAExistenciaDeAvatar() {
+		assertNotNull(usuario.getAvatar());
+	}
 
-    @Test
-    public void deveriaVerificarAExistenciaDeContribuinte() {
-	assertNotNull(usuario.getContribuinte());
-	assertEquals(usuario.getContribuinte().getNome(),
-		"Marco Aurelio Gerosa");
-    }
+	@Test
+	public void deveriaVerificarAExistenciaDeContribuinte() {
+		assertNotNull(usuario.getContribuinte());
+		assertEquals(usuario.getContribuinte().getNome(),
+				"Marco Aurelio Gerosa");
+	}
 
-    private void criarUsuario() {
-	usuario = new Usuario();
-	avatar = mock(File.class);
-	contribuinte = mock(Contribuinte.class);
+	private void criarUsuario() {
+		usuario = new Usuario();
+		avatar = mock(File.class);
+		contribuinte = mock(Contribuinte.class);
 
-	when(contribuinte.getNome()).thenReturn("Marco Aurelio Gerosa");
+		when(contribuinte.getNome()).thenReturn("Marco Aurelio Gerosa");
 
-	usuario.setLogin("magerosa");
-	usuario.setSenha("pressmanschach");
-	usuario.setTipoUsuario(TipoUsuario.ADMINISTRADOR);
-	usuario.setAvatar(avatar);
-	usuario.setContribuinte(contribuinte);
-
-    }
+		usuario.setLogin("magerosa");
+		usuario.setSenha("pressmanschach");
+		usuario.setTipoUsuario(TipoUsuario.ADMINISTRADOR);
+		usuario.setAvatar(avatar);
+		usuario.setContribuinte(contribuinte);
+		
+		usuario.codificaSenha();
+	}
 
 }

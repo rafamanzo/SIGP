@@ -100,13 +100,13 @@ public class GrupoControllerTest {
 	public void testAltera() {
 		{
 			Grupo d = list.get(0);
-			controller.altera(d, 0L);
+			controller.altera(d, "");
 			verify(dao).update(d);
 		}
 		{
 			Grupo d = new Grupo();
 			d.setNome("Teste Particular");
-			controller.altera(d, 1L);
+			controller.altera(d, list.get(0).getNome());
 			verify(dao).update(d);
 			assertSame(d.getResponsavel(), list.get(0));
 		}

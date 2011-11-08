@@ -1,12 +1,11 @@
 package sigp.test.controllers;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +14,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sigp.src.Contribuinte;
-import sigp.src.Publicacao;
 import sigp.src.TipoUsuario;
 import sigp.src.Usuario;
-import sigp.src.controllers.PublicacaoController;
 import sigp.src.controllers.UsuarioController;
-import sigp.src.dao.PublicacaoDao;
 import sigp.src.dao.UsuarioDao;
 import br.com.caelum.vraptor.Result;
 

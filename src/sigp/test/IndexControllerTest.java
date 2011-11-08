@@ -30,7 +30,6 @@ public class IndexControllerTest {
 	@Test
 	public void testIndex() {
 		controller.index();
-		verify(result).include("variable", "VRaptor!");
 	}
 
 }
