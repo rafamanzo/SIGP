@@ -1,22 +1,24 @@
 <%@ include file="/header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
-<script>
+<script type="text/javascript">
 $(function(){
 	$("#responsavelBusca").autocomplete({
+		minLength: 1, // Precisa digitar pelo menos 1 letra para o autocompletar começar. 
 		source: function( request, response ) {
 			$.ajax({
 				url: "procura/" + request.term,
 				dataType: "json",
 				success: function( data ) {
+					// response é uma função que se passar uma lista de structs com campos id e value, 
+					// cria o autocompletar. 
 					response($.map(data.list, function(item) {
 						return { id: item.idGrupo, 
 								 value: item.nome };
 					}));
 				}
 			});
-		},
-		minLength: 2
+		}
 	});
 });
 </script>

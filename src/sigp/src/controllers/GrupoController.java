@@ -40,12 +40,11 @@ public class GrupoController {
     public void cria(final Grupo grupo, final String responsavel) {
         validator.validate(grupo);
         Grupo respon = dao.find(responsavel);
+        
+        // Verifica se o grupo responsável digitado realmente existe.
         if (respon == null && !responsavel.equals("")) {
-            // TODO: adicionar um erro! Tentei e falhei usar o validator...
             validator.add(new ValidationMessage("nome do responsável",
                     "não existe"));
-            //result.redirectTo(GrupoController.class).novo_form();
-            //return;
         }
         validator.onErrorForwardTo(this).novo_form();
         grupo.setResponsavel(respon);
@@ -73,10 +72,19 @@ public class GrupoController {
     }
 
     @Path("/grupo/altera")
-    public void altera(final Grupo grupo, final Long responsavel) {
+    public void altera(final Grupo grupo, final String responsavel) {
         validator.validate(grupo);
+        Grupo respon = dao.find(responsavel);
+        
+        // Verifica se o grupo responsável digitado realmente existe.
+        if (respon == null && !responsavel.equals("")) {
+            validator.add(new ValidationMessage("nome do responsável",
+                    "não existe"));
+        }
         validator.onErrorForwardTo(this).altera_form(grupo.getIdGrupo());
-        grupo.setResponsavel(dao.getGrupo(responsavel));
+        
+        
+        grupo.setResponsavel(respon);
         dao.update(grupo);
         result.redirectTo(GrupoController.class).index();
     }
