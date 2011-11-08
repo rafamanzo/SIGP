@@ -17,11 +17,11 @@ import br.com.caelum.vraptor.Resource;
 
 @Entity
 @Resource
-@Table(name = "RELACAO_PESQUISA")
+@Table(name = "RELACAOP")
 public class RelacaoPesquisa {
-    private Long idRelacaoPesquisa;
+    private Long idRelacao;
     private Contribuinte contribuinte;
-    private LinhaPesquisa linhaPesquisa;
+    private LinhaPesquisa linha;
     private Date dataInicio;
     private Date dataFim;
 
@@ -30,58 +30,57 @@ public class RelacaoPesquisa {
     public Date getDataInicio() {
 		return dataInicio;
 	}
-
 	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA_FIM", nullable = false)
 	public Date getDataFim() {
 		return dataFim;
 	}
-
 	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
 
+	
 	@Id
     @GeneratedValue
-    @Column(name = "RELACAO_PESQUISA_ID", nullable = false)
-    public Long getIdRelacaoPesquisa() {
-		return idRelacaoPesquisa;
+    @Column(name = "RELACAOP_ID", nullable = false)
+    public Long getIdRelacao() {
+		return idRelacao;
+    }
+    public void setIdRelacao(Long idRelacao) {
+    	this.idRelacao = idRelacao;
     }
 
-    public void setIdRelacaoPesquisa(Long idRelacaoPesquisa) {
-    	this.idRelacaoPesquisa = idRelacaoPesquisa;
-    }
-
+    
     @ManyToOne
     @JoinColumn(name = "CONTRIBUINTE_ID", nullable = false)
     public Contribuinte getContribuinte() {
     	return contribuinte;
     }
-
     public void setContribuinte(Contribuinte contribuinte) {
     	this.contribuinte = contribuinte;
     }
 
+    
     @ManyToOne
-    @JoinColumn(name = "LINHA_PESQUISA_ID", nullable = false)
-    public LinhaPesquisa getLinhaPesquisa() {
-    	return linhaPesquisa;
+    @JoinColumn(name = "LINHAP_ID", nullable = false)
+    public LinhaPesquisa getLinha() {
+    	return linha;
     }
-
-    public void setLinhaPesquisa(LinhaPesquisa linhaPesquisa) {
-    	this.linhaPesquisa = linhaPesquisa;
+    public void setLinha(LinhaPesquisa linha) {
+    	this.linha = linha;
     }
 
 
 
     @Override
     public String toString() {
-	return "RelacaoPesquisa [idRelacaoPesquisa=" + idRelacaoPesquisa + ", contribuinte="
-		+ contribuinte.getNome() + ", linhaPesquisa=" + linhaPesquisa.getNome() + "]";
+	return "RelacaoPesquisa [idRelacaoPesquisa=" + idRelacao + ", contribuinte="
+		+ contribuinte.getNome() + ", linhaPesquisa=" + linha.getNome() + "]";
     }
 
 }

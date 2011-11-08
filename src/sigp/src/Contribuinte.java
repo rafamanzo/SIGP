@@ -34,7 +34,7 @@ public class Contribuinte {
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
 	private List<Participacao> participacoes = new ArrayList<Participacao>();
-	private List<RelacaoPesquisa> relacoesPesquisa = new ArrayList<RelacaoPesquisa>();
+	private List<RelacaoPesquisa> relacoes = new ArrayList<RelacaoPesquisa>();
 	
 	@OneToMany(mappedBy = "contribuinte")
 	public List<Filiacao> getFiliacoes() {
@@ -53,11 +53,11 @@ public class Contribuinte {
 	}
 	
 	@OneToMany(mappedBy = "contribuinte")
-	public List<RelacaoPesquisa> getRelacoesPesquisa() {
-		return relacoesPesquisa;
+	public List<RelacaoPesquisa> getRelacoes() {
+		return relacoes;
 	}
-	public void setRelacoesPesquisa(List<RelacaoPesquisa> relacoesPesquisa) {
-		this.relacoesPesquisa = relacoesPesquisa;
+	public void setRelacoes(List<RelacaoPesquisa> relacoes) {
+		this.relacoes = relacoes;
 	}
 	/*@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CONTRIBUINTE_LINHAP", 

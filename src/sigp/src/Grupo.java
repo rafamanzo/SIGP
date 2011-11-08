@@ -53,7 +53,6 @@ public class Grupo {
 	public List<Filiacao> getFiliacoes() {
 		return filiacoes;
 	}
-
 	public void setFiliacoes(List<Filiacao> filiacoes) {
 		this.filiacoes = filiacoes;
 	}

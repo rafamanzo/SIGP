@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -36,9 +35,9 @@ public class Projeto {
 	
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<LinhaPesquisa> linhasDePesquisa = new ArrayList<LinhaPesquisa>();
-	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
+	private List<Participacao> participacoes = new ArrayList<Participacao>();
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	/*@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CONTRIBUINTE_PROJETO", 
 				joinColumns = { @JoinColumn(name = "PROJETO_ID") }, 
 				inverseJoinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") })
@@ -47,6 +46,13 @@ public class Projeto {
 	}
 	public void setContribuintes(List<Contribuinte> contribuintes) {
 		this.contribuintes = contribuintes;
+	}*/
+	@OneToMany(mappedBy = "projeto")
+	public List<Participacao> getParticipacoes() {
+		return participacoes;
+	}
+	public void setParticipacoes(List<Participacao> participacoes) {
+		this.participacoes = participacoes;
 	}
 	
 	@OneToMany

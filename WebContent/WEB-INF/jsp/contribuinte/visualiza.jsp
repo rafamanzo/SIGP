@@ -47,7 +47,7 @@
 	</tr>
 	<c:forEach items="${contribuinte.relacoesPesquisa}" var="relacaoPesquisa">
 		<tr>
-			<td><a href="/SIGP/linhadepesquisa/ver/${relacaoPesquisa.linhaPesquisa.idPesquisa}">${relacaoPesquisa.linhaPesquisa.nome}</a>
+			<td><a href="/SIGP/linhadepesquisa/ver/${relacaoPesquisa.linha.idPesquisa}">${relacaoPesquisa.linha.nome}</a>
 			</td>
 		</tr>
 	</c:forEach>

@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,10 +30,10 @@ public class LinhaPesquisa {
 	private String nome;
 	
 	private List<Projeto> projetos = new ArrayList<Projeto>();
-	private List<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
 	private LinhaPesquisa subLinha;
+	private List<RelacaoPesquisa> relacoes = new ArrayList<RelacaoPesquisa>();
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	/*@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CONTRIBUINTE_LINHAP", 
 				joinColumns = { @JoinColumn(name = "LINHAP_ID") }, 
 				inverseJoinColumns = { @JoinColumn(name = "CONTRIBUINTE_ID") })
@@ -41,7 +42,15 @@ public class LinhaPesquisa {
 	}
 	public void setContribuintes(List<Contribuinte> contribuintes) {
 		this.contribuintes = contribuintes;
+	}*/
+	@OneToMany(mappedBy = "linha")
+	public List<RelacaoPesquisa> getRelacoes() {
+		return relacoes;
 	}
+	public void setRelacoes(List<RelacaoPesquisa> relacoes) {
+		this.relacoes = relacoes;
+	}
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "SUB_LINHA_ID")
@@ -77,11 +86,10 @@ public class LinhaPesquisa {
 	public Long getIdPesquisa() {
 		return idPesquisa;
 	}
-	
-	
 	public void setIdPesquisa(Long idPesquisa) {
 		this.idPesquisa = idPesquisa;
 	}
+	
 	
 	@Column(name = "LINHAP_NOME", nullable = false)
 	public String getNome() {
