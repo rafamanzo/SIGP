@@ -20,7 +20,7 @@
 	</table>
 </form>
 <p>
-	<a href="/SIGP/disciplina/">Voltar</a>
+	<a href="/SIGP/disciplina/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 
