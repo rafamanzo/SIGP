@@ -9,7 +9,7 @@
 
 		<tr>
 			<td>Usuario Correspondente:</td>
-			<td><select name="contribuinte.usuario.idUsuario">
+			<td><select name="idUsuario">
 					<option value="0">Nenhum</option>
 					<c:forEach items="${usuarios}" var="usuario">
 						<option value="${usuario.idUsuario}">${usuario.login}</option>

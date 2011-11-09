@@ -9,6 +9,17 @@
 		</tr>
 
 		<tr>
+			<td>Usuario Correspondente:</td>
+			<td><select name="idUsuario">
+					<option value="0">Nenhum</option>
+					<c:forEach items="${usuarios}" var="usuario">
+						<option value="${usuario.idUsuario}">${usuario.login}</option>
+					</c:forEach>
+			</select>
+			</td>
+		</tr>
+		
+		<tr>
 			<td colspan="2"><input type="hidden" name="contribuinte.idContribuinte"
 				value="${contribuinte.idContribuinte}" /> <input type="submit" value="Alterar" />
 			</td>
