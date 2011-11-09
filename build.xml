@@ -6,7 +6,7 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="SIGP">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="C:/Program Files (x86)/Eclipse-Java"/>
+    <property name="ECLIPSE_HOME" value="../../../Programs/eclipse-javaee"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.5"/>
@@ -21,6 +21,8 @@
         <pathelement location="WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/guava-r07.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hibernate-validator-4.2.0.Final.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hibernate-validator-annotation-processor-4.2.0.Final.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/hibernate3.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/javassist-3.9.0.GA.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/jstl-api-1.2.jar"/>
@@ -46,6 +48,7 @@
         <pathelement location="WebContent/WEB-INF/lib/scannotation-1.0.2.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/slf4j-log4j12-1.6.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/vraptor-3.3.1.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/xstream-1.3.1.jar"/>
     </path>
@@ -96,7 +99,59 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="sigp.test">
+    <target name="CriaTabela">
+        <java classname="sigp.src.CriaTabela" failonerror="true" fork="yes">
+            <classpath refid="SIGP.classpath"/>
+        </java>
+    </target>
+    <target name="DisciplinaControllerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sigp.test.controllers.DisciplinaControllerTest" todir="${junit.output.dir}"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="DisciplinaTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sigp.test.DisciplinaTest" todir="${junit.output.dir}"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="GrupoControllerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sigp.test.controllers.GrupoControllerTest" todir="${junit.output.dir}"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="IndexControllerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sigp.test.IndexControllerTest" todir="${junit.output.dir}"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="ProjetoTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sigp.test.ProjetoTest" todir="${junit.output.dir}"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="sigp.src.hash">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <classpath refid="SIGP.classpath"/>
+        </junit>
+    </target>
+    <target name="src">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
@@ -106,17 +161,16 @@
             <test name="sigp.test.GrupoTest" todir="${junit.output.dir}"/>
             <test name="sigp.test.IndexControllerTest" todir="${junit.output.dir}"/>
             <test name="sigp.test.LinhaPesquisaTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.PasswordCodificatorTest" todir="${junit.output.dir}"/>
             <test name="sigp.test.ProjetoTest" todir="${junit.output.dir}"/>
             <test name="sigp.test.PublicacaoTest" todir="${junit.output.dir}"/>
             <test name="sigp.test.UsuarioTest" todir="${junit.output.dir}"/>
-            <classpath refid="SIGP.classpath"/>
-        </junit>
-    </target>
-    <target name="DisciplinaTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="sigp.test.DisciplinaTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.DisciplinaControllerTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.GrupoControllerTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.LinhaDePesquisaControllerTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.ProjetoControllerTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.PublicacaoControllerTest" todir="${junit.output.dir}"/>
+            <test name="sigp.test.controllers.UsuarioControllerTest" todir="${junit.output.dir}"/>
             <classpath refid="SIGP.classpath"/>
         </junit>
     </target>

@@ -121,28 +121,21 @@ public class ProjetoControllerTest {
 
     @Test
     public void testIndex() {
-        controller.main();
+        controller.index();
         verify(result).include("projetos", projetos);
     }
 
     @Test
     public void testSalva() {
         Projeto p = projetos.get(0);
-        controller.salva(p);
+        controller.cria(p);
         verify(dao).save(p);
-    }
-
-    @Test
-    public void testMsg() {
-        String msg = "message";
-        controller.msg(msg);
-        verify(result).include("mensagem", msg);
     }
 
     @Test
     public void testInfoProjeto() {
         Projeto projeto = dao.getProjeto(1L);
-        controller.infoProjeto(1L);
+        controller.visualiza(1L);
         verify(result).include("projeto", projeto);
     }
 

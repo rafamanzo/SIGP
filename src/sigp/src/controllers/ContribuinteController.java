@@ -4,9 +4,12 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 import sigp.src.Contribuinte;
+import sigp.src.Grupo;
 import sigp.src.dao.ContribuinteDao;
 import sigp.src.dao.UsuarioDao;
+import sigp.src.Usuario;
 
 @Resource
 public class ContribuinteController {
@@ -35,10 +38,19 @@ public class ContribuinteController {
     }
 
     @Path("/contribuinte/cria")
-    public void cria(final Contribuinte contribuinte) {
+    public void cria(final Contribuinte contribuinte, final Long idUsuario) {
         validator.validate(contribuinte);
+        Usuario user = udao.getUsuario(idUsuario);
+        if (user == null) {
+            validator.add(new ValidationMessage("usuário",
+                    "não existe"));
+        }
+        
         validator.onErrorForwardTo(this).novo_form();
+        contribuinte.setUsuario(user);
+        user.setContribuinte(contribuinte);
         dao.save(contribuinte);
+        udao.save(user);
         result.redirectTo(ContribuinteController.class).index();
     }
 
@@ -56,15 +68,26 @@ public class ContribuinteController {
         Contribuinte contribuinte = dao.getContribuinte(id);
         if (contribuinte == null)
             result.redirectTo(ContribuinteController.class).index();
-        else
+        else {
             result.include("contribuinte", contribuinte);
+            result.include("usuarios", udao.list());
+        }
     }
 
     @Path("/contribuinte/altera")
-    public void altera(final Contribuinte contribuinte) {
+    public void altera(final Contribuinte contribuinte, final Long idUsuario) {
         validator.validate(contribuinte);
+        Usuario user = udao.getUsuario(idUsuario);
+        if (user == null) {
+            validator.add(new ValidationMessage("usuário",
+                    "não existe"));
+        }
+        
         validator.onErrorForwardTo(this).altera_form(contribuinte.getIdContribuinte());
+        contribuinte.setUsuario(user);
+        user.setContribuinte(contribuinte);
         dao.update(contribuinte);
+        udao.update(user);
         result.redirectTo(ContribuinteController.class).index();
     }
 

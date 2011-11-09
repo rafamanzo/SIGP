@@ -45,9 +45,9 @@
 	<tr>
 		<th>Pesquisou nas linhas:</th>
 	</tr>
-	<c:forEach items="${contribuinte.relacoesPesquisa}" var="relacaoPesquisa">
+	<c:forEach items="${contribuinte.relacoes}" var="relacao">
 		<tr>
-			<td><a href="/SIGP/linhadepesquisa/ver/${relacaoPesquisa.linha.idPesquisa}">${relacaoPesquisa.linha.nome}</a>
+			<td><a href="/SIGP/linhadepesquisa/ver/${relacao.linha.idPesquisa}">${relacao.linha.nome}</a>
 			</td>
 		</tr>
 	</c:forEach>

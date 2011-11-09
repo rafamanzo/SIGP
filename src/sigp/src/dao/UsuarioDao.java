@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import sigp.src.Contribuinte;
 import sigp.src.Usuario;
 
 import br.com.caelum.vraptor.ioc.Component;
@@ -33,6 +34,9 @@ public class UsuarioDao {
 			return usuarios.get(0);
 		return null;
 		 
+	}
+	public Usuario getUsuario(Long id) {
+		return (Usuario) session.get(Usuario.class, id);
 	}
 	
 	@SuppressWarnings("unchecked")
