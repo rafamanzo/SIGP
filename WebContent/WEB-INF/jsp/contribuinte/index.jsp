@@ -8,7 +8,7 @@
 	<c:forEach items="${contribuintes}" var="contrib">
 		<tr>
 			<td><a href="/SIGP/contribuinte/ver/${contrib.idContribuinte}">${contrib.nome}</a></td>
- 			<td>$(${contribuinte.usuario.login})</td>
+ 			<td>${contrib.usuario.login}</td>
 		</tr>
 	</c:forEach>
 </table>

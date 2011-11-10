@@ -16,6 +16,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.UniqueConstraint;
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import sigp.src.hash.PasswordCodificator;
 
@@ -29,8 +32,14 @@ import br.com.caelum.vraptor.Resource;
 public class Usuario {
 	private Long idUsuario;
 	private File avatar;
+	
+	@NotNull(message = "Usuário precisa ter um tipo definido.")
 	private TipoUsuario tipoUsuario;
+	
+	@NotEmpty(message = "Usuário precisa ter uma senha.")
 	private String senha;
+	
+	@NotEmpty(message = "Usuário precisa ter login.")
 	private String login;
 	private Contribuinte contribuinte;
 	

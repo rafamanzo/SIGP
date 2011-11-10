@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Resource;
 
@@ -24,7 +25,10 @@ import br.com.caelum.vraptor.Resource;
 @Table(name = "CONTRIBUINTE")
 public class Contribuinte {
 	private Long idContribuinte;
+	
+	@NotEmpty(message = "Contribuinte precisa ter um nome.")
 	private String nome;
+	
 	private Usuario usuario;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();

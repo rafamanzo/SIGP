@@ -1,4 +1,4 @@
-<%@ include file="/header.jsp" %> 
+<%@ include file="/header.jsp"%>
 
 <div id=header>
 	<h1>SIGP</h1>
@@ -9,26 +9,26 @@
 			Nome de Usuario <input type="text" value="" name="usuario.login">
 		</p>
 		<p>
-			Tipo de Usuario: 
-			<input type="radio" value="USUARIO" name="usuario.tipoUsuario"> Usuario
-			<input type="radio" value="ADMINISTRADOR" name="usuario.tipoUsuario"> Administrador
-			
+			Tipo de Usuario: <input type="radio" value="USUARIO"
+				name="usuario.tipoUsuario" checked="checked"> Usuario <input
+				type="radio" value="ADMINISTRADOR" name="usuario.tipoUsuario">
+			Administrador
+
 		</p>
 		<p>
 			Senha <input type="password" name="usuario.senha">
-		</p>	
+		</p>
 		<p>
 			Confime a Senha <input type="password" name="confirma">
-		</p>	
+		</p>
 		<p>
 			<input type="submit" value="Registrar">
 		</p>
 	</form>
 </div>
-<div id=erro>
-	${usuarioJaExistente}
-	${senhaIvalida}
-	${senhasDiferentes}
-</div>
 
-<%@ include file="/footer.jsp" %> 
+<%@ include file="/errors.jsp"%>
+
+<div id=erro></div>
+
+<%@ include file="/footer.jsp"%>
