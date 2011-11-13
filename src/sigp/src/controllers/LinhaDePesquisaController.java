@@ -1,10 +1,8 @@
 package sigp.src.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import sigp.src.LinhaPesquisa;
-import sigp.src.Projeto;
 import sigp.src.dao.LinhaDePesquisaDao;
 import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Path;
