@@ -20,6 +20,18 @@
 					</c:forEach>
 			</select></td>
 		</tr>
+
+		<tr>
+			<td>Projetos</td>
+			<td><select name="projetos" size="2" multiple>
+					<option value="0">Nenhum</option>
+					<c:forEach items="${todosprojetos}" var="projeto">
+						<option value="${projeto.idProjeto}">${projeto.nome}</option>
+					</c:forEach>
+			</select>
+			</td>
+		</tr>
+
 		<tr>
 			<td colspan="2"><input type="hidden" name="linhapesquisa.idPesquisa"
 				value="${linhapesquisa.idPesquisa}" /> <input type="submit" value="Alterar" />

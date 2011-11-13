@@ -3,11 +3,11 @@
 <form method="post" action="/SIGP/publicacao/cria">
 	<table>
 		<tr>
-			<td>TÃ­tulo:</td>
+			<td>Título:</td>
 			<td><input type="text" name="publicacao.titulo" /></td>
 		</tr>
 		<tr>
-			<td>VeÃ­culo:</td>
+			<td>Veículo:</td>
 			<td><select name="publicacao.veiculo">
 					<c:forEach items="${veiculos}" var="veiculo">
 						<option value="${veiculo}">${veiculo}</option>
