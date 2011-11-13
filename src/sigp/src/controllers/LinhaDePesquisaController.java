@@ -41,25 +41,16 @@ public class LinhaDePesquisaController {
         result.include("todosprojetos", pdao.list());
     }
 
-    @Path("/linhadepesquisa/inserir")
-   // public void inserir(final LinhaPesquisa linhapesquisa, final List<String> idprojetos) {
+    @Path("/linhadepesquisa/inserir")   
     public void inserir(final LinhaPesquisa linhapesquisa){
-    	//Funciona! Ver:
-    	//http://www.guj.com.br/java/235513-select-multiple-no-vraptor-312-
-//    	List<Projeto> projetos = new ArrayList<Projeto>();
-//    	for (int i=0; i<idprojetos.size();i++)
-//    		projetos.add(pdao.getProjeto(Long.parseLong(idprojetos.get(i))));
-//    	
-
-    	//'Pau' no Hibernate ao 'setar' a lista de projetos para linhapesquisa:
-    	//Could not execute JDBC batch update
-    	//Duplicate entry 'id_do_objeto' for key 'LINHAP_ID'
-//    	linhapesquisa.setProjetos(projetos);
-
-
+    	//Devia funcionar! 
+    	//Ver: //http://www.guj.com.br/java/235513-select-multiple-no-vraptor-312-    	
     	
-      //  validator.validate(linhapesquisa);
-      //  validator.onErrorForwardTo(this).novalinhadepesquisa();
+    	//Erro: Unable to find converter for sigp.src.Projeto 
+    	//Ver: http://www.guj.com.br/java/250048-unable-to-find-converter-resolvido
+    	//Necessário fazer essa conversao
+        validator.validate(linhapesquisa);
+        validator.onErrorForwardTo(this).novalinhadepesquisa();
         dao.save(linhapesquisa);
         result.redirectTo(this).index();
     }
