@@ -1,8 +1,10 @@
 package sigp.src.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sigp.src.LinhaPesquisa;
+import sigp.src.Projeto;
 import sigp.src.dao.LinhaDePesquisaDao;
 import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Path;
@@ -40,15 +42,20 @@ public class LinhaDePesquisaController {
     }
 
     @Path("/linhadepesquisa/inserir")   
-    public void inserir(final LinhaPesquisa linhapesquisa){
-    	//Devia funcionar! 
-    	//Ver: //http://www.guj.com.br/java/235513-select-multiple-no-vraptor-312-    	
+    public void inserir(final LinhaPesquisa linhapesquisa, final List<Long> listaprojetosids){
+    	 validator.validate(linhapesquisa);
+         validator.onErrorForwardTo(this).novalinhadepesquisa();
     	
-    	//Erro: Unable to find converter for sigp.src.Projeto 
-    	//Ver: http://www.guj.com.br/java/250048-unable-to-find-converter-resolvido
-    	//Necessário fazer essa conversao
-        validator.validate(linhapesquisa);
-        validator.onErrorForwardTo(this).novalinhadepesquisa();
+    	List<Projeto> lprojetos = new ArrayList<Projeto>();
+    	for (int i = 0; i < listaprojetosids.size(); i++){
+    		System.out.println("Linha id = " + linhapesquisa.getIdPesquisa() + " Projeto id = " + listaprojetosids.get(i));
+    		lprojetos.add(pdao.getProjeto(listaprojetosids.get(i)));
+    	}    	
+        
+    	//Funciona qdo apenas UM projeto é selecionado.
+    	//Para mais de um projeto, há uma exceção de violação de integridade no Hibernate:
+    	//Duplicate entry ' ' for key 'LINHAP_ID'
+    	linhapesquisa.setProjetos(lprojetos);
         dao.save(linhapesquisa);
         result.redirectTo(this).index();
     }
