@@ -1,8 +1,10 @@
 package sigp.src.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sigp.src.LinhaPesquisa;
+import sigp.src.Projeto;
 import sigp.src.dao.LinhaDePesquisaDao;
 import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Path;
@@ -40,13 +42,14 @@ public class LinhaDePesquisaController {
     }
 
     @Path("/linhadepesquisa/inserir")   
-    public void inserir(final LinhaPesquisa linhapesquisa){
-    	//Devia funcionar! 
-    	//Ver: //http://www.guj.com.br/java/235513-select-multiple-no-vraptor-312-    	
+    public void inserir(final LinhaPesquisa linhapesquisa, final List<Long> idsProjetos){
+
+    	List<Projeto> projetos = new ArrayList<Projeto>();
+    	for (int i = 0; i < idsProjetos.size(); i++){
+    		projetos.add(pdao.getProjeto(idsProjetos.get(i)));
+    	}
+    	linhapesquisa.setProjetos(projetos);
     	
-    	//Erro: Unable to find converter for sigp.src.Projeto 
-    	//Ver: http://www.guj.com.br/java/250048-unable-to-find-converter-resolvido
-    	//Necessário fazer essa conversao
         validator.validate(linhapesquisa);
         validator.onErrorForwardTo(this).novalinhadepesquisa();
         dao.save(linhapesquisa);

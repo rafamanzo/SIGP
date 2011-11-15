@@ -33,11 +33,11 @@
 		</tr>
 
 		<tr>
-			<td>Projetos</td>
-			<td><select name="linhapesquisa.projetos[]" size="3" multiple>
+			<td>Projetos. </br> Use CTRL para seleção múltipla.</td>
+			<td><select name="idsProjetos[]" size="4" multiple>
 					<option value="0">Nenhum</option>
 					<c:forEach items="${todosprojetos}" var="projeto">
-						<option value="${projeto}">${projeto.nome}</option>
+						<option value="${projeto.idProjeto}">${projeto.nome}</option>
 					</c:forEach>
 			</select></td>
 		</tr>
