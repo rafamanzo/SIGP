@@ -38,7 +38,8 @@ public class LinhaPesquisaIntegracao {
 		
 		LinhaPesquisa linhapesquisa = new LinhaPesquisa();
 		linhapesquisa.setNome("linha Nova");
-		linhapesquisa.setSubLinha(ldao.getLinhaPesquisa(1L));
+		linhapesquisa.setSubLinha(null);
+		//linhapesquisa.setSubLinha(ldao.getLinhaPesquisa(1L));
 		linhapesquisa.setProjetos(projetos);
 		new LinhaDePesquisaDao(session).save(linhapesquisa);
 	}

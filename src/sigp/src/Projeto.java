@@ -55,10 +55,11 @@ public class Projeto {
 		this.participacoes = participacoes;
 	}
 	
-	@OneToMany
-	@JoinTable(name = "LINHAP_PROJETO",
-				joinColumns = @JoinColumn(name = "PROJETO_ID"),
-				inverseJoinColumns = @JoinColumn(name = "LINHAP_ID"))
+	//@OneToMany
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "projetos")
+//	@JoinTable(name = "LINHAP_PROJETO",
+//				joinColumns = @JoinColumn(name = "PROJETO_ID"),
+//				inverseJoinColumns = @JoinColumn(name = "LINHAP_ID"))
 	public List<LinhaPesquisa> getLinhasDePesquisa() {
 		return linhasDePesquisa;
 	}
