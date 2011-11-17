@@ -42,13 +42,18 @@ public class LinhaDePesquisaController {
     }
 
     @Path("/linhadepesquisa/inserir")   
-    public void inserir(final LinhaPesquisa linhapesquisa, final List<Long> idsProjetos){
+    public void inserir(final LinhaPesquisa linhapesquisa, final List<Long> idsProjetos, final String subLinhaidPesquisa){
 
     	List<Projeto> projetos = new ArrayList<Projeto>();
     	for (int i = 0; i < idsProjetos.size(); i++){
     		projetos.add(pdao.getProjeto(idsProjetos.get(i)));
     	}
     	linhapesquisa.setProjetos(projetos);
+    	
+    	if (subLinhaidPesquisa.equals("null"))
+    		linhapesquisa.setSubLinha(null);    	
+    	else
+    		linhapesquisa.setSubLinha(dao.getLinhaPesquisa(Long.parseLong(subLinhaidPesquisa)));
     	
         validator.validate(linhapesquisa);
         validator.onErrorForwardTo(this).novalinhadepesquisa();

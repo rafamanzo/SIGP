@@ -20,7 +20,8 @@
 
 		<tr>
 			<td>SubLinha:</td>
-			<td><select name="linhapesquisa.subLinha.idPesquisa">
+<!-- 			<td><select name="linhapesquisa.subLinha.idPesquisa"> -->
+			<td><select name="subLinhaidPesquisa">
 					<option value="0">Nenhum</option>
 					<c:forEach items="${linhasdepesquisa}" var="linhaslista">
 						<c:if test="${linhaslista.idPesquisa != linhapesquisa.idPesquisa}">
@@ -34,7 +35,7 @@
 
 		<tr>
 
-			<td>Projetos. </br> Use CTRL para seleção múltipla.</td>
+			<td>Projetos. Use CTRL para seleção múltipla.</td>
 			<td><select name="idsProjetos[]" size="4" multiple>
 					<option value="0">Nenhum</option>
 					<c:forEach items="${todosprojetos}" var="projeto">

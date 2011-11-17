@@ -13,6 +13,8 @@ import sigp.src.Projeto;
 import sigp.src.dao.LinhaDePesquisaDao;
 import sigp.src.dao.ProjetoDao;
 
+/* Atencao: eh necessario ter pelo menos dois projetos jah cadastrados no sistema */
+
 public class LinhaPesquisaIntegracao {
     
 	public static void main(String[] args) {		
@@ -37,7 +39,7 @@ public class LinhaPesquisaIntegracao {
 		projetos.add(projeto2);
 		
 		LinhaPesquisa linhapesquisa = new LinhaPesquisa();
-		linhapesquisa.setNome("linha Nova");
+		linhapesquisa.setNome("linha teste de integracao");
 		linhapesquisa.setSubLinha(null);
 		//linhapesquisa.setSubLinha(ldao.getLinhaPesquisa(1L));
 		linhapesquisa.setProjetos(projetos);
