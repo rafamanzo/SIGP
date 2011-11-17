@@ -22,7 +22,7 @@
 			<td>SubLinha:</td>
 <!-- 			<td><select name="linhapesquisa.subLinha.idPesquisa"> -->
 			<td><select name="subLinhaidPesquisa">
-					<option value="0">Nenhum</option>
+					<option value="null">Nenhum</option>
 					<c:forEach items="${linhasdepesquisa}" var="linhaslista">
 						<c:if test="${linhaslista.idPesquisa != linhapesquisa.idPesquisa}">
 							<option value="${linhaslista.idPesquisa}"
