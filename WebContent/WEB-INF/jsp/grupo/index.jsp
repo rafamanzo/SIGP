@@ -13,8 +13,6 @@
 					<c:when test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:when>
 					<c:otherwise> - </c:otherwise>
 				</c:choose></td>
-			<td><a href="/SIGP/grupo/alterar/${grupo.idGrupo}">Alterar</a></td>
-			<td><a href="/SIGP/grupo/apagar/${grupo.idGrupo}">Apagar</a></td>
 		</tr>
 	</c:forEach>
 </table>

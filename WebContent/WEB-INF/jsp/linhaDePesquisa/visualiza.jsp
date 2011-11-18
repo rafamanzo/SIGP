@@ -22,6 +22,11 @@
 <%-- 	<li><a href="/SIGP/contribuinte/ver/${contribuinte.idContribuinte}">${contribuinte.nome}</a></li> --%>
 <%-- </c:forEach></ul> --%>
 <p>
+<a href="/SIGP/linhadepesquisa/alterar/${linhapesquisa.idPesquisa}">Alterar</a>
+<a href="/SIGP/linhadepesquisa/apagar/${linhapesquisa.idPesquisa}">Apagar</a>
+</p>
+
+<p>
 	<a href="/SIGP/linhadepesquisa/">Voltar</a>
 </p>
 

@@ -32,6 +32,11 @@
 	<li>${publicacao.titulo}</li>
 </c:forEach></ul>	
 <p>
+			<a href="/SIGP/grupo/alterar/${grupo.idGrupo}">Alterar</a>
+			<a href="/SIGP/grupo/apagar/${grupo.idGrupo}">Apagar</a>
+</p>
+
+<p>
 	<a href="/SIGP/grupo/">Voltar</a>
 </p>
 
