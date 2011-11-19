@@ -1,0 +1,130 @@
+- Fotos tiradas pelo SAMU
+
+- Números de linha de código, classes etc: não usam esse tipo de métrica 
+1) Dados sobre a empresa: 
+- tipos de sistemas desenvolvidos: sistemas internos
+- número de funcionários: 20
+- número de desenvolvedores: 20
+- anos de existência: desde 2001
+- quantidade de sistemas: ?
+- quantidade de clientes: os clientes são eles mesmos e alunos: 4000/ano
+- linguagens em que os sistemas são desenvolvidos: Java, Skala
+- tipos de sistemas (sistema de informação, tempo real, sistemas embarcados etc.)
+- plataforma 
+-- desktop: sim, mas pouco
+-- web: sim
+-- mobile: sim
+
+
+- Aspectos gerais: 
+-- pontos fortes da empresa em termos do método como ela desenvolve software:
+
+-- pontos que ainda carecem de melhorias:
+ 
+- Processo: 
+-- segue algum processo: iniciaram com Scrum, mas não se aplica à dinâmica deles
+-- a empresa possui algum certificado de qualidade
+Não, as certificações são buscadas individualmente pelos desenvolvedores. Aparentemente não acreditam no significado de certificações.
+
+- Requisitos: 
+-- como é feito o levantamento de requisitos dos sistemas? 
+Comunicação verbal.
+-- Como os novos requisitos impactam o desenvolvimento? 
+O impacto não é tão grande, pois eles são os próprios clientes.
+-- Como os requisitos são documentados?
+Tradição oral.
+-- Como bugs são tratados?
+Quem encontrar, tenta resolver.
+
+- Aspectos gerenciais: 
+-- Como a equipe é organizada (papéis e tarefas)? 
+Cada desenvolvedor é o responsável principal por um projeto.
+-- Como é feito o planejamento?
+Não há planejamento. As retrospectivas são voltadas para o ambiente de trabalho.
+
+-- Como a equipe se coordena? 
+Sistema anárquico funcional
+-- A empresa consegue acertar as estimativas?  
+Sim
+
+- Documentação técnica: 
+-- como os sistemas são documentados? Como os desenvolvedores usam a documentação no dia-a-dia? 
+A única documentação que usam são os testes.
+-- Como a empresa usa a UML? 
+Não usam o UML, salvo raras exceções.
+
+- Arquitetura e design: 
+-- como são documentadas a arquitetura e o design? 
+Não são
+-- Como é a equipe realiza o design? 
+Mentalmente
+-- A empresa usa orientação a objetos? 
+Sim
+-- A empresa utiliza padrões de projeto nos seus sistemas? Quais? 
+Apenas para comunicarem-se
+-- Usa alguma outra abordagem, como aspectos, frameworks, sistemas multiagentes, linguagens dinâmicas, paradigma funcional etc.? 
+Não
+
+- Testes: 
+-- que tipos de testes são feitos? 
+Testes de unidade, integração e aceitação
+-- Quais ferramentas são usadas para apoiar os testes? 
+
+-- Qual a cobertura de testes dos sistemas? 
+
+-- Quando e por quem os testes são feitos (TDD, imediatamente após implementar uma funcionalidade, posteriormente quando necessário - 
+Os testes são feitos pelos próprios desenvolvedores, em sua maioria imediatamente após implementar uma funcionalidade.
+
+- Ferramentas: 
+-- quais ferramentas usam para dar suporte ao desenvolvimento? Como os desenvolvedores usam na prática cada uma dessas ferramentas? 
+Cada desenvolvedor usa a ferramenta que desejar. Para Java, a maioria usa Eclipse. Para Skala, é usado o ...
+
+
+-- São colhidas métricas? Quais? Como as métricas são usadas no desenvolvimento? 
+Não são usadas métricas formais para controle objetivo de qualidade.
+
+- Gerência de configuração: 
+-- como é feito o versionamento dos sistemas desenvolvidos? 
+Usam o sistema GIT.
+Para minimizar conflitos no momento do MERGE, a codificação na máquina local não é feita na MASTER, 
+mas numa ramificação secundária.
+O desenvolvedor baixa a última versão do repositório remoto (PULL) para a MASTER de sua máquina, e 
+aplica o comando REBASE do GIT, que alinha todos os commits. Finalmente, o MERGE é feito para a MASTER 
+local e em seguida um PUSH para a MASTER do repositório REMOTO.
+
+
+-- em que momento são utilizados diferentes ramificações no sistema de controle de versões e como 
+é feito o merge posteriormente? 
+Novas ramificações locais são utilizadas para desenvolver novas features, que podem ser agregadas ao sistema em algum momento.
+Essas ramificações são enviadas para o repositório remoto também.
+
+- Programação: 
+-- como é feito o controle de qualidade do código que é escrito? 
+O rodízio de desenvolvedores trabalhando nos mesmos códigos garante a qualidade.
+-- Há alguma padronização para o código? 
+Há uma padronização tácita, não formal.
+-- A empresa consegue promover o reúso de software? Como? 
+
+- Evolução do software: 
+-- que ações a empresa toma para evitar a degradação do software?
+Todos trabalham em todos os projetos, de forma que um fiscaliza e aperfeiçoa o código legado por outro.
+
+- Outros: 
+-- há alguma história interessante de sucesso ou de fracasso em termos de desenvolvimento? O que a empresa tentou 
+de diferente e deu certo e o que foi tentado e não funcionou?
+O foco da empresa são seus cursos. Foi tentado um curso de XP em 2004, mas não houve demanda.
+Tentaram lançar uma aplicação para comunidades sociais do tipo Orkut, mas não conseguiram.
+-- Como a empresa motiva seus funcionários? 
+Flexibilidade de horário, liberdade para estudar na sala de desenvolvimento, bom ambiente de trabalho, 
+máquinas de café em todos os ambientes. 
+
+- Engenharia de Software: 
+-- como a empresa vê a educação em Engenharia de Software nas universidades? 
+Grades curriculares obsoletas e professores não especialistas em desenvolvimento de software
+-- Quais são as deficiências que a empresa observa nos recém formados? 
+Muitos desconhecem Orientação a Objeto, deficiências de Programação, sem a cultura de Testes e que 
+supervalorizam o funcionamento de um sistema, em detrimento de sua manutenabilidade.
+-- O que a empresa sugere aos estudantes de computação para que melhorem sua formação? 
+Envolverem-se no aperfeiçoamento de sistemas precários, no desenvolvimento de softwares opensource, 
+em comunidades do tipo GUJ e estudarem por conta própria.
+ 
