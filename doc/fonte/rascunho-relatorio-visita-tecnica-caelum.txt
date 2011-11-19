@@ -16,17 +16,19 @@
 -- mobile: sim
 
 
-- Aspectos gerais: 
+2) Aspectos gerais: 
 -- pontos fortes da empresa em termos do método como ela desenvolve software:
-
+Método incremental sempre, iterativo às vezes. Funciona bem pra eles.
 -- pontos que ainda carecem de melhorias:
- 
-- Processo: 
--- segue algum processo: iniciaram com Scrum, mas não se aplica à dinâmica deles
+ ?????????
+
+3) Processo: 
+-- segue algum processo:
+Não; iniciaram com Scrum, mas descobriram 2 anos depois que não se aplica à dinâmica deles
 -- a empresa possui algum certificado de qualidade
 Não, as certificações são buscadas individualmente pelos desenvolvedores. Aparentemente não acreditam no significado de certificações.
 
-- Requisitos: 
+4) Requisitos: 
 -- como é feito o levantamento de requisitos dos sistemas? 
 Comunicação verbal.
 -- Como os novos requisitos impactam o desenvolvimento? 
@@ -36,24 +38,24 @@ Tradição oral.
 -- Como bugs são tratados?
 Quem encontrar, tenta resolver.
 
-- Aspectos gerenciais: 
+5) Aspectos gerenciais: 
 -- Como a equipe é organizada (papéis e tarefas)? 
 Cada desenvolvedor é o responsável principal por um projeto.
 -- Como é feito o planejamento?
 Não há planejamento. As retrospectivas são voltadas para o ambiente de trabalho.
 
--- Como a equipe se coordena? 
-Sistema anárquico funcional
+6) Como a equipe se coordena? 
+Sistema anárquico funcional. :)
 -- A empresa consegue acertar as estimativas?  
 Sim
 
-- Documentação técnica: 
+7) Documentação técnica: 
 -- como os sistemas são documentados? Como os desenvolvedores usam a documentação no dia-a-dia? 
 A única documentação que usam são os testes.
 -- Como a empresa usa a UML? 
 Não usam o UML, salvo raras exceções.
 
-- Arquitetura e design: 
+8) Arquitetura e design: 
 -- como são documentadas a arquitetura e o design? 
 Não são
 -- Como é a equipe realiza o design? 
@@ -63,68 +65,75 @@ Sim
 -- A empresa utiliza padrões de projeto nos seus sistemas? Quais? 
 Apenas para comunicarem-se
 -- Usa alguma outra abordagem, como aspectos, frameworks, sistemas multiagentes, linguagens dinâmicas, paradigma funcional etc.? 
-Não
+??????
 
-- Testes: 
+9) Testes: 
 -- que tipos de testes são feitos? 
 Testes de unidade, integração e aceitação
 -- Quais ferramentas são usadas para apoiar os testes? 
-
+?????
 -- Qual a cobertura de testes dos sistemas? 
-
+?????
 -- Quando e por quem os testes são feitos (TDD, imediatamente após implementar uma funcionalidade, posteriormente quando necessário - 
 Os testes são feitos pelos próprios desenvolvedores, em sua maioria imediatamente após implementar uma funcionalidade.
+Eventualmente, um desenvolvedor acaba aperfeiçoando os testes realizados por outros desenvolvedores.
 
-- Ferramentas: 
+10) Ferramentas: 
 -- quais ferramentas usam para dar suporte ao desenvolvimento? Como os desenvolvedores usam na prática cada uma dessas ferramentas? 
-Cada desenvolvedor usa a ferramenta que desejar. Para Java, a maioria usa Eclipse. Para Skala, é usado o ...
+Cada desenvolvedor usa a ferramenta que desejar. Para Java, a maioria usa Eclipse. Para Skala, é usado o ???
 
 
--- São colhidas métricas? Quais? Como as métricas são usadas no desenvolvimento? 
-Não são usadas métricas formais para controle objetivo de qualidade.
+11) São colhidas métricas? Quais? Como as métricas são usadas no desenvolvimento? 
+Não são usadas métricas formais para controle objetivo de qualidade. Preferem métricas subjetivas, como o Índice de Sensação de Produtividade
 
-- Gerência de configuração: 
+12) Gerência de configuração: 
 -- como é feito o versionamento dos sistemas desenvolvidos? 
 Usam o sistema GIT.
 Para minimizar conflitos no momento do MERGE, a codificação na máquina local não é feita na MASTER, 
-mas numa ramificação secundária.
-O desenvolvedor baixa a última versão do repositório remoto (PULL) para a MASTER de sua máquina, e 
+mas numa ramificação secundária. O desenvolvedor baixa a última versão do repositório remoto (PULL) para a MASTER de sua máquina, e 
 aplica o comando REBASE do GIT, que alinha todos os commits. Finalmente, o MERGE é feito para a MASTER 
 local e em seguida um PUSH para a MASTER do repositório REMOTO.
-
 
 -- em que momento são utilizados diferentes ramificações no sistema de controle de versões e como 
 é feito o merge posteriormente? 
 Novas ramificações locais são utilizadas para desenvolver novas features, que podem ser agregadas ao sistema em algum momento.
 Essas ramificações são enviadas para o repositório remoto também.
 
-- Programação: 
+13) Programação: 
 -- como é feito o controle de qualidade do código que é escrito? 
-O rodízio de desenvolvedores trabalhando nos mesmos códigos garante a qualidade.
+Segundo eles, o rodízio de desenvolvedores trabalhando nos mesmos códigos garante a qualidade destes.
 -- Há alguma padronização para o código? 
 Há uma padronização tácita, não formal.
 -- A empresa consegue promover o reúso de software? Como? 
+???????????????
 
-- Evolução do software: 
+14) Evolução do software: 
 -- que ações a empresa toma para evitar a degradação do software?
-Todos trabalham em todos os projetos, de forma que um fiscaliza e aperfeiçoa o código legado por outro.
+Todos trabalham em todos os projetos, de forma que um fiscaliza e aperfeiçoa o código legado de outro.
 
-- Outros: 
+15) Outros: 
 -- há alguma história interessante de sucesso ou de fracasso em termos de desenvolvimento? O que a empresa tentou 
 de diferente e deu certo e o que foi tentado e não funcionou?
 O foco da empresa são seus cursos. Foi tentado um curso de XP em 2004, mas não houve demanda.
 Tentaram lançar uma aplicação para comunidades sociais do tipo Orkut, mas não conseguiram.
 -- Como a empresa motiva seus funcionários? 
-Flexibilidade de horário, liberdade para estudar na sala de desenvolvimento, bom ambiente de trabalho, 
-máquinas de café em todos os ambientes. 
+Flexibilidade de horário, liberdade para estudar na sala de desenvolvimento, bom ambiente de trabalho, máquinas de café em todos os ambientes, 
+liberdade para criar novos sistemas e novos cursos.
 
-- Engenharia de Software: 
+16) Engenharia de Software: 
 -- como a empresa vê a educação em Engenharia de Software nas universidades? 
-Grades curriculares obsoletas e professores não especialistas em desenvolvimento de software
+Grades curriculares obsoletas e professores não-especialistas ministrando desenvolvimento de software.
+Criticam a adoção de livros como Pressman, voltados para processos. 
 -- Quais são as deficiências que a empresa observa nos recém formados? 
-Muitos desconhecem Orientação a Objeto, deficiências de Programação, sem a cultura de Testes e que 
-supervalorizam o funcionamento de um sistema, em detrimento de sua manutenabilidade.
--- O que a empresa sugere aos estudantes de computação para que melhorem sua formação? 
-Envolverem-se no aperfeiçoamento de sistemas precários, no desenvolvimento de softwares opensource, 
-em comunidades do tipo GUJ e estudarem por conta própria.
+Pouco conhecimento em Orientação a Objeto, deficiências de Programação, sem a cultura de Testes e a 
+supervalorização do funcionamento de um programa, em detrimento de sua manutenabilidade.
+-- O que a empresa sugere aos estudantes de computação para que melhorem sua formação?
+Aconselham fazer o curso de XP e a envolverem-se no aperfeiçoamento de sistemas precários, no desenvolvimento de softwares opensource, 
+em comunidades do tipo GUJ e o estudo autodidata.
+Sugerem livros como CLEAN CODE e REFACTORING.
  
+
+
+
+
+
