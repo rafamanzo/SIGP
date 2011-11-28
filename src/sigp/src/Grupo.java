@@ -25,14 +25,14 @@ import br.com.caelum.vraptor.Resource;
 @Resource
 @Table(name = "GRUPO")
 public class Grupo {
-    
+
 	private Long idGrupo;
 
-    @NotEmpty(message = "O campo \"nome\" não deve ficar vazio.")
+	@NotEmpty(message = "O campo \"nome\" não deve ficar vazio.")
 	private String nome;
-    
+
 	private Grupo responsavel;
-	
+
 	private List<LinhaPesquisa> pesquisas = new ArrayList<LinhaPesquisa>();
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
@@ -53,6 +53,7 @@ public class Grupo {
 	public List<Filiacao> getFiliacoes() {
 		return filiacoes;
 	}
+
 	public void setFiliacoes(List<Filiacao> filiacoes) {
 		this.filiacoes = filiacoes;
 	}
@@ -105,32 +106,32 @@ public class Grupo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	@Transient
 	public List<Projeto> getProjetos() {
 		LinhaPesquisa pesquisa;
 		List<Projeto> projetos = new ArrayList<Projeto>();
 		Iterator<LinhaPesquisa> pesquisasit = pesquisas.iterator();
-		
-		while(pesquisasit.hasNext()){
+
+		while (pesquisasit.hasNext()) {
 			pesquisa = pesquisasit.next();
 			projetos.addAll(pesquisa.getProjetos());
 		}
-		
+
 		return projetos;
 	}
-	
+
 	@Transient
 	public List<Publicacao> getPublicacoes() {
 		Projeto projeto;
 		List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 		Iterator<Projeto> projetos = this.getProjetos().iterator();
-		
-		while(projetos.hasNext()){
+
+		while (projetos.hasNext()) {
 			projeto = projetos.next();
 			publicacoes.addAll(projeto.getPublicacoes());
 		}
-		
+
 		return publicacoes;
 	}
 

@@ -1,5 +1,8 @@
 package sigp.src.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -7,23 +10,27 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.caelum.vraptor.view.Results;
 import sigp.src.Grupo;
+import sigp.src.LinhaPesquisa;
 import sigp.src.dao.GrupoDao;
+import sigp.src.dao.LinhaDePesquisaDao;
 
 @Resource
 public class GrupoController {
     private final Result result;
     private final GrupoDao dao;
+    private final LinhaDePesquisaDao ldao;
     private Validator validator;
 
-    public GrupoController(Result result, Validator validator, GrupoDao dao) {
+    public GrupoController(Result result, Validator validator, GrupoDao dao, LinhaDePesquisaDao ldao) {
         this.result = result;
         this.validator = validator;
         this.dao = dao;
+        this.ldao = ldao;
     }
 
     @Path("/grupo/")
     public void index() {
-        result.include("grupos", dao.list());
+        result.include("grupos", dao.list());        
     }
 
     @Path("/grupo/procura/{query}")
@@ -34,10 +41,19 @@ public class GrupoController {
     @Path("/grupo/novo")
     public void novo_form() {
         result.include("grupos", dao.list());
+        result.include("todaslinhasdepesquisa", ldao.list());
     }
 
     @Path("/grupo/cria")
-    public void cria(final Grupo grupo, final String responsavel) {
+    public void cria(final Grupo grupo, final String responsavel, final List<Long> idsLinhasdePesquisa) {
+    	
+    	List<LinhaPesquisa> linhas = new ArrayList<LinhaPesquisa>();
+    	for (int i = 0; i < idsLinhasdePesquisa.size(); i++){
+    		linhas.add(ldao.getLinhaPesquisa(idsLinhasdePesquisa.get(i)));
+    	}
+    	grupo.setPesquisas(linhas);
+    	
+    	
         validator.validate(grupo);
         Grupo respon = dao.find(responsavel);
 

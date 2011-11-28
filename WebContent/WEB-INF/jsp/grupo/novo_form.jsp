@@ -36,6 +36,21 @@ $(function(){
 				<input type="text" id="responsavelBusca" name="responsavel" />
 			</td>
 		</tr>
+		
+		<tr>
+
+			<td>Linhas de Pesquisa. Use CTRL para seleção múltipla.</td>
+			<td><select name="idsLinhasdePesquisa[]" size="4" multiple>
+					<option value="0">Nenhum</option>
+					<c:forEach items="${todaslinhasdepesquisa}" var="linha">
+						<option value="${linha.idPesquisa}">${linha.nome}</option>
+					</c:forEach>
+			</select></td>
+		</tr>
+		
+		
+		
+		
 		<tr>
 			<td colspan="2"><input type="submit" value="Criar" />
 			</td>

@@ -13,7 +13,7 @@
 </p>
 <p>Pesquisas:</p>
 <ul><c:forEach items="${grupo.pesquisas}" var="pesquisa">
-	<li><!--<a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">-->${pesquisa.nome}</li>
+	<li><a href="/SIGP/linhadepesquisa/ver/${pesquisa.idPesquisa}">${pesquisa.nome}</a></li>
 </c:forEach></ul>
 <p>Disciplinas:</p>
 <ul><c:forEach items="${grupo.disciplinas}" var="disciplina">
@@ -25,7 +25,7 @@
 </c:forEach></ul>
 <p>Projetos:</p>
 <ul><c:forEach items="${grupo.projetos}" var="projeto">
-	<li>${projeto.nome}</li>
+	<li><a href="/SIGP/projeto/ver/${projeto.idProjeto}">${projeto.nome}</a></li>
 </c:forEach></ul>
 <p>Publicações:</p>
 <ul><c:forEach items="${grupo.publicacoes}" var="publicacao">
