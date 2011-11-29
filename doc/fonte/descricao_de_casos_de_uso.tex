@@ -622,4 +622,70 @@ O usuário visualiza a listagem e consegue imprimi-la, caso deseje.
 %
 %Requisito especial 1
 
+
+\chapter[Caso de Uso]{Caso de uso: \bf Usuário faz login no SIGP}
+\label{cap:casodeuso}	
+
+\section{Breve descrição}
+
+O caso de uso \textbf{Usuário faz login no SIGP} permite que um visitante se autentique como um usuário no sistema.
+
+\section{Breve Descrição dos Atores}
+
+\subsection{Visitante}
+
+O \textbf{Visitante} é o usuário de um computador com acesso à \emph{Internet}.
+
+\subsection{Usuário}
+
+O \textbf{Usuário} é um \emph{Visitante} já autenticado no sistema.
+
+\section{Pré-condições}
+O visitante tem acesso a um computador com software navegador e conexão à \emph{Internet}.
+O navegador exibe a página de login do SIGP.
+
+\subsection{Fluxo Básico de Eventos}
+
+\begin{enumerate}
+\item O caso de uso começa quando o Visitante acessa a página de login do SIGP
+\item O Visitante preenche o formulário com seu login e senha e então clica em login.
+\item O SIGP redireciona o visitante para a página principal, onde parte da página exibe o nome do Usuário.
+\item O caso de uso termina.
+\end{enumerate}
+
+\section{Fluxos Alternativos}
+
+\subsection{Usuário e/ou Senha inválidos}
+Se no passo $2$ do fluxo básico, o login e senha digitados corresponder a nenhum usuário do sistema, o SIGP exibe uma mensagem de erro ao invéz de redirecionar o usuário.
+
+%\section{Subfluxos}
+%
+%\subsection{Subfluxo 1}
+%
+%\begin{enumerate}
+%\item subfluxo 1, passo 1
+%\item $\ldots$
+%\item subfluxo 1, passo n
+%\end{enumerate}
+%
+%\section{Cenários Chaves}
+%
+%\subsection{Cenário 1}
+%\begin{enumerate}
+%\item cenário 1, passo 1
+%\item $\ldots$
+%\item cenário 1, passo n
+%\end{enumerate}
+
+\section{Pós-condições}
+
+\subsection{Login bem sucedido}
+
+O usuário está autenticado e pode usar recursos que exigem permissões maiores do que a de um visitante.
+
+%\section{Requisitos Especiais}
+%
+%Requisito especial 1
+
+
 \end{document}
