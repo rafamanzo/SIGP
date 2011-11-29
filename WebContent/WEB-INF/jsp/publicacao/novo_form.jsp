@@ -18,6 +18,17 @@
 			<td>Data:</td>
 			<td><input type="text" name="publicacao.data" /></td>
 		</tr>
+		
+		<tr>
+			<td>Projetos. Use CTRL para seleção múltipla.</td>
+			<td><select name="idsProjetos[]" size="4" multiple>
+					<option value="0">Nenhum</option>
+					<c:forEach items="${todosprojetos}" var="projeto">
+						<option value="${projeto.idProjeto}">${projeto.nome}</option>
+					</c:forEach>
+			</select></td>
+		</tr>		
+		
 		<tr>
 			<td colspan="2"><input type="submit" value="Criar" /></td>
 		</tr>
