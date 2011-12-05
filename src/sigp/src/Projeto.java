@@ -8,8 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -55,10 +53,8 @@ public class Projeto {
 		this.participacoes = participacoes;
 	}
 	
-	@OneToMany
-	@JoinTable(name = "LINHAP_PROJETO",
-				joinColumns = @JoinColumn(name = "PROJETO_ID"),
-				inverseJoinColumns = @JoinColumn(name = "LINHAP_ID"))
+
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "projetos")
 	public List<LinhaPesquisa> getLinhasDePesquisa() {
 		return linhasDePesquisa;
 	}
@@ -68,14 +64,10 @@ public class Projeto {
 	
 	
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable( name = "PROJETO_PUBLICACAO",
-	joinColumns = @JoinColumn( name = "PROJETO_ID"), 
-	inverseJoinColumns = @JoinColumn (name = "PUBLICACAO_ID"))
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "projetos")
 	public List<Publicacao> getPublicacoes() {
 		return publicacoes;
 	}
-
 	public void setPublicacoes(List<Publicacao> publicacoes) {
 		this.publicacoes = publicacoes;
 	}	

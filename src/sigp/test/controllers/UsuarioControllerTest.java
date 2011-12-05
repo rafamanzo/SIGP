@@ -19,11 +19,14 @@ import sigp.src.Usuario;
 import sigp.src.controllers.UsuarioController;
 import sigp.src.dao.UsuarioDao;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 public class UsuarioControllerTest {
 
     UsuarioController controller;
     Result result;
+    private Validator validator;
+    private UsuarioController controlmock;
     UsuarioDao dao;
 
     File avatar;
@@ -38,11 +41,13 @@ public class UsuarioControllerTest {
     public void setUp() throws Exception {
         result = mock(Result.class);
         dao = mock(UsuarioDao.class);
-        controller = new UsuarioController(result, dao);
+        validator = mock(Validator.class);
+        controller = new UsuarioController(result, validator, dao);
 
-        UsuarioController controlmock = mock(UsuarioController.class);
+        controlmock = mock(UsuarioController.class);
         when(result.redirectTo(UsuarioController.class))
                 .thenReturn(controlmock);
+        when(validator.onErrorForwardTo(controller)).thenReturn(controlmock);
         setUpDao();
     }
 
@@ -86,8 +91,7 @@ public class UsuarioControllerTest {
     @Test
     public void testVerifica() {
         controller.verifica("ninguem", "nada");
-        verify(result).include("usuarioNaoCadastrado",
-                "Usuario nao cadastrado.");
+        verify(controlmock).index();
     }
 
     @Test

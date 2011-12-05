@@ -30,6 +30,7 @@ public class LinhaPesquisa {
 	private String nome;
 	
 	private List<Projeto> projetos = new ArrayList<Projeto>();
+	private List<Grupo> grupos = new ArrayList<Grupo>();
 	private LinhaPesquisa subLinha;
 	private List<RelacaoPesquisa> relacoes = new ArrayList<RelacaoPesquisa>();
 	
@@ -79,6 +80,14 @@ public class LinhaPesquisa {
 		this.projetos = projetos;
 	}
 
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "pesquisas")
+	public List<Grupo> getGrupos(){
+		return grupos;
+	}
+	public void setGrupos(List<Grupo> grupos){
+		this.grupos = grupos;
+	}
+	
 	
 	@Id
 	@GeneratedValue 
@@ -98,6 +107,9 @@ public class LinhaPesquisa {
 	public void setNome(String name) {
 		this.nome = name;
 	}
+	
+	
+	
 	
 	
 }

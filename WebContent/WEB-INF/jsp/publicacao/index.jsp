@@ -9,8 +9,8 @@
 	<c:forEach items="${publicacoes}" var="publicacao">
 		<tr>
 			<td><a href="/SIGP/publicacao/ver/${publicacao.idPublicacao}">${publicacao.titulo}</a></td>
-			<td>${publicacao.data}</td>
-			<td>${publicacao.veiculo}</td>
+<%-- 			<td>${publicacao.data}</td> --%>
+<%-- 			<td>${publicacao.veiculo}</td> --%>
 		</tr>
 	</c:forEach>
 </table>

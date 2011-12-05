@@ -1,23 +1,30 @@
 package sigp.src.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import sigp.src.Projeto;
 import sigp.src.Publicacao;
 import sigp.src.Veiculo;
+import sigp.src.dao.ProjetoDao;
 import sigp.src.dao.PublicacaoDao;
 
 @Resource
 public class PublicacaoController {
 	private final Result result;
 	private final PublicacaoDao dao;
+	private final ProjetoDao pdao;
     private Validator validator;
 
-	public PublicacaoController(Result result, Validator validator, PublicacaoDao dao) {
+	public PublicacaoController(Result result, Validator validator, PublicacaoDao dao, ProjetoDao pdao) {
 		this.result = result;
 		this.validator = validator;
 		this.dao = dao;
+		this.pdao = pdao;
 	}
 
 	@Path("/publicacao/")
@@ -28,10 +35,17 @@ public class PublicacaoController {
 	@Path("/publicacao/novo")
 	public void novo_form() {
 		result.include("veiculos", Veiculo.values());
+		result.include("todosprojetos", pdao.list());
 	}
 
 	@Path("/publicacao/cria")
-	public void cria(final Publicacao publicacao) {
+	public void cria(final Publicacao publicacao,  final List<Long> idsProjetos) {
+		List<Projeto> projetos = new ArrayList<Projeto>();
+    	for (int i = 0; i < idsProjetos.size(); i++){
+    		projetos.add(pdao.getProjeto(idsProjetos.get(i)));
+    	}
+    	publicacao.setProjetos(projetos);		
+		
 	    validator.validate(publicacao);
 	    validator.onErrorForwardTo(this).novo_form();
 		dao.save(publicacao);

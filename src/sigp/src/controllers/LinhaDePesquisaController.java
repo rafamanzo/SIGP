@@ -1,9 +1,12 @@
 package sigp.src.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sigp.src.LinhaPesquisa;
+import sigp.src.Projeto;
 import sigp.src.dao.LinhaDePesquisaDao;
+import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -13,17 +16,19 @@ import br.com.caelum.vraptor.Validator;
 public class LinhaDePesquisaController {
     private final Result result;
     private final LinhaDePesquisaDao dao;
+    private final ProjetoDao pdao;
     private Validator validator;
 
-    public LinhaDePesquisaController(Result result, Validator validator, LinhaDePesquisaDao dao) {
+    public LinhaDePesquisaController(Result result, Validator validator, LinhaDePesquisaDao dao, ProjetoDao pdao) {
         this.result = result;
         this.validator = validator;
         this.dao = dao;
+        this.pdao = pdao;
     }
 
     @Path("/linhadepesquisa/")
     public void index() {
-        result.include("linhasdepesquisa", dao.list());
+        result.include("linhasdepesquisa", dao.list());        
     }
 
     public List<LinhaPesquisa> lista() {
@@ -33,10 +38,23 @@ public class LinhaDePesquisaController {
     @Path("/linhadepesquisa/novo")
     public void novalinhadepesquisa() {
         result.include("linhasdepesquisa", dao.list());
+        result.include("todosprojetos", pdao.list());
     }
 
-    @Path("/linhadepesquisa/inserir")
-    public void inserir(final LinhaPesquisa linhapesquisa) {
+    @Path("/linhadepesquisa/inserir")   
+    public void inserir(final LinhaPesquisa linhapesquisa, final List<Long> idsProjetos, final String subLinhaidPesquisa){
+
+    	List<Projeto> projetos = new ArrayList<Projeto>();
+    	for (int i = 0; i < idsProjetos.size(); i++){
+    		projetos.add(pdao.getProjeto(idsProjetos.get(i)));
+    	}
+    	linhapesquisa.setProjetos(projetos);
+    	
+    	if (subLinhaidPesquisa.equals("null"))
+    		linhapesquisa.setSubLinha(null);    	
+    	else
+    		linhapesquisa.setSubLinha(dao.getLinhaPesquisa(Long.parseLong(subLinhaidPesquisa)));
+    	
         validator.validate(linhapesquisa);
         validator.onErrorForwardTo(this).novalinhadepesquisa();
         dao.save(linhapesquisa);
@@ -50,14 +68,15 @@ public class LinhaDePesquisaController {
             result.redirectTo(this).index();
         else
             result.include("linhapesquisa", linhapesquisa);
-        result.include("linhasdepesquisa", dao.list());
+        result.include("linhasdepesquisa", dao.list());  
+        result.include("todosprojetos", pdao.list());    
     }
 
     @Path("/linhadepesquisa/altera")
     public void altera(final LinhaPesquisa linhapesquisa, final Long subLinha) {
         validator.validate(linhapesquisa);
         validator.onErrorForwardTo(this).editar(linhapesquisa.getIdPesquisa());
-        linhapesquisa.setSubLinha(dao.getLinhaPesquisa(subLinha));
+        linhapesquisa.setSubLinha(dao.getLinhaPesquisa(subLinha));        
         dao.update(linhapesquisa);
         result.redirectTo(this).index();
     }

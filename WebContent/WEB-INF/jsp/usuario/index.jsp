@@ -6,7 +6,7 @@
 <div id=login>
 	<form action="verifica" method="post">
 		<p>
-			Login <input type="text" value="Login" name="login">
+			Login <input type="text" name="login">
 		</p>
 		<p>
 			Senha <input type="password" name="senha">
@@ -19,10 +19,11 @@
 		</p>
 	</form>
 </div>
+
+<%@ include file="/errors.jsp" %>
+
 <div id=erro>
-	${usuarioNaoCadastrado}
 	${logado}
-	${usuarioOuSenhaIncorreta}
 </div>
 
 <%@ include file="/footer.jsp" %> 

@@ -25,21 +25,21 @@ public class LinhaDePesquisaDao {
 		return this.session.createCriteria(LinhaPesquisa.class).list();
 	}
 	
-	public void save(LinhaPesquisa grupo) {
+	public void save(LinhaPesquisa linhapesquisa) {
 		Transaction tx = session.beginTransaction();
-		session.save(grupo);
+		session.save(linhapesquisa);
 		tx.commit();
 	}
 
-	public void update(LinhaPesquisa grupo) {
+	public void update(LinhaPesquisa linhapesquisa) {
 		Transaction tx = session.beginTransaction();
-		session.update(grupo);
+		session.update(linhapesquisa);
 		tx.commit();
 	}
 	
-	public void delete(LinhaPesquisa grupo) {
+	public void delete(LinhaPesquisa linhapesquisa) {
 		Transaction tx = session.beginTransaction();
-		session.delete(grupo);
+		session.delete(linhapesquisa);
 		tx.commit();
 	}
 }

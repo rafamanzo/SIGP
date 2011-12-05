@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import br.com.caelum.vraptor.Resource;
 
 @Entity
@@ -22,7 +25,10 @@ import br.com.caelum.vraptor.Resource;
 @Table(name = "CONTRIBUINTE")
 public class Contribuinte {
 	private Long idContribuinte;
+	
+	@NotEmpty(message = "Contribuinte precisa ter um nome.")
 	private String nome;
+	
 	private Usuario usuario;
 	private List<Publicacao> publicacoes = new ArrayList<Publicacao>();
 	private List<Filiacao> filiacoes = new ArrayList<Filiacao>();
@@ -56,7 +62,28 @@ public class Contribuinte {
 		this.relacoes = relacoes;
 	}
 
-	@OneToOne(mappedBy = "contribuinte")
+	/*
+	 * @ManyToMany(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinTable(name = "CONTRIBUINTE_LINHAP", joinColumns = { @JoinColumn(name
+	 * = "CONTRIBUINTE_ID") }, inverseJoinColumns = { @JoinColumn(name =
+	 * "LINHAP_ID") }) public List<RelacaoPesquisa> getRelacoesPesquisa() {
+	 * return linhasDePesquisa; } public void
+	 * setLinhasDePesquisa(List<LinhaPesquisa> linhasDePesquisa) {
+	 * this.linhasDePesquisa = linhasDePesquisa; }
+	 * 
+	 * 
+	 * @ManyToMany(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinTable(name = "CONTRIBUINTE_PROJETO", joinColumns = {
+	 * @JoinColumn(name = "CONTRIBUINTE_ID") }, inverseJoinColumns = {
+	 * @JoinColumn(name = "PROJETO_ID") }) public List<Projeto> getProjetos() {
+	 * return projetos; } public void setProjetos(List<Projeto> projetos) {
+	 * this.projetos = projetos; }
+	 */
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@Cascade(org.hibernate.annotations.CascadeType.ALL)
 	public Usuario getUsuario() {
 		return usuario;
 	}

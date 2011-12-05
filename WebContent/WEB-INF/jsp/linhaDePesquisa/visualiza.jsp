@@ -11,13 +11,21 @@
 	</c:choose>
 </p>
 <p>Projetos:</p>
-<ul><c:forEach items="${linhapesquisa.projetos}" var="projeto">
-	<li><a href="/SIGP/pesquisa/ver/${pesquisa.idPesquisa}">${projeto.nome}</a></li>
-</c:forEach></ul>
-<p>Contribuintes:</p>
-<ul><c:forEach items="${linhapesquisa.contribuintes}" var="contribuinte">
-	<li><a href="/SIGP/contribuinte/ver/${contribuinte.idContribuinte}">${contribuinte.nome}</a></li>
-</c:forEach></ul>
+<ul>
+	<c:forEach items="${linhapesquisa.projetos}" var="projeto">
+		<li><a href="/SIGP/projeto/ver/${projeto.idProjeto}">${projeto.nome}</a>
+		</li>
+	</c:forEach>
+</ul>
+<!-- <p>Contribuintes:</p> -->
+<%-- <ul><c:forEach items="${linhapesquisa.contribuintes}" var="contribuinte"> --%>
+<%-- 	<li><a href="/SIGP/contribuinte/ver/${contribuinte.idContribuinte}">${contribuinte.nome}</a></li> --%>
+<%-- </c:forEach></ul> --%>
+<p>
+<a href="/SIGP/linhadepesquisa/alterar/${linhapesquisa.idPesquisa}">Alterar</a>
+<a href="/SIGP/linhadepesquisa/apagar/${linhapesquisa.idPesquisa}">Apagar</a>
+</p>
+
 <p>
 	<a href="/SIGP/linhadepesquisa/">Voltar</a>
 </p>

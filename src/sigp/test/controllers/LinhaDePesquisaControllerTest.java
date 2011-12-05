@@ -16,6 +16,7 @@ import sigp.src.LinhaPesquisa;
 import sigp.src.Projeto;
 import sigp.src.controllers.LinhaDePesquisaController;
 import sigp.src.dao.LinhaDePesquisaDao;
+import sigp.src.dao.ProjetoDao;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 
@@ -24,6 +25,7 @@ public class LinhaDePesquisaControllerTest {
     LinhaDePesquisaController controller;
     Result result;
     LinhaDePesquisaDao dao;
+    ProjetoDao pdao;
     List<LinhaPesquisa> list;
     List<Projeto> projetos;
     private Validator validator;
@@ -32,8 +34,9 @@ public class LinhaDePesquisaControllerTest {
     public void setUp() throws Exception {
         result = mock(Result.class);
         dao = mock(LinhaDePesquisaDao.class);
+        pdao = mock(ProjetoDao.class);
         validator = mock(Validator.class);
-        controller = new LinhaDePesquisaController(result, validator, dao);
+        controller = new LinhaDePesquisaController(result, validator, dao, pdao);
 
         LinhaDePesquisaController controlmock = mock(LinhaDePesquisaController.class);
         when(result.redirectTo(LinhaDePesquisaController.class)).thenReturn(
