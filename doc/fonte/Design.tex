@@ -48,14 +48,32 @@
 	
 	\section{Estrutura do Design}
 		%[Describe the design from the highest level. This is commonly done with a diagram that shows a layered architecture.]
+		
+		\begin{figure}[h]
+            \center
+            \includegraphics[width=12cm]{SIGP-DER.pdf}
+            \label{DER}
+            \caption{DER do Sistema}
+        \end{figure}
+        \newpage
+        
+		\begin{figure}[h]
+            \center
+            \includegraphics[width=12cm, angle=270]{SIGP-UML-classes.pdf}
+            \label{DiagramaDeClasses}
+            \caption{Diagrama de Classes}
+        \end{figure}
+		\newpage
+		
 	\section{Subsistemas}
+	
         %[Describe the design of a portion of the system (a package or component, for instance). The design should capture both static and dynamic perspectives. When capturing dynamic descriptions of behavior, look for reusable chunks of behavior that you can reference to simplify the design of the requirement realizations. You can break this section down into lower-level subsections to describe lower-level, encapsulated subsystems.]
-            \subsection{Subsistema 1}
+            \subsection{Subsistema  de Login}
+                Precocupa-se em descobrir se um usuario é cadastrado, se é administrador, etc. Para isso busca no banco de dados, com senhas criptografadas, se o nome de usuario e senha digitadas coincidem, dano também a opção de se cadastrar u novo usuario.
             
-            \subsection{Subsistema 2}
+            \subsection{Subsistema dos CRUD's}
+                CRUD é uma abreviação de "Create, read, update and delete", temos esses para todass as classes do modelo, ou seja, podemos criar, listar, atualizar e remover qualquer objeto por meio de uma interface com o usuario.
             
-            \subsection{Subsistema....}
-
 	\section{Padrões}
         \subsection{Padrão 1}
 		
@@ -91,29 +109,25 @@
 		
 	\section{Realizações de Exigência}
         
-        \subsection{Realização 1}
+        \subsection{Listagem dos CRUD's}
 		
 	        \subsubsection{Visão dos Participantes}
                 %[Describe the participating design elements from a static perspective, giving details such as behavior, relationships, and attributes relevant to this realization.]
+                Todas as listagens foram implementadas usando Hiberante e VRaptor, na loinguagem Java.
 		
 	        \subsubsection{Cenário Básico}
                 %[For the main flow, describe how instances of the design elements collaborate to realize the requirements. When using UML, this can be done with collaboration diagrams (sequence or communication).]
+                O Hibernate criar os bancos de dados, depois de criado, fazemos uma pesquisa do dado CRUD e usamos o VRaptor para fazer a visualização final da pagina.
 					
-	        \subsubsection{Cenários Adicionais}
-                %[For other scenarios that must be described to convey an appropriate amount of information about how the requirement behavior will be realized, describe how instances of the design elements collaborate to realize the requirement. When using UML, you can do this with collaboration diagrams (sequence or communication).]
-                
-        \subsection{Realização 2}
+             
+        \subsection{Cadastro de novo grupo e suas relações}
 		
 	        \subsubsection{Visão dos Participantes}
                 %[Describe the participating design elements from a static perspective, giving details such as behavior, relationships, and attributes relevant to this realization.]
-		
+                Administrador cadastra um grupo, que pode ser subgrupo de um grupo maior, um membro do grupo cadastra uma publicação e pode dizer a quais projetos aquela publicação se aplica. Isso tudo foi feito usando o conjunto Hibernate VRaptor, para pesquisa e gravação no Banco de Dados.
+
 	        \subsubsection{Cenário Básico}
                 %[For the main flow, describe how instances of the design elements collaborate to realize the requirements. When using UML, this can be done with collaboration diagrams (sequence or communication).]
-					
-	        \subsubsection{Cenários Adicionais}
-                %[For other scenarios that must be described to convey an appropriate amount of information about how the requirement behavior will be realized, describe how instances of the design elements collaborate to realize the requirement. When using UML, you can do this with collaboration diagrams (sequence or communication).]
-                
-        \subsection{Realização ...}
-            .......
+                A patir do VRaptor chamamos o Hibernate e com sua retorno da pesquisa mostramos os resultados no pagina final.
 
 \end{document}
