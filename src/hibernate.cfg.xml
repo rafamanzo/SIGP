@@ -3,7 +3,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.username">esgerosa</property>
-		<property name="hibernate.connection.password">alunosespellinac</property>
+		<property name="hibernate.connection.password">alunoses</property>
 		<!--  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/engenharia_software</property> -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/engenharia_software</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
