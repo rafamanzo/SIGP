@@ -20,6 +20,7 @@ import sigp.src.Projeto;
 import sigp.src.Publicacao;
 import sigp.src.Veiculo;
 import sigp.src.controllers.PublicacaoController;
+import sigp.src.dao.ProjetoDao;
 import sigp.src.dao.PublicacaoDao;
 
 public class PublicacaoControllerTest {
@@ -27,6 +28,7 @@ public class PublicacaoControllerTest {
     PublicacaoController controller;
     Result result;
     PublicacaoDao dao;
+    ProjetoDao pdao;
     SimpleDateFormat formatador = new SimpleDateFormat("dd/mm/yyyy");
     List<Publicacao> publicacoes;
     private Validator validator;
@@ -36,7 +38,8 @@ public class PublicacaoControllerTest {
         result = mock(Result.class);
         dao = mock(PublicacaoDao.class);
         validator = mock(Validator.class);
-        controller = new PublicacaoController(result, validator, dao);
+        pdao = mock(ProjetoDao.class);
+        controller = new PublicacaoController(result, validator, dao, pdao);
 
         PublicacaoController controlmock = mock(PublicacaoController.class);
         when(result.redirectTo(PublicacaoController.class)).thenReturn(
@@ -122,7 +125,7 @@ public class PublicacaoControllerTest {
     @Test
     public void testCria() {
         Publicacao p = publicacoes.get(0);
-        controller.cria(p);
+        controller.cria(p, new ArrayList<Long>());
         verify(dao).save(p);
     }
 

@@ -16,12 +16,14 @@ import br.com.caelum.vraptor.Validator;
 import sigp.src.Grupo;
 import sigp.src.controllers.GrupoController;
 import sigp.src.dao.GrupoDao;
+import sigp.src.dao.LinhaDePesquisaDao;
 
 public class GrupoControllerTest {
 	GrupoController controller;
 	Result result;
 	GrupoDao dao;
 	Validator validator;
+	LinhaDePesquisaDao ldao;
 	List<Grupo> list;
 	
 	@Before
@@ -29,7 +31,8 @@ public class GrupoControllerTest {
 		result = mock(Result.class);
 		dao = mock(GrupoDao.class);
 		validator = mock(Validator.class);
-		controller = new GrupoController(result, validator, dao);
+		ldao = mock(LinhaDePesquisaDao.class);
+		controller = new GrupoController(result, validator, dao, ldao);
 		
 		GrupoController controlmock = mock(GrupoController.class);
 		when(result.redirectTo(GrupoController.class)).thenReturn(controlmock);
@@ -77,13 +80,13 @@ public class GrupoControllerTest {
 	public void testCria() {
 		{
 			Grupo d = list.get(0);
-			controller.cria(d, "");
+			controller.cria(d, "", new ArrayList<Long>());
 			verify(dao).save(d);
 		}
 		{
 			Grupo d = new Grupo();
 			d.setNome("Teste Particular");
-			controller.cria(d, "Grupo Principal");
+			controller.cria(d, "Grupo Principal", new ArrayList<Long>());
 			verify(dao).save(d);
 			assertSame(d.getResponsavel(), list.get(0));
 		}
