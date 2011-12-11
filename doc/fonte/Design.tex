@@ -46,7 +46,7 @@
 	\maketitle
 	\newpage
 	
-	\section{Estrutura do Design}
+	\section{Estrutura}
 		%[Describe the design from the highest level. This is commonly done with a diagram that shows a layered architecture.]
 		
 		\begin{figure}[h]
@@ -69,10 +69,10 @@
 	
         %[Describe the design of a portion of the system (a package or component, for instance). The design should capture both static and dynamic perspectives. When capturing dynamic descriptions of behavior, look for reusable chunks of behavior that you can reference to simplify the design of the requirement realizations. You can break this section down into lower-level subsections to describe lower-level, encapsulated subsystems.]
             \subsection{Subsistema  de Login}
-                Precocupa-se em descobrir se um usuario é cadastrado, se é administrador, etc. Para isso busca no banco de dados, com senhas criptografadas, se o nome de usuario e senha digitadas coincidem, dano também a opção de se cadastrar um novo usuario.
+                Este módulo verifica se um usuário está cadastrado e o tipo de usuário, ou seja, se é administrador ou usuário comum. Para tanto, é realizada uma busca no banco de dados, por meio de senhas criptografadas, verificando se o nome de usuário e a senha digitada coincidem, provendo também a opção de se cadastrar um novo usuário.
             
             \subsection{Subsistema dos CRUD's}
-                CRUD é uma abreviação de "Create, read, update and delete", temos esses para todass as classes do modelo, ou seja, podemos criar, listar, atualizar e remover qualquer objeto por meio de uma interface com o usuario.
+                CRUD é uma abreviação do Inglês para os quatro recursos básicos "\textbf{C}reate, \textbf{R}etrieve, \textbf{U}pdate e \textbf{D}elete". Foram implementados CRUDS para todas as classes do modelo, ou seja, podemos criar, recuperar/listar, atualizar e remover qualquer objeto por meio de uma interface com o usuário.
             
 %	\section{Padrões}
 %        \subsection{Padrão 1}
@@ -113,7 +113,7 @@
 		
 	        \subsubsection{Visão dos Participantes}
                 %[Describe the participating design elements from a static perspective, giving details such as behavior, relationships, and attributes relevant to this realization.]
-                Todas as listagens foram implementadas usando Hiberante e VRaptor, na linguagem Java.
+                Todas as listagens foram implementadas usando Hiberante e VRaptor, em linguagem Java.
 		
 	        \subsubsection{Cenário Básico}
                 %[For the main flow, describe how instances of the design elements collaborate to realize the requirements. When using UML, this can be done with collaboration diagrams (sequence or communication).]
@@ -124,10 +124,10 @@
 		
 	        \subsubsection{Visão dos Participantes}
                 %[Describe the participating design elements from a static perspective, giving details such as behavior, relationships, and attributes relevant to this realization.]
-                Administrador cadastra um grupo, que pode ser subgrupo de um grupo maior, um membro do grupo cadastra uma publicação e pode dizer a quais projetos aquela publicação se aplica. Isso tudo foi feito usando o conjunto Hibernate VRaptor, para pesquisa e escrita no Banco de Dados.
+                Administrador cadastra um grupo, que pode ser subgrupo de um grupo maior; um membro do grupo cadastra uma publicação e pode informar a quais projetos aquela publicação se aplica. Estas funcionalidades foram implementadas usando os \emph{frameworks} Hibernate e VRaptor, para pesquisa e persistência no Banco de Dados.
 
 	        \subsubsection{Cenário Básico}
                 %[For the main flow, describe how instances of the design elements collaborate to realize the requirements. When using UML, this can be done with collaboration diagrams (sequence or communication).]
-                A patir do VRaptor chamamos o Hibernate, e com seu retorno da pesquisa mostramos os resultados na pagina final.
+                A patir do VRaptor, o Hibernate é chamado, e os resultados devolvidos pela pesquisa são exibidos na página final.
 
 \end{document}
