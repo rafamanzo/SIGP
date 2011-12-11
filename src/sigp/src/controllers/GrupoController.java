@@ -97,6 +97,9 @@ public class GrupoController {
             validator.add(new ValidationMessage("nome do responsável",
                     "não existe"));
         }
+        if(respon != null && respon.getIdGrupo().equals(grupo.getIdGrupo()))
+        	validator.add(new ValidationMessage("nome do responsável",
+                    "igual ao do próprio grupo"));
         validator.onErrorForwardTo(this).altera_form(grupo.getIdGrupo());
 
         grupo.setResponsavel(respon);
