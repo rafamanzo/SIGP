@@ -1,5 +1,27 @@
 <%@ include file="/header.jsp" %> 
 
+<script type="text/javascript">
+$(function(){
+	$("#ministranteBusca").autocomplete({
+		minLength: 1, // Precisa digitar pelo menos 1 letra para o autocompletar começar. 
+		source: function( request, response ) {
+			$.ajax({
+				url: "/SIGP/grupo/procura/" + request.term,
+				dataType: "json",
+				success: function( data ) {
+					// response é uma função que se passar uma lista de structs com campos id e value, 
+					// cria o autocompletar. 
+					response($.map(data.list, function(item) {
+						return { id: item.idGrupo, 
+								 value: item.nome };
+					}));
+				}
+			});
+		}
+	});
+});
+</script>
+
 <form method="post" action="/SIGP/disciplina/cria">
 	<table>
 		<tr>
@@ -16,13 +38,7 @@
 		</tr>
 		<tr>
 			<td>Grupo ministrante:</td>
-			<td><select name="disciplina.grupo.idGrupo">
-					<option value="0">Nenhum</option>
-					<c:forEach items="${grupos}" var="grupo">
-						<option value="${grupo.idGrupo}">${grupo.nome}</option>
-					</c:forEach>
-			</select>
-			</td>
+			<td><input type="text" id="ministranteBusca" name="ministrante" /></td>
 		</tr>
 						
 		<tr>

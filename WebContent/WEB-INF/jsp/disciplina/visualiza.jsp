@@ -6,24 +6,16 @@
 <p>
 	<b>Ementa:</b> <br /> ${disciplina.ementa}
 </p>
-<table>
-	<tr>
-		<th>Grupos que oferecem:</th>
-	</tr>
-	<c:forEach items="${disciplina.grupos}" var="grupo">
-		<tr>
-			<td><a href="/SIGP/grupo/ver/${grupo.idGrupo}">${grupo.nome}</a>
-			</td>
-		</tr>
-	</c:forEach>
-</table>
+<p>
+	<b>Grupo ministrante: </b> <a href="/SIGP/grupo/ver/${disciplina.grupo.idGrupo}">${disciplina.grupo.nome}</a>
+</p>
 <p>
 	<a href="/SIGP/disciplina/alterar/${disciplina.idDisciplina}">Alterar</a>
 	- <a href="/SIGP/disciplina/apagar/${disciplina.idDisciplina}">Apagar</a>
 </p>
 <hr></hr>
 <p>
-	<a href="/SIGP/disciplina/">Voltar</a>
+	<a href="/SIGP/disciplina/">Voltar para lista de Disciplinas</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

@@ -5,6 +5,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import sigp.src.Disciplina;
+import sigp.src.Grupo;
 import sigp.src.dao.DisciplinaDao;
 import sigp.src.dao.GrupoDao;
 
@@ -33,10 +34,13 @@ public class DisciplinaController {
         result.include("disciplinas", dao.list());
         result.include("grupos", gdao.list());
     }
-
+    
     @Path("/disciplina/cria")
-    public void cria(final Disciplina disciplina) {
-        validator.validate(disciplina);
+    public void cria(final Disciplina disciplina, final String ministrante) {
+    	Grupo minist = gdao.find(ministrante);
+    	disciplina.setGrupo(minist);
+    	
+    	validator.validate(disciplina);
         validator.onErrorForwardTo(this).novo_form();
         dao.save(disciplina);
         result.redirectTo(DisciplinaController.class).index();
@@ -61,7 +65,10 @@ public class DisciplinaController {
     }
 
     @Path("/disciplina/altera")
-    public void altera(final Disciplina disciplina) {
+    public void altera(final Disciplina disciplina, final String ministrante) {
+    	Grupo minist = gdao.find(ministrante);
+    	disciplina.setGrupo(minist);
+    	
         validator.validate(disciplina);
         validator.onErrorForwardTo(this).altera_form(disciplina.getIdDisciplina());
         dao.update(disciplina);
