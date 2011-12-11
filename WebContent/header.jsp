@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>SI para Grupos de Pesquisa</title>
+	<title><fmt:message key="header.titulo" /></title>
 	<link type="text/css" href="/SIGP/styles/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
 	<script type="text/javascript" src="/SIGP/js/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="/SIGP/js/jquery-ui-1.8.16.custom.min.js"></script>
@@ -30,13 +30,13 @@
 <body>
 <h1>Prototipo do SIGP</h1>
 <div id="header_list" style="height: 50px">
-	<a href="/SIGP/contribuinte/">Contribuintes</a>
-	<a href="/SIGP/linhadepesquisa/">Linhas de Pesquisa</a>
-	<a href="/SIGP/grupo/">Grupos</a>
-	<a href="/SIGP/disciplina/">Disciplinas</a>
-	<a href="/SIGP/projeto/">Projetos</a>
-	<a href="/SIGP/publicacao/">Publicações</a>
-	<a href="/SIGP/login/" style="float: right">Login</a>
+	<a href="/SIGP/contribuinte/"><fmt:message key="header.contribuintes" /></a>
+	<a href="/SIGP/linhadepesquisa/"><fmt:message key="header.linhaspesquisa" /></a>
+	<a href="/SIGP/grupo/"><fmt:message key="header.grupos" /></a>
+	<a href="/SIGP/disciplina/"><fmt:message key="header.disciplinas" /></a>
+	<a href="/SIGP/projeto/"><fmt:message key="header.projetos" /></a>
+	<a href="/SIGP/publicacao/"><fmt:message key="header.publicacoes" /></a>
+	<a href="/SIGP/login/" style="float: right"><fmt:message key="header.login" /></a>
 </div>
 <hr />
 
