@@ -43,7 +43,7 @@
 <%@ include file="/errors.jsp" %>
 
 <p>
-	<a href="/SIGP/grupo/">Voltar</a>
+	<a href="/SIGP/linhaDePesquisa/">Voltar</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

@@ -26,8 +26,9 @@
 <a href="/SIGP/linhadepesquisa/apagar/${linhapesquisa.idPesquisa}">Apagar</a>
 </p>
 
+<hr />
 <p>
-	<a href="/SIGP/linhadepesquisa/">Voltar</a>
+	<a href="/SIGP/linhadepesquisa/">Voltar à lista de linha de pesquisas</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

@@ -19,8 +19,7 @@
 <p>
 	<a href="novo">Novo</a>
 </p>
-<p>
-	<a href="/SIGP">Voltar para Pagina Principal</a>
-</p>
 
+<hr />
+<p><a href="/SIGP/">Voltar à página principal</a></p>
 <%@ include file="/footer.jsp" %> 

@@ -31,9 +31,10 @@
 	<a href="/SIGP/publicacao/alterar/${publicacao.idPublicacao}">Alterar</a>
 	- <a href="/SIGP/publicacao/apagar/${publicacao.idPublicacao}">Apagar</a>
 </p>
+
 <hr />
 <p>
-	<a href="/SIGP/publicacao/">Voltar</a>
+	<a href="/SIGP/publicacao/">Voltar à lista de publicações</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

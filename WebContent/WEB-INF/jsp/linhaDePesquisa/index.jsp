@@ -14,8 +14,7 @@
 <p>
 	<a href="/SIGP/linhadepesquisa/novo">Novo</a>
 </p>
-<p>
-	<a href="/SIGP">Voltar para Página Principal</a>
-</p>
 
+<hr />
+<p><a href="/SIGP/">Voltar à página principal</a></p>
 <%@ include file="/footer.jsp" %> 

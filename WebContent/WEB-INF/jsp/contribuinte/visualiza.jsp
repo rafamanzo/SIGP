@@ -57,9 +57,10 @@
 	<a href="/SIGP/contribuinte/alterar/${contribuinte.idContribuinte}">Alterar</a>
 	- <a href="/SIGP/contribuinte/apagar/${contribuinte.idContribuinte}">Apagar</a>
 </p>
-<hr></hr>
+
+<hr />
 <p>
-	<a href="/SIGP/contribuinte/">Voltar</a>
+	<a href="/SIGP/contribuinte/">Voltar à lista de contribuintes</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

@@ -36,8 +36,9 @@
 			<a href="/SIGP/grupo/apagar/${grupo.idGrupo}">Apagar</a>
 </p>
 
+<hr />
 <p>
-	<a href="/SIGP/grupo/">Voltar</a>
+	<a href="/SIGP/grupo/">Voltar à lista de grupos</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

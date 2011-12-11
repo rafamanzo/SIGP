@@ -13,9 +13,10 @@
 	<a href="/SIGP/disciplina/alterar/${disciplina.idDisciplina}">Alterar</a>
 	- <a href="/SIGP/disciplina/apagar/${disciplina.idDisciplina}">Apagar</a>
 </p>
-<hr></hr>
+
+<hr />
 <p>
-	<a href="/SIGP/disciplina/">Voltar para lista de Disciplinas</a>
+	<a href="/SIGP/disciplina/">Voltar à lista de disciplinas</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

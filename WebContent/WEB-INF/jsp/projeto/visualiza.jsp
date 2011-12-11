@@ -50,9 +50,10 @@
 	<a href="/SIGP/projeto/alterar/${projeto.idProjeto}">Alterar</a>
 	- <a href="/SIGP/projeto/apagar/${projeto.idProjeto}">Apagar</a>
 </p>
-<hr></hr>
+
+<hr />
 <p>
-	<a href="/SIGP/projeto/">Voltar</a>
+	<a href="/SIGP/projeto/">Voltar à lista de projetos</a>
 </p>
 
 <%@ include file="/footer.jsp" %> 
