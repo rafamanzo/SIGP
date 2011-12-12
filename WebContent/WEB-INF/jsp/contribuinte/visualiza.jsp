@@ -7,7 +7,7 @@
 <!-- Projetos -->
 <table>
 	<tr>
-		<th>Projetos que participa(ou):</th>
+		<th><fmt:message key="contribuinte.projetosparticipou" /></th>
 	</tr>
 	<c:forEach items="${contribuinte.participacoes}" var="participacao">
 		<tr>
@@ -19,7 +19,7 @@
 <!-- Publicacao -->
 <table>
 	<tr>
-		<th>Publicações de sua autoria:</th>
+		<th><fmt:message key="contribuinte.publicacoesfeitas" /></th>
 	</tr>
 	<c:forEach items="${contribuinte.publicacoes}" var="publicacao">
 		<tr>
@@ -31,7 +31,7 @@
 <!-- Filiacoes -->
 <table>
 	<tr>
-		<th>Grupos no qual é filiado:</th>
+		<th><fmt:message key="contribuintes.gruposfiliado" /></th>
 	</tr>
 	<c:forEach items="${contribuinte.filiacoes}" var="filiacao">
 		<tr>
@@ -43,7 +43,7 @@
 <!-- LinhaPesquisa -->
 <table>
 	<tr>
-		<th>Pesquisou nas linhas:</th>
+		<th><fmt:message key="contribuinte.linhaspesquisou" /></th>
 	</tr>
 	<c:forEach items="${contribuinte.relacoes}" var="relacao">
 		<tr>
@@ -54,13 +54,13 @@
 </table>
 <!-- resto da pagina -->
 <p>
-	<a href="/SIGP/contribuinte/alterar/${contribuinte.idContribuinte}">Alterar</a>
-	- <a href="/SIGP/contribuinte/apagar/${contribuinte.idContribuinte}">Apagar</a>
+	<a href="/SIGP/contribuinte/alterar/${contribuinte.idContribuinte}"><fmt:message key="alterar" /></a>
+	- <a href="/SIGP/contribuinte/apagar/${contribuinte.idContribuinte}"><fmt:message key="apagar" /></a>
 </p>
 
 <hr />
 <p>
-	<a href="/SIGP/contribuinte/">Voltar à lista de contribuintes</a>
+	<a href="/SIGP/contribuinte/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

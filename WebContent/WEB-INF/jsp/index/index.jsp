@@ -3,6 +3,6 @@
 <%@ include file="/header.jsp" %> 
 
 <p>
-	Protótipo de Página Principal
+	<fmt:message key="index.descricao" />
 </p>
 <%@ include file="/footer.jsp" %>
