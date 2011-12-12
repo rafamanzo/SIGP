@@ -4,12 +4,12 @@
 	<div></div>
 	<table>
 		<tr>
-			<td>Nome:</td>
+			<td><fmt:message key="linha.nome" /></td>
 			<td><input type="text" name="linhapesquisa.nome" value="${linhapesquisa.nome}" />
 			</td>
 		</tr>
 		<tr>
-			<td>SubLinha:</td>
+			<td><fmt:message key="linha.sublinha" /></td>
 			<td><select name="subLinha">
 					<option value="0">Nenhum</option>
 					<c:forEach items="${linhasdepesquisa}" var="linhaslista">
@@ -22,7 +22,7 @@
 		</tr>
 
 		<tr>
-			<td>Projetos</td>
+			<td><fmt:message key="linha.projetos" /></td>
 			<td><select name="projetos" size="2" multiple>
 					<option value="0">Nenhum</option>
 					<c:forEach items="${todosprojetos}" var="projeto">
@@ -43,7 +43,7 @@
 <%@ include file="/errors.jsp" %>
 
 <p>
-	<a href="/SIGP/linhaDePesquisa/">Voltar</a>
+	<a href="/SIGP/linhaDePesquisa/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

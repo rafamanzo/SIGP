@@ -3,7 +3,7 @@
 <form method="post" action="/SIGP/linhadepesquisa/inserir">
 	<table>
 		<tr>
-			<td>Nome:</td>
+			<td><fmt:message key="linha.nome" /></td>
 			<td><input type="text" name="linhapesquisa.nome" />
 			</td>
 		</tr>
@@ -19,7 +19,7 @@
 <!-- 		</tr> -->
 
 		<tr>
-			<td>SubLinha:</td>
+			<td><fmt:message key="linha.sublinha" /></td>
 <!-- 			<td><select name="linhapesquisa.subLinha.idPesquisa"> -->
 			<td><select name="subLinhaidPesquisa">
 					<option value="null">Nenhum</option>
@@ -35,7 +35,7 @@
 
 		<tr>
 
-			<td>Projetos. Use CTRL para seleção múltipla.</td>
+			<td><fmt:message key="linha.selecionar_projetos" /></td>
 			<td><select name="idsProjetos[]" size="4" multiple>
 					<option value="0">Nenhum</option>
 					<c:forEach items="${todosprojetos}" var="projeto">
@@ -55,7 +55,7 @@
 <%@ include file="/errors.jsp" %> 
 
 <p>
-	<a href="/SIGP/linhadepesquisa/">Voltar</a>
+	<a href="/SIGP/linhadepesquisa/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

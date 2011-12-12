@@ -28,7 +28,7 @@
 
 <hr />
 <p>
-	<a href="/SIGP/linhadepesquisa/">Voltar à lista de linha de pesquisas</a>
+	<a href="/SIGP/linhadepesquisa/"><fmt:message key="linha.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

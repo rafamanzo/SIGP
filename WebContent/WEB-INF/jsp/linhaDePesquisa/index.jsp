@@ -2,7 +2,7 @@
 
 <table>
 	<tr>		
-		<th>Nome</th>
+		<th><fmt:message key="linha.nome" /></th>
 	</tr>
 	<c:forEach items="${linhasdepesquisa}" var="linhapesquisa">
 		<tr>
@@ -16,5 +16,5 @@
 </p>
 
 <hr />
-<p><a href="/SIGP/">Voltar à página principal</a></p>
+<p><a href="/SIGP/"><fmt:message key="voltar_a_home" /></a></p>
 <%@ include file="/footer.jsp" %> 
