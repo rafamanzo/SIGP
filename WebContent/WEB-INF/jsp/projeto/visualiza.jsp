@@ -1,19 +1,19 @@
 <%@ include file="/header.jsp" %> 
 
 <p>
-	<b>Projeto:</b> ${projeto.nome}
+	<b><fmt:message key="projeto.projeto" /></b> ${projeto.nome}
 </p>
 <p>
-	<b>Financiamento:</b> <br /> ${projeto.financiamento}
+	<b><fmt:message key="projeto.financiamento" /></b> <br /> ${projeto.financiamento}
 </p>
 <p>
-	<b>Descricao:</b> <br /> ${projeto.descricao}
+	<b><fmt:message key="projeto.descricao" /></b> <br /> ${projeto.descricao}
 </p>
 
 <!-- LinhaPesquisa -->
 <table>
 	<tr>
-		<th>Linhas de Pesquisa:</th>
+		<th><fmt:message key="projeto.linhas_de_pesquisa" /></th>
 	</tr>
 	<c:forEach items="${projeto.linhasDePesquisa}" var="linha">
 		<tr>
@@ -25,7 +25,7 @@
 <!-- Participacoes -->
 <table>
 	<tr>
-		<th>Contribuintes:</th>
+		<th><fmt:message key="projeto.contribuintes" /></th>
 	</tr>
 	<c:forEach items="${projeto.participacoes}" var="participacao">
 		<tr>
@@ -37,7 +37,7 @@
 <!-- Publicacao -->
 <table>
 	<tr>
-		<th>Publicações:</th>
+		<th><fmt:message key="projeto.publicacoes" /></th>
 	</tr>
 	<c:forEach items="${projeto.publicacoes}" var="publicacao">
 		<tr>
@@ -53,7 +53,7 @@
 
 <hr />
 <p>
-	<a href="/SIGP/projeto/">Voltar à lista de projetos</a>
+	<a href="/SIGP/projeto/"><fmt:message key="projeto.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

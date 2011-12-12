@@ -2,9 +2,9 @@
 
 <table>
 	<tr>
-		<th>Nome</th>
-		<th>Financiamento</th>
-		<th>Descricao</th>
+		<th><fmt:message key="projeto.nome" /></th>
+		<th><fmt:message key="projeto.financiamento" /></th>
+		<th><fmt:message key="projeto.descricao" /></th>
 	</tr>
 	<c:forEach items="${projetos}" var="projeto">
 		<tr>
@@ -15,9 +15,9 @@
 	</c:forEach>
 </table>
 <p>
-	<a href="novo">Novo</a>
+	<a href="novo"><fmt:message key="novo" /></a>
 </p>
 
 <hr />
-<p><a href="/SIGP/">Voltar à página principal</a></p>
+<p><a href="/SIGP/"><fmt:message key="voltar_a_home" /></a></p>
 <%@ include file="/footer.jsp" %> 

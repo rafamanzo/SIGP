@@ -26,12 +26,12 @@ $(function(){
 <form method="post" action="/SIGP/grupo/cria">
 	<table>
 		<tr>
-			<td><fmt:message key="nome" /></td>
+			<td><fmt:message key="grupo.nome" /></td>
 			<td><input type="text" name="grupo.nome" />
 			</td>
 		</tr>
 		<tr>
-			<td><fmt:message key="responsavel" /></td>
+			<td><fmt:message key="grupo.responsavel" /></td>
 			<td>
 				<input type="text" id="responsavelBusca" name="responsavel" />
 			</td>
@@ -42,7 +42,7 @@ $(function(){
 
 			<td><fmt:message key="grupo.selecionar_linhas_de_pesquisa" />
 			<td><select name="idsLinhasdePesquisa[]" size="4" multiple>
-					<option value="0">Nenhum</option>
+					<option value="0"><fmt:message key="grupo.nenhum" /></option>
 					<c:forEach items="${todaslinhasdepesquisa}" var="linha">
 						<option value="${linha.idPesquisa}">${linha.nome}</option>
 					</c:forEach>
