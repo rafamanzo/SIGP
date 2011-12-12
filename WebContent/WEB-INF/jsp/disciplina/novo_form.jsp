@@ -25,19 +25,19 @@ $(function(){
 <form method="post" action="/SIGP/disciplina/cria">
 	<table>
 		<tr>
-			<td>Sigla:</td>
+			<td><fmt:message key="disciplina.sigla" /></td>
 			<td><input type="text" name="disciplina.sigla" /></td>
 		</tr>
 		<tr>
-			<td>Nome:</td>
+			<td><fmt:message key="disciplina.nome" /></td>
 			<td><input type="text" name="disciplina.nome" /></td>
 		</tr>
 		<tr>
-			<td>Ementa:</td>
+			<td><fmt:message key="disciplina.ementa" /></td>
 			<td><textarea name="disciplina.ementa"></textarea></td>
 		</tr>
 		<tr>
-			<td>Grupo ministrante:</td>
+			<td><fmt:message key="disciplina.grupoministrante" /></td>
 			<td><input type="text" id="ministranteBusca" name="ministrante" /></td>
 		</tr>
 						
@@ -50,7 +50,7 @@ $(function(){
 <%@ include file="/errors.jsp" %> 
 
 <p>
-	<a href="/SIGP/disciplina/">Voltar</a>
+	<a href="/SIGP/disciplina/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

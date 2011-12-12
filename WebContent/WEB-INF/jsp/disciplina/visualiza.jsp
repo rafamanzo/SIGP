@@ -16,7 +16,7 @@
 
 <hr />
 <p>
-	<a href="/SIGP/disciplina/">Voltar à lista de disciplinas</a>
+	<a href="/SIGP/disciplina/"><fmt:message key="disciplina.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

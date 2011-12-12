@@ -2,8 +2,8 @@
 
 <table>
 	<tr>
-		<th>Sigla</th>
-		<th>Nome</th>
+		<th><fmt:message key="disciplina.sigla" /></th>
+		<th><fmt:message key="disciplina.nome" /></th>
 	</tr>
 	<c:forEach items="${disciplinas}" var="disciplina">
 		<tr>
@@ -13,9 +13,9 @@
 	</c:forEach>
 </table>
 <p>
-	<a href="novo">Novo</a>
+	<a href="novo"><fmt:message key="novo" /></a>
 </p>
 
 <hr />
-<p><a href="/SIGP/">Voltar à página principal</a></p>
+<p><a href="/SIGP/"><fmt:message key="voltar_a_home" /></a></p>
 <%@ include file="/footer.jsp" %> 
