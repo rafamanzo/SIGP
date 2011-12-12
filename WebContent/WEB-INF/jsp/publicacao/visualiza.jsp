@@ -1,16 +1,16 @@
 <%@ include file="/header.jsp" %> 
 
 <p>
-	<b>PublicaÃ§Ã£o:</b> ${publicacao.titulo}
+	<b><fmt:message key="publicacao.publicacao" /></b> ${publicacao.titulo}
 </p>
 <p>
-	<b>Data:</b> <br /> ${publicacao.data}
+	<b><fmt:message key="publicacao.data" /></b> <br /> ${publicacao.data}
 </p>
 <p>
-	<b>VeÃ­culo:</b> <br /> ${publicacao.veiculo}
+	<b><fmt:message key="publicacao.veiculo" /></b> <br /> ${publicacao.veiculo}
 </p>
 <p>
-	<b>Autores:</b>
+	<b><fmt:message key="publicacao.autores" /></b>
 </p>
 <!-- <ul> -->
 <%-- 	<c:forEach items="${publicacao.contribuintes}" var="contribuinte"> --%>
@@ -19,7 +19,7 @@
 <!-- 		</li> -->
 <%-- 	</c:forEach> --%>
 <!-- </ul> -->
-<p>Projetos:</p>
+<p><fmt:message key="publicacao.projetos" /></p>
 <ul>
 	<c:forEach items="${publicacao.projetos}" var="projeto">
 		<li><a href="/SIGP/projeto/ver/${projeto.idProjeto}">${projeto.nome}</a>
@@ -28,13 +28,13 @@
 </ul>
 
 <p>
-	<a href="/SIGP/publicacao/alterar/${publicacao.idPublicacao}">Alterar</a>
-	- <a href="/SIGP/publicacao/apagar/${publicacao.idPublicacao}">Apagar</a>
+	<a href="/SIGP/publicacao/alterar/${publicacao.idPublicacao}"><fmt:message key="alterar" /></a>
+	<a href="/SIGP/publicacao/apagar/${publicacao.idPublicacao}"><fmt:message key="apagar" /></a>
 </p>
 
 <hr />
 <p>
-	<a href="/SIGP/publicacao/">Voltar à lista de publicações</a>
+	<a href="/SIGP/publicacao/"><fmt:message key="publicacao.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 
