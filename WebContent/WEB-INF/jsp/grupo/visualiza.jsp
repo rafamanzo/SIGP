@@ -38,7 +38,7 @@
 
 <hr />
 <p>
-	<a href="/SIGP/grupo/">Voltar à lista de grupos</a>
+	<a href="/SIGP/grupo/"><fmt:message key="grupo.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

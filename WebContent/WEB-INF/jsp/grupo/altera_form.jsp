@@ -26,12 +26,12 @@ $(function(){
 <form method="post" action="/SIGP/grupo/altera">
 	<table>
 		<tr>
-			<td>Nome:</td>
+			<td><fmt:message key="grupo.nome" /></td>
 			<td><input type="text" name="grupo.nome" value="${grupo.nome}" >
 			</td>
 		</tr>
 		<tr>
-			<td>Responsável:</td>
+			<td><fmt:message key="grupo.responsavel" /></td>
 			<td>
 				<input type="text" id="responsavelBusca" name="responsavel"
 					value="<c:if test="${grupo.responsavel != null}">${grupo.responsavel.nome}</c:if>">
@@ -50,7 +50,7 @@ $(function(){
 <%@ include file="/errors.jsp" %> 
 
 <p>
-	<a href="/SIGP/grupo/">Voltar</a>
+	<a href="/SIGP/grupo/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

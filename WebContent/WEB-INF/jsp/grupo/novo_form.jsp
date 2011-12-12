@@ -26,12 +26,12 @@ $(function(){
 <form method="post" action="/SIGP/grupo/cria">
 	<table>
 		<tr>
-			<td>Nome:</td>
+			<td><fmt:message key="nome" /></td>
 			<td><input type="text" name="grupo.nome" />
 			</td>
 		</tr>
 		<tr>
-			<td>Responsável:</td>
+			<td><fmt:message key="responsavel" /></td>
 			<td>
 				<input type="text" id="responsavelBusca" name="responsavel" />
 			</td>
@@ -39,7 +39,8 @@ $(function(){
 		
 		<tr>
 
-			<td>Linhas de Pesquisa. Use CTRL para seleção múltipla.</td>
+
+			<td><fmt:message key="grupo.selecionar_linhas_de_pesquisa" />
 			<td><select name="idsLinhasdePesquisa[]" size="4" multiple>
 					<option value="0">Nenhum</option>
 					<c:forEach items="${todaslinhasdepesquisa}" var="linha">
@@ -61,7 +62,7 @@ $(function(){
 <%@ include file="/errors.jsp" %> 
 
 <p>
-	<a href="/SIGP/grupo/">Voltar</a>
+	<a href="/SIGP/grupo/"><fmt:message key="voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

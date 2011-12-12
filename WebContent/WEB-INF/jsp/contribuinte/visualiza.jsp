@@ -60,7 +60,7 @@
 
 <hr />
 <p>
-	<a href="/SIGP/contribuinte/"><fmt:message key="voltar" /></a>
+	<a href="/SIGP/contribuinte/"><fmt:message key="contribuinte.voltar" /></a>
 </p>
 
 <%@ include file="/footer.jsp" %> 

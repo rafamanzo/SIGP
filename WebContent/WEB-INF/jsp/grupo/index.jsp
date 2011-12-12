@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <table>
 	<tr>
-		<th>Nome</th>
-		<th>Responsável</th>
+		<th><fmt:message key="grupo.nome" /></th>
+		<th><fmt:message key="grupo.responsavel" /></th>
 		<th colspan="2">&nbsp;</th>
 	</tr>
 	<c:forEach items="${grupos}" var="grupo">
@@ -17,9 +17,9 @@
 	</c:forEach>
 </table>
 <p>
-	<a href="novo">Novo</a>
+	<a href="novo"><fmt:message key="novo" /></a>
 </p>
 
 <hr />
-<p><a href="/SIGP/">Voltar à página principal</a></p>
+<p><a href="/SIGP/"><fmt:message key="voltar_a_home" /></a></p>
 <%@ include file="/footer.jsp" %> 
